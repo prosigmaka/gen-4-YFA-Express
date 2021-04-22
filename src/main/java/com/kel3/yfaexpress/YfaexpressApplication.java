@@ -9,4 +9,5 @@ public class YfaexpressApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(YfaexpressApplication.class, args);
 	}
+
 }
