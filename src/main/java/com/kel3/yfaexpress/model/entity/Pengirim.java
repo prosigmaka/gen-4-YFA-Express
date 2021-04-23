@@ -11,8 +11,8 @@ public class Pengirim {
     public static final String TABLE_NAME = "t_pengirim";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_pengirim")
-    @SequenceGenerator(name="t_pengirim" , sequenceName = "t_pengirim_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = TABLE_NAME)
+    @SequenceGenerator(name = TABLE_NAME , sequenceName = "t_pengirim_seq")
     private Integer idPengirim;
     private String namaPengirim;
     private Number telpPengirim;
