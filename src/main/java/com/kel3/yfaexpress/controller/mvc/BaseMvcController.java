@@ -12,4 +12,14 @@ public class BaseMvcController {
         return "user/layanan";
     }
 
+    @GetMapping("jne")
+    public String jne() {
+        return "user/jne";
+    }
+
+    @GetMapping("index")
+    public String index() {
+        return "user/index";
+    }
+
 }
