@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Table(name = Kurir.TABLEKURIR)
 public class Kurir {
-    public static final String TABLEKURIR = "t_kurir";
+        public static final String TABLEKURIR = "t_kurir";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator=TABLEKURIR)
