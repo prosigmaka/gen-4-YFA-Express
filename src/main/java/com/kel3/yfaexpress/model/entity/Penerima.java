@@ -31,6 +31,7 @@ public class Penerima {
     @Column(name ="kota_penerima",nullable = false)
     private Number kotaPenerima;
 
+
 //    Belum ada entity KOTA
 
 //    @ManyToOne
