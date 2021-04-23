@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PengirimRepository extends JpaRepository<Pengirim, Integer> {
 
-    List<Pengirim> findAllByIdPengirim(Integer idPenirim);
+    List<Pengirim> findAllByIdPengirim(Integer idPengirim);
 }
