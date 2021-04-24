@@ -22,9 +22,9 @@ public class Transaksi {
     @Column(name = "id_user")
     private Integer idUser;
 
-//    @OneToOne
-//    @JoinColumn(name = "id_barang", insertable = false, updatable = false)
-//    private Barang barang;
+    @OneToOne
+    @JoinColumn(name = "id_barang", insertable = false, updatable = false)
+    private Barang barang;
     @Column(name = "id_barang")
     private Integer idBarang;
 

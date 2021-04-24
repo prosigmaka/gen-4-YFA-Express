@@ -73,7 +73,6 @@ public class ApiUser {
 
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable Integer id) {
-
 		userService.deleteFromUser(id);
 	}
 }

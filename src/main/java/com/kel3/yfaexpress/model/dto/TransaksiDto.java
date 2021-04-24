@@ -6,6 +6,7 @@ import lombok.Data;
 public class TransaksiDto {
     private Integer idTransaksi;
 
+    //dto user
     private Integer idUser;
     private String UserName;
     private String emailUser;
@@ -14,7 +15,7 @@ public class TransaksiDto {
     private Number telepon;
     private String email;
 
-    //    copas isi dto Barang
+    //dto Barang
     private Integer idBarang;
     private String namaBarang;
     private Integer jumlahBarang;
@@ -42,16 +43,20 @@ public class TransaksiDto {
     private String kotaPenerima;
     private String alamatPenerima;
     private Number kodePosPenerima;
-
+    //end of dto barang
 
     private String statusDelivery;
     private String statusPayment;
 
+    //dto total biaya
     private Integer idTotalBiaya;
 //    copas isi Dto TotalBiaya
+    //end of dto total biaya
 
+    //dto kurir
     private Integer idKurir;
     private String namaKurir;
     private Number noTelpKurir;
     private String fotoKurir;
+    //end of dto kurir
 }
