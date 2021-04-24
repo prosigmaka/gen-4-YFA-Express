@@ -7,9 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/")
 public class BaseMvcController {
-    @GetMapping("user")
-    public String user() {
+    @GetMapping("layanan")
+    public String layanan() {
         return "user/layanan";
     }
+
+    @GetMapping("utama")
+    public String utama() {
+        return "user/utama";
+    }
+
 
 }
