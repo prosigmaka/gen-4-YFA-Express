@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!--Import bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Style -->
+    <!-- Style content -->
+    <!-- buat style konten di sini, masukkin ke th:block -->
     <th:block layout:fragment="add-style"></th:block>
+    <!-- style base -->
     <link rel="stylesheet" href="/css/style2.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,50 +24,24 @@
 <body class="body">
     <!-- navbar  -->
     <th:block layout:replace="~{fragment/navbar}"></th:block>
-    <!-- jumbotron  -->
-<!--    <div class="jumbotron jumbotron-fluid" style="border: 1px solid black;">-->
-<!--        <div class="container">-->
-<!--            <h1 class="display-4">Fluid jumbotron</h1>-->
-<!--            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
-<!--        </div>-->
-<!--    </div>-->
-    <div class="slider">
-        <div class="slides">
-            <input type="radio" name="radio-btb" id="radio1">
-            <input type="radio" name="radio-btb" id="radio2">
-            <input type="radio" name="radio-btb" id="radio3">
-            
-            <div class="slide first">
-                <img src="img/1.jpg" alt="img1">
-            </div>
-            <div class="slide">
-                <img src="img/2.jpg" alt="img1">
-            </div>
-            <div class="slide">
-                <img src="img/5.jpg" alt="img1">
-            </div>
-
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-            </div>
-        </div>
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         </div>
     </div>
 
     <!-- layanan -->
     <section id="content-body" class="card-section">
-
+        <!-- isi konten di sini -->
+        <!-- isi konten di sini -->
+        <!-- isi konten di sini -->
+        <!-- isi konten di sini -->
     </section>
+
     <!-- footer -->
     <th:block layout:replace="~{fragment/footer}"></th:block>
-
-
 
 
 <script src="plugins/jquery/jquery.min.js"></script>
