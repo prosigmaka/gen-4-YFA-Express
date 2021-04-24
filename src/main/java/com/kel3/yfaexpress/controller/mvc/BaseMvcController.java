@@ -12,8 +12,8 @@ public class BaseMvcController {
         return "user/utama";
     }
 
-    @GetMapping("user")
-    public String user() {
+    @GetMapping("layanan")
+    public String layanan() {
         return "user/layanan";
     }
 

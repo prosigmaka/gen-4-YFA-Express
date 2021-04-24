@@ -14,22 +14,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Style -->
     <th:block layout:fragment="add-style"></th:block>
-    <link rel="stylesheet" href="/css/syle2.css">
+    <link rel="stylesheet" href="/css/style2.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="body">
-<div class="wrap">
-    <!-- jumbotron  -->
-    <div class="jumbotron jumbotron-fluid" style="background-image: url(img/1.jpg);">
-        <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-    </div>
     <!-- navbar  -->
     <th:block layout:replace="~{fragment/navbar}"></th:block>
+    <!-- jumbotron  -->
+<!--    <div class="jumbotron jumbotron-fluid" style="border: 1px solid black;">-->
+<!--        <div class="container">-->
+<!--            <h1 class="display-4">Fluid jumbotron</h1>-->
+<!--            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" name="radio-btb" id="radio1">
+            <input type="radio" name="radio-btb" id="radio2">
+            <input type="radio" name="radio-btb" id="radio3">
+            
+            <div class="slide first">
+                <img src="img/1.jpg" alt="img1">
+            </div>
+            <div class="slide">
+                <img src="img/2.jpg" alt="img1">
+            </div>
+            <div class="slide">
+                <img src="img/5.jpg" alt="img1">
+            </div>
+
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+        </div>
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
+
     <!-- layanan -->
     <section id="content-body" class="card-section">
 
@@ -37,7 +65,7 @@
     <!-- footer -->
     <th:block layout:replace="~{fragment/footer}"></th:block>
 
-</div>
+
 
 
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -46,7 +74,13 @@
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script>
+    <!-- navbar -->
+    $('.dropdown').click(function() {
+        $('.dropdown-menu').stop(true, false, true).slideToggle(600);
+        return false
+    })
+</script>
 <th:block layout:fragment="add-script"></th:block>
 
 </body>

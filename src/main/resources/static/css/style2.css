@@ -1,0 +1,203 @@
+/* body */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body, html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* navbar */
+nav {
+  background-color: rgba(0,0,0,.5);
+  position: fixed !important;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.navbar-toggler-icon {
+  background-image: none !important;
+  padding: 5px;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu a {
+  display: block;
+}
+
+.nav-menu i {
+  margin-right: 5px;
+  color: #fff;
+  padding-top: 13px;
+}
+
+.login, .reg-now span{
+  cursor: pointer;
+}
+
+a.nav-link, .login {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.login:hover, .nav-menu:hover i,
+.nav-menu:hover a, .nav-link:hover {
+  color: rgba(30,171,255,1) !important;
+
+}
+
+.dropdown-menu {
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+/* jumbotron */
+.jumbotron {
+  background: url(../img/2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -100px;
+  position: relative;
+  z-index: -1;
+  animation: geser 5s infinite;
+}
+
+.jumbotron::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(19,54,113,1), rgba(19,54,113,0) 70%);
+  position: absolute;
+  top: 0;
+}
+
+.jumbotron .container {
+  z-index: 1;
+  position: relative;
+  color: white;
+}
+
+.slider {
+  width: 100%;
+  border: 1px solid black;
+  /*overflow: hidden;*/
+}
+
+.slides {
+  width: 300%;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 100%;
+  transition: 2s;
+}
+
+
+
+
+
+
+/* footer */
+.footer-container {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  margin-top: 100px;
+}
+
+.skew-box {
+  width: 75%;
+  height: 100%;
+  background-color: rgba(30,171,255,1);
+  border-right: 100px solid #133671;
+  border-bottom: 100px solid transparent;
+}
+
+.box-child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 25%;
+  background-color: #133671;
+
+}
+
+/* desktp version*/
+@media (min-width: 992px) {
+  /* jumbotron */
+  .jumbotron {
+    min-height: 400px;
+  }
+
+  /* navbar */
+  .nav-menu {
+    margin-right: 15px;
+  }
+
+  .nav-menu i {
+    margin-right: -5px;
+  }
+
+  .dropdown-menu {
+    background-color: rgba(0,0,0,.5);
+    margin-top: 10px;
+  }
+
+  /* footer */
+  .footer-container {
+    height: 150px;
+  }
+
+  .skew-box {
+    border-bottom: 150px solid transparent;
+  }
+}
+
+@media (min-width: 384px) {
+  /* jumbotron  */
+  .jumbotron {
+    background-position-y: -20px;
+    background-position-x: 0;
+  }
+
+}
+
+/* animation */
+@keyframes geser {
+  50% {
+    background: url(../img/1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  100% {
+    background: url(../img/5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+}
