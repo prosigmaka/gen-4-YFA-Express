@@ -15,6 +15,7 @@
     <!-- Style -->
     <th:block layout:fragment="add-style"></th:block>
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="css/style2.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -150,6 +151,65 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <th:block layout:fragment="add-script"></th:block>
+<script>
+    // navbar
+    $(window).scroll(function () {
+        var wScroll = $(this).scrollTop()
+        var height = $('.jumbotron').outerHeight()
+        var navHeight = $('.navbar').outerHeight()
+        var width = $(this).width()
+
+        // docked navbar
+        if (width<992) {
+            if (wScroll>height) {
+                $('.navbar').css({
+                    'position' : 'fixed',
+                    'top' : 0,
+                    'left' : 0,
+                    'right' : 0,
+                })
+                $('.card-row').css({
+                    'margin-top' : navHeight
+                })
+            } else {
+                $('.navbar').css({
+                    'position' : 'static'
+                })
+                $('.card-row').css({
+                    'margin-top' : 0
+                })
+            }
+        } else if (width>992) {
+            if (wScroll>height-navHeight) {
+                $('.navbar').css({
+                    'position' : 'fixed',
+                    'top' : navHeight,
+                    'left' : 0,
+                    'right' : 0,
+                })
+            } else {
+                $('.navbar').css({
+                    'position' : 'static'
+                })
+            }
+        }
+    });
+
+    // dropdown animation
+    $('#navbarDropdown').click(function() {
+        $('.dropdown-menu').slideToggle(600)
+    })
+    $('#content-body, .dropdown-item').click(function () {
+        $('.dropdown-menu').slideUp(600)
+    })
+
+    // auto go to middle after load page
+    $(document).ready(function () {
+        $('html, body').animate({
+            scrollTop: $('#content-body').offset().top + 10
+        }, 1500, 'easeOutCubic');
+    });
+</script>
 
 </body>
 </html>
