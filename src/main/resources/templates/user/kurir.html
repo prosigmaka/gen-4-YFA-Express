@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html layout:decorate="~{base2}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/kurir.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</th:block>
+
+<div class="row card-row" layout:fragment="content-body">
+    <div class="container form-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Kurir</h3>
+                        <button class="float-right btn-primary" id="btn-tambah-kurir">Tambah</button>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive">
+                        <table class="table table-striped table-bordered table-hover nowrap" id="tabelKurir"
+                               style="width:100%"></table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--    FORM KURIR-->
+            <div class="modal effect" id="modal-kurir" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content modal-content-kurir">
+                        <div class="modal-header modal-header-kurir">
+                            <div class="back text-center" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+                            </div>
+                            <h5 class="modal-title" id="modal-formkurir">Form Kurir</h5>
+                            <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form class="kurir-form">
+                                <input id="idKurir" name="idKurir" type="hidden"/>
+                                <div class="txtb txtb-nameKurir">
+                                    <input type="text" id="nameKurir" name="nameKurir" required>
+                                    <span data-placeholder="Nama Kurir"></span>
+                                </div>
+                                <div class="txtb txtb-tel2">
+                                    <input type="tel" id="tel2" name="tel2" required>
+                                    <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
+                                </div>
+                                <div class="txtb txtb-fotokurir">
+                                    <label>Foto</label>
+                                    <input type="file" class="form-control" id="fileImage" name="file"
+                                           accept="image/png, image/jpeg">
+                                    <p>
+                                        <img id="thumbnail" src="#" alt="preview" width="100%">
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer footer-kurir">
+                            <div class="container" style="position: relative">
+                                <div class="row justify-content-center">
+                                    <button type="button" id="btn-save-kurir" class="btn btn-primary tombol">Save Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-delete">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #1d455b; color: #fff;">
+                            <h4>Anda sudah yakin ?</h4>
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                <span aria-hidden="true" style="color: #fff;">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modal-hidden-id">
+                            <p>Data akan hilang jika anda mengklik tombol "Delete"</p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                            <button class="btn btn-danger" id="btn-delete-row" type="button">Delete</button>
+                        </div>
+                    </div>
+                    <!--/modalcontent-->
+                </div>
+                <!--/modal dialog-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="add-script">
+    <!-- script animasi -->
+    <script>
+        // card fade animation
+        $(window).scroll(function () {
+            var wScroll = $(this).scrollTop()
+            var height = $('.jumbotron').outerHeight()
+
+            if (wScroll > height / 2) {
+                $('.card-service').each(function (i) {
+                    setTimeout(function () {
+                        $('.card-service').eq(i).addClass('muncul')
+                    }, i * 300)
+                })
+            }
+        });
+
+        // modal form input animation
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+
+        //form login change
+        $(document).on('click', '.col-telp', function () {
+            $('.col-email').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-tel').css({
+                'display': 'block'
+            })
+            $('.txtb-email').css({
+                'display': 'none'
+            })
+        })
+        $(document).on('click', '.col-email', function () {
+            $('.col-telp').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-email').css({
+                'display': 'block'
+            })
+            $('.txtb-tel').css({
+                'display': 'none'
+            })
+        })
+    </script>
+    <!-- script action -->
+    <script>
+        //login
+        $('.login').click(function () {
+            $('#modal-login').modal('show')
+        })
+        $('.forget-pass').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-forgot').modal('show')
+        })
+
+        //sign-up
+        $('.sign-up').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-signup').modal('show')
+        })
+        $('.back').click(function () {
+            $('#modal-signup').modal('hide')
+            $('#modal-login').modal('show')
+        })
+    </script>
+    <!--save data-->
+    <script>
+        $('.js-example-responsive').select2({
+            width: 'resolve',
+            height: '100px'
+        });
+
+        // display image preview in form
+        $('#fileImage').change(function () {
+            showImageThumbnail(this)
+        });
+
+        function showImageThumbnail(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#thumbnail').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script>
+        tabelKurir.create();
+
+        $('#btn-tambah-kurir').click(function () {
+            formTransaksi.resetForm();
+            $('#modal-kurir').modal('show')
+        });
+
+        $('#btn-save-transaksi').click(function (event) {
+            event.preventDefault();
+
+            // Get form
+            var form = $('#form-Transaksi')[0];
+
+            // Create an FormData object
+            var data = new FormData(form);
+
+            // If you want to add an extra field for the FormData
+            data.append('transaksi', new Blob([JSON.stringify({
+                "idUser": document.getElementById("namaUser").value
+                // ,
+                // "alamat": document.getElementById("alamat").value
+            })], {
+                type: "application/json"
+            }));
+
+            // disabled the submit button
+            $("#btn-save-kurir").prop("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "api/kurir/upload",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+
+                    $("#result").text(data);
+                    console.log("SUCCESS : ", data);
+                    $("#btn-save-kurir").prop("disabled", false);
+                    tabelTransaksi.create();
+                    $('#modal-kurir').modal('hide')
+
+                },
+                error: function (e) {
+
+                    $("#result").text(e.responseText);
+                    console.log("ERROR : ", e);
+                    $("#btn-save-kurir").prop("disabled", false);
+
+                }
+            });
+        });
+        $('#btn-delete-row').click(function () {
+            actionDelete.deleteRowData();
+        });
+    </script>
+</th:block>

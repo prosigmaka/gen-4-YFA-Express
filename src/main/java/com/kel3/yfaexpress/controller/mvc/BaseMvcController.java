@@ -22,5 +22,11 @@ public class BaseMvcController {
         return "user/dropoff";
     }
 
+    @GetMapping("kurir")
+    public String kurir() {
+        return "user/kurir";
+    }
+    
+
 
 }
