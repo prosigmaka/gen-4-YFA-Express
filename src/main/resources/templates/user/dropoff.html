@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html layout:decorate="~{base2}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/dropoff.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</th:block>
+
+<div class="row card-row" layout:fragment="content-body">
+    <!--    FORM PENGIRIM-->
+    <div class="container form-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Pengirim</h3>
+                    </div>
+                    <form id="form-Pengirim" role="form">
+                        <div class="card-body">
+                            <input id="idPengirim" name="idPengirim" type="hidden"/>
+                            <div class="form-group">
+                                <label for="namaPengirim">Nama </label>
+                                <input type="text" class="form-control" id="namaPengirim"
+                                       name="namaPengirim" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="telpPengirim">No Telp </label>
+                                <input type="text" class="form-control" id="telpPengirim"
+                                       name="telpPengirim" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="kotaPengirim">Kota Asal</label>
+                                <select class="form-control" id="kotaPengirim" name="kotaPengirim"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamatPengirim">Alamat </label>
+                                <input type="text" class="form-control" id="alamatPengirim"
+                                       name="alamatPengirim" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="kodePosPengirim">Kode Pos Pengirim</label>
+                                <input type="text" class="form-control" id="kodePosPengirim"
+                                       name="kodePosPengirim" placeholder="...............">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </form>
+                </div>
+            </div>
+            <!--    FORM PENERIMA-->
+            <div class="col-md-4">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Penerima</h3>
+                    </div>
+                    <form id="form-Penerima" role="form">
+                        <div class="card-body">
+                            <input id="idPenerima" name="idPenerima" type="hidden"/>
+                            <div class="form-group">
+                                <label for="namaPenerima">Nama </label>
+                                <input type="text" class="form-control" id="namaPenerima"
+                                       name="namaPenerima" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="telpPenerima">No Telp </label>
+                                <input type="text" class="form-control" id="telpPenerima"
+                                       name="telpPenerima" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="kotaPenerima">Kota Tujuan</label>
+                                <select class="form-control" id="kotaPenerima" name="kotaPenerima"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamatPenerima">Alamat </label>
+                                <input type="text" class="form-control" id="alamatPenerima"
+                                       name="alamatPenerima" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="kodePosPenerima">Kode Pos </label>
+                                <input type="text" class="form-control" id="kodePosPenerima"
+                                       name="kodePosPenerima" placeholder="...............">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </form>
+                </div>
+            </div>
+            <!--    FORM BARANG-->
+            <div class="col-md-4">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Barang</h3>
+                    </div>
+                    <form id="form-Barang" role="form">
+                        <div class="card-body">
+                            <input id="idBarang" name="idBarang" type="hidden"/>
+                            <div class="form-group">
+                                <label for="namaBarang">Nama Barang</label>
+                                <input type="text" class="form-control" id="namaBarang"
+                                       name="namaBarang" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="namaLayanan">Jenis Layanan</label>
+                                <select class="form-control" id="namaLayanan" name="idLayanan"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlahBarang">Jumlah Barang</label>
+                                <input type="text" class="form-control" id="jumlahBarang"
+                                       name="jumlahBarang" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="kategoriBeratBarang">Berat Barang</label>
+                                <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="keteranganBarang">Keterangan</label>
+                                <input type="text" class="form-control" id="keteranganBarang"
+                                       name="keteranganBarang" placeholder="...............">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8 offset-md-2">
+                <div class="card card-dark">
+                    <form id="form-TotalBiaya" role="form">
+                        <div class="card-body">
+                            <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
+                            <div class="form-group">
+                                <label for="biayaKirim">Biaya Kirim</label>
+                                <input type="text" class="form-control" id="biayaKirim"
+                                       name="biayaKirim" placeholder="...............">
+                            </div>
+                            <div class="form-group">
+                                <label for="totalBiaya">Total Biaya</label>
+                                <input type="text" class="form-control" id="totalBiaya"
+                                       name="totalBiaya" placeholder="...............">
+                            </div>
+                            <!--    button save-->
+                            <div class=" button-order-close justify-content-between ">
+                                <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
+                                <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<th:block layout:fragment="add-script">
+    <!-- script animasi -->
+    <script>
+        // card fade animation
+        $(window).scroll(function () {
+            var wScroll = $(this).scrollTop()
+            var height = $('.jumbotron').outerHeight()
+
+            if (wScroll > height / 2) {
+                $('.card-service').each(function (i) {
+                    setTimeout(function () {
+                        $('.card-service').eq(i).addClass('muncul')
+                    }, i * 300)
+                })
+            }
+        });
+
+        // modal form input animation
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+
+        //form login change
+        $(document).on('click', '.col-telp', function () {
+            $('.col-email').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-tel').css({
+                'display': 'block'
+            })
+            $('.txtb-email').css({
+                'display': 'none'
+            })
+        })
+        $(document).on('click', '.col-email', function () {
+            $('.col-telp').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-email').css({
+                'display': 'block'
+            })
+            $('.txtb-tel').css({
+                'display': 'none'
+            })
+        })
+    </script>
+    <!-- script action -->
+    <script>
+        //login
+        $('.login').click(function () {
+            $('#modal-login').modal('show')
+        })
+        $('.forget-pass').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-forgot').modal('show')
+        })
+
+        //sign-up
+        $('.sign-up').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-signup').modal('show')
+        })
+        $('.back').click(function () {
+            $('#modal-signup').modal('hide')
+            $('#modal-login').modal('show')
+        })
+    </script>
+</th:block>

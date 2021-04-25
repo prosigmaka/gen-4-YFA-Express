@@ -17,9 +17,10 @@ public class BaseMvcController {
         return "user/layanan";
     }
 
-    @GetMapping("index")
-    public String index() {
-        return "user/index";
+    @GetMapping("dropoff")
+    public String dropoff() {
+        return "user/dropoff";
     }
+
 
 }
