@@ -14,10 +14,9 @@ var tabelKurir = {
           $('#tabelKurir').DataTable({
             data: res,
             columns: [
-              {title: "Id Kurir", data: "idKurir"},
-              {title: "Nama Kurir", data: "namaKurir"},
-              {title: "No Telp Kurir", data: "noTelpKurir"},
-              {title: "Foto Kurir", data: "file"},
+              {title: "id", data: "idKurir"},
+              {title: "nama", data: "namaKurir"},
+              {title: "no telp", data: "noTelpKurir"},
 
               {
                 title: "Action",
@@ -38,16 +37,56 @@ var tabelKurir = {
         console.log(err);
       }
     });
+    //
+    // $.ajax({
+    //   type: "GET",
+    //   url: "/api/kurir",
+    //   contentType: 'application/json',
+    //   dataType: 'json',
+    //   success: function (res) {
+    //     console.log(res)
+    //     let s = '<option disabled selected hidden>-- Pilih --</option>';
+    //     for (let i = 0; i < res.length; i++) {
+    //       s += '<option value=' + res[i].idUser + '>' + res[i].namaUser + '</option>';
+    //     }
+    //     $("#namaUser").html(s);
+    //   }
+    // });
   }
 };
 
 
 
-var formKurir = {
+var formKurir= {
   resetForm: function () {
     $('#form-Kurir')[0].reset();
     $("#idKurir").val("");
   },
+  // saveForm: function () {
+  //   if ($('#form-Transaksi').parsley().validate()) {
+  //     var dataResult = getJsonForm($("#form-Transaksi").serializeArray(), true);
+  //
+  //     $.ajax({
+  //       url: '/api/transaksi',
+  //       method: 'post',
+  //       contentType: 'application/json',
+  //       dataType: 'json',
+  //       data: JSON.stringify(dataResult),
+  //       success: function (res, status, xhr) {
+  //         if (xhr.status == 200 || xhr.status == 201) {
+  //           tabelTransaksi.create();
+  //           $('#modal-transaksi').modal('hide')
+  //
+  //         } else {
+  //
+  //         }
+  //       },
+  //       erorrr: function (err) {
+  //         console.log(err);
+  //       }
+  //     });
+  //   }
+  // },
   setEditData: function (idCabang) {
     formKurir.resetForm();
 

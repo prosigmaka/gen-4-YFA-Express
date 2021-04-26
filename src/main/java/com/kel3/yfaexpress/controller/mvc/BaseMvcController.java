@@ -24,12 +24,12 @@ public class BaseMvcController {
 
     @GetMapping("kurir")
     public String kurir() {
-        return "user/kurir";
+        return "admin/kurir";
     }
 
     @GetMapping("beratBarang")
     public String beratBarang() {
-        return "user/beratBarang";
+        return "admin/beratBarang";
     }
     
 
