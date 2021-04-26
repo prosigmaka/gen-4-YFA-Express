@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/registration")
-public class UserRegistrationController {
+public class ApiUser {
 
 	private UserService userService;
 
-	public UserRegistrationController(UserService userService) {
+	public ApiUser(UserService userService) {
 		super();
 		this.userService = userService;
 	}
