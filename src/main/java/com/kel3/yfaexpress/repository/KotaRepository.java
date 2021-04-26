@@ -1,13 +1,12 @@
 package com.kel3.yfaexpress.repository;
 
-import com.kel3.yfaexpress.model.entity.Pengirim;
+import com.kel3.yfaexpress.model.entity.Kota;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface PengirimRepository extends JpaRepository<Pengirim, Integer> {
-
-    List<Pengirim> findAllByIdPengirim(Integer idPengirim);
+public interface KotaRepository extends JpaRepository<Kota, Integer> {
+    List<Kota> findAllByIdKota(Integer idKota);
 }
