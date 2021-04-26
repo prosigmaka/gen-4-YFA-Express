@@ -5,42 +5,140 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>YFA Express</title>
+    <title>Coba</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- fontawesome -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!--Import bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- DataTables -->
-    <link rel="stylesheet" th:href="@{/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}">
-    <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
     <!-- Style -->
-    <th:block layout:fragment="add-style"></th:block>
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="body">
-    <!-- navbar  -->
-    <th:block layout:replace="~{fragment/navbar}"></th:block>
-    <!-- jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
+<div class="wrap">
+    <!-- jumbotron  -->
+    <div class="jumbotron jumbotron-fluid" style="background-image: url(img/1.jpg);">
         <div class="container">
             <h1 class="display-4">Fluid jumbotron</h1>
             <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         </div>
     </div>
-
+    <!-- navbar  -->
+    <th:block layout:replace="~{fragment/navbar}"></th:block>
     <!-- layanan -->
     <section id="content-body" class="card-section">
         <div layout:fragment="content-body"/>
     </section>
-
     <!-- footer -->
     <th:block layout:replace="~{fragment/footer}"></th:block>
+    <!-- Modal Login -->
+    <div class="modal effect" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-login">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-masuk">Masuk</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="login-form">
+                        <div class="row login-row">
+                            <div class="login-col col-telp on">Nomor telepon</div>
+                            <div class="login-col col-email">Nama pengguna/Email</div>
+                        </div>
+                        <div class="txtb txtb-tel">
+                            <input type="tel" id="tel" name="tel" required>
+                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
+                        </div>
+                        <div class="txtb txtb-email" style="display: none">
+                            <input type="email" id="email" name="email" required>
+                            <span data-placeholder="Nama pengguna/Email"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="pass" name="pass" required>
+                            <span data-placeholder="Password"></span>
+                        </div>
+                        <div class="row login-row about-password">
+                            <span class="forget-pass">Lupa kata sandi?</span>
+                            <div class="remember-pass">
+                                <input type="checkbox">
+                                <label>ingat kata sandi</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" class="btn btn-primary tombol">Masuk</button>
+                        </div>
+                        <div class="row reg-now justify-content-center">
+                            <p>Tidak ada akun? <span class="sign-up">Daftar sekarang</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal sign-up -->
+    <div class="modal effect" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <div class="back text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+                    </div>
+                    <h5 class="modal-title" id="modal-daftar">Daftar</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="signup-form">
+                        <div class="txtb txtb-name">
+                            <input type="text" id="name" name="name" required>
+                            <span data-placeholder="Nama"></span>
+                        </div>
+                        <div class="txtb txtb-tel2">
+                            <input type="tel" id="tel2" name="tel2" required>
+                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
+                        </div>
+                        <div class="txtb txtb-email2">
+                            <input type="email" id="email2" name="email2" required>
+                            <span data-placeholder="Email"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="pass2" name="pass2" required>
+                            <span data-placeholder="Password"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="pass3" name="pass3" required>
+                            <span data-placeholder="Konfirmasi password"></span>
+                        </div>
+                        <div class="row signup-row">
+                            <div class="privasi">
+                                <input type="checkbox" id="agree" name="agree" value="Y" required>
+                                <p>Saya sudah membaca, mengerti dan menyetujui <a href="">【Syarat dan Ketentuan YFA Express】</a> dan <a href="">【Ketentuan privasi】</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" class="btn btn-primary tombol">Konfirmasi Pendaftaran</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -49,18 +147,7 @@
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!-- DataTables -->
-<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
-<script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
-<script th:src="@{/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
-<script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
-<script>
-    <!-- navbar -->
-    $('.dropdown').click(function() {
-        $('.dropdown-menu').stop(true, false, true).slideToggle(600);
-        return false
-    })
-</script>
+
 <th:block layout:fragment="add-script"></th:block>
 
 </body>
