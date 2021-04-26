@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html layout:decorate="~{base}"
+<html layout:decorate="~{base2}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/layanan.css">
+</th:block>
 
 <div class="row card-row" layout:fragment="content-body">
     <div class="card card-service" style="width: 18rem;">
@@ -71,49 +74,11 @@
 <th:block layout:fragment="add-script">
     <!-- script animasi -->
     <script>
-        // navbar
+        // card fade animation
         $(window).scroll(function () {
             var wScroll = $(this).scrollTop()
             var height = $('.jumbotron').outerHeight()
-            var navHeight = $('.navbar').outerHeight()
-            var width = $(this).width()
 
-            // docked navbar
-            if (width<992) {
-                if (wScroll>height) {
-                    $('.navbar').css({
-                        'position' : 'fixed',
-                        'top' : 0,
-                        'left' : 0,
-                        'right' : 0,
-                    })
-                    $('.card-row').css({
-                        'margin-top' : navHeight
-                    })
-                } else {
-                    $('.navbar').css({
-                        'position' : 'static'
-                    })
-                    $('.card-row').css({
-                        'margin-top' : 0
-                    })
-                }
-            } else if (width>992) {
-                if (wScroll>height-navHeight) {
-                    $('.navbar').css({
-                        'position' : 'fixed',
-                        'top' : navHeight,
-                        'left' : 0,
-                        'right' : 0,
-                    })
-                } else {
-                    $('.navbar').css({
-                        'position' : 'static'
-                    })
-                }
-            }
-
-            // card fade animation
             if (wScroll>height/2) {
                 $('.card-service').each(function(i) {
                     setTimeout(function() {
@@ -121,21 +86,6 @@
                     }, i*300)
                 })
             }
-        });
-
-        // dropdown animation
-        $('#navbarDropdown').click(function() {
-            $('.dropdown-menu').slideToggle(600)
-        })
-        $('#content-body, .dropdown-item').click(function () {
-            $('.dropdown-menu').slideUp(600)
-        })
-
-        // auto go to middle after load page
-        $(document).ready(function () {
-            $('html, body').animate({
-                scrollTop: $('#content-body').offset().top + 40
-            }, 1500, 'easeOutCubic');
         });
 
         // modal form input animation

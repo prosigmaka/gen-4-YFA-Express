@@ -1,55 +1,83 @@
 package com.kel3.yfaexpress.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
-
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
-@Table(name = User.TABLEUSER)
-@Data
+@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
-    public static final String TABLEUSER = "t_user";
 
-    @Id
-    @GeneratedValue(generator = "sequence_user", strategy = GenerationType.AUTO)
-    @Column(name = "id_user", nullable = false)
-    private Integer idUser;
+	@Id
+	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "username", columnDefinition = "varchar(50)", nullable = false)
-    private String userName;
+	@Column(name = "first_name")
+	private String firstName;
 
-    @Column(name = "password", columnDefinition = "varchar(255)", nullable = false)
-    private String password;
+	@Column(name = "last_name")
+	private String lastName;
 
-    @Column(name = "full_name", length = 128, nullable = false)
-    private String fullName;
+	private String email;
 
-    @Column(name = "telp", length = 14)
-    private Integer telp;
+	private String password;
 
-    @Column(name = "email", length = 128, nullable = false)
-    private String email;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "users_roles",
+			joinColumns = @JoinColumn(
+					name = "user_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(
+					name = "role_id", referencedColumnName = "id"))
 
-    public Integer getUserId() {
-        return idUser;
-    }
-    public void setUsername(String id) {
-        this.userName = id;
-    }
-    public String getUserPswd() {
-        return password;
-    }
+	private Collection<Role> roles;
 
-    public void setUserPswd(String userPswd) {
-        this.password = userPswd == null ? null : userPswd.trim();
-    }
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
-    }
+	public User() {
+
+	}
+
+	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+
 }
