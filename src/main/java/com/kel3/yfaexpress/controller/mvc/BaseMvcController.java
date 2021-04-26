@@ -29,7 +29,7 @@ public class BaseMvcController {
 
     @GetMapping("beratBarang")
     public String beratBarang() {
-        return "user/beratBarang";
+        return "admin/beratBarang";
     }
     
 
