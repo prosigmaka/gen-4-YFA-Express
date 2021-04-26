@@ -17,16 +17,16 @@ var tableBeratBarang = {
             data: res,
             columns: [
               {
-                title: "Nama",
-                data: "nama"
+                title: "ID",
+                data: "idBeratBarang"
               },
               {
-                title: "No. Telp",
-                data: "telp"
+                title: "Kategori",
+                data: "kategoriBeratBarang"
               },
               {
-                title: "Email",
-                data: "email"
+                title: "Biaya",
+                data: "biayaKategori"
               },
               {
                 title: "Action",
@@ -53,7 +53,7 @@ var tableBeratBarang = {
   }
 };
 
-var formberatBarang = {
+var formBeratBarang = {
   resetForm: function () {
     $('#form-berat-barang')[0].reset();
     $('#idberatBarang').val("");

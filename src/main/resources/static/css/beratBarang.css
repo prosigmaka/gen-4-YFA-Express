@@ -1,7 +1,13 @@
-.berat-barang {
-  margin-top: 30px;
-  margin-bottom: 30px;
+#tableBeratBarang {
+  width: 100% !important;
+  min-width: 0 !important;
 }
+
+.berat-barang {
+  margin-top: 50px;
+  position: relative;
+}
+
 
 .list-tambah {
   width: 30%;
@@ -12,13 +18,13 @@ div.dataTables_wrapper div.dataTables_filter input {
   width: 100px;
 }
 
-@media (min-width: 717px) {
-  .row-berat-barang {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
+/*@media (max-width: 717px) {*/
+/*  .row-berat-barang {*/
+/*    padding-left: 10px !important;*/
+/*    padding-right: 10px !important;*/
+/*  }*/
 
-}
+/*}*/
 
 @media (min-width: 992px) {
   div.dataTables_wrapper div.dataTables_filter input {

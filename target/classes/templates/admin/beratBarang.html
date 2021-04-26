@@ -19,11 +19,75 @@
                 <p>tambah</p>
             </div>
             <div class="col-md-8 tabel-container">
-                <table id="tabelBeratBarang" class="table table-bordered table-striped table-hover">
-                </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">List Data Mahasiswa</h3>
+                        <button class="float-right btn-danger" id="btn-delete" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
+                        <button class="float-right btn-primary" id="btn-tambah" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="tableBeratBarang" class="table table-bordered table-striped table-hover">
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="modal effect modal-berat-barang" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <div class="back text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+                    </div>
+                    <h5 class="modal-title" id="modal-daftar">Daftar</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="signup-form" id="form-berat-barang">
+                        <div class="txtb txtb-name">
+                            <input type="text" id="name" name="name" required>
+                            <span data-placeholder="Nama"></span>
+                        </div>
+                        <div class="txtb txtb-tel2">
+                            <input type="tel" id="tel2" name="tel2" required>
+                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
+                        </div>
+                        <div class="txtb txtb-email2">
+                            <input type="email" id="email2" name="email2" required>
+                            <span data-placeholder="Email"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="pass2" name="pass2" required>
+                            <span data-placeholder="Password"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="pass3" name="pass3" required>
+                            <span data-placeholder="Konfirmasi password"></span>
+                        </div>
+                        <div class="row signup-row">
+                            <div class="privasi">
+                                <input type="checkbox" id="agree" name="agree" value="Y" required>
+                                <p>Saya sudah membaca, mengerti dan menyetujui <a href="">【Syarat dan Ketentuan YFA Express】</a> dan <a href="">【Ketentuan privasi】</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" class="btn btn-primary tombol">Konfirmasi Pendaftaran</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- page script -->
@@ -37,7 +101,7 @@
 
         $('#btn-tambah').click(function () {
             formBeratBarang.resetForm();
-            $('#modal-berat-barang').modal('show')
+            $('.modal-berat-barang').modal('show')
         });
 
         $('#btn-save').click(function () {
