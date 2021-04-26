@@ -12,20 +12,28 @@
 <!-- conten body -->
 <div class="row card-row" layout:fragment="content-body">
     <div class="container berat-barang" style="position: relative">
+        <!-- berat barang -->
         <div class="card">
             <div class="card-header card-top">
-                <h3 class="card-title">Data Berat Barang</h3>
-                <button class="float-right btn-danger" id="btn-delete" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
-                <button class="float-right btn-primary" id="btn-tambah" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
+                <div class="table-title d-flex justify-content-between">
+                    <h3 class="card-title">Data Berat Barang</h3>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <button class="float-right btn-danger" id="btn-delete-bb" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
+                <button class="float-right btn-primary" id="btn-tambah-bb" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
             </div>
             <div class="card-body">
                 <table id="tableBeratBarang" class="table table-bordered table-striped table-hover">
                 </table>
             </div>
         </div>
+        <!--  -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Berat Barang</h3>
+                <div class="table-title d-flex justify-content-between">
+                    <h3 class="card-title">Data Berat Barang</h3>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
                 <button class="float-right btn-danger" id="btn-delete" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
                 <button class="float-right btn-primary" id="btn-tambah" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
             </div>
@@ -93,6 +101,18 @@
 
 <!-- page script -->
 <th:block layout:fragment="add-script">
+    <script>
+        $('.table-title>i').click(function () {
+            if ( $( this ).css( "transform" ) == 'none' ){
+                $(this).css("transform","rotate(180deg)");
+                $(this).parents('.card-header').next('.card-body').hide(200)
+            } else {
+                $(this).css("transform","" );
+                $(this).parents('.card-header').next('.card-body').show(200)
+            }
+        })
+    </script>
+
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/beratBarang.js}"></script>
@@ -100,7 +120,7 @@
     <script>
         tableBeratBarang.create();
 
-        $('#btn-tambah').click(function () {
+        $('#btn-tambah-bb').click(function () {
             formBeratBarang.resetForm();
             $('.modal-berat-barang').modal('show')
         });
@@ -113,7 +133,7 @@
             actionDelete.deleteRowData();
         });
 
-        $('#btn-delete').click(function () {
+        $('#btn-delete-bb').click(function () {
             var h4 =  '<h4>Yakin ingin menghapus tabel ini?</h4>'
             var p = '<p>Semua data pada tabel akan hilang setelah mengklik tombol "Delete"</p>';
             $('#modal-header').html(h4)
