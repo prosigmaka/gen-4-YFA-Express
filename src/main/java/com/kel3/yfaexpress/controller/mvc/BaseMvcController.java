@@ -26,6 +26,11 @@ public class BaseMvcController {
     public String kurir() {
         return "user/kurir";
     }
+
+    @GetMapping("beratBarang")
+    public String beratBarang() {
+        return "user/beratBarang";
+    }
     
 
 
