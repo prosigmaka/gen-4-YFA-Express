@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>AdminLTE 3 | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!--Import bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{/assets/plugins/fontawesome-free/css/all.min.css}">
+    <!-- IonIcons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" th:href="@{/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/assets/dist/css/adminlte.min.css}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="hold-transition login-page">
+<div class="modal effect" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content modal-content-login">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-masuk">Masuk</h5>
+                <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="row login-row">
+                        <div class="login-col col-telp on">Nomor telepon</div>
+                        <div class="login-col col-email">Nama pengguna/Email</div>
+                    </div>
+                    <div class="txtb txtb-tel">
+                        <input type="tel" id="tel" name="tel" required>
+                        <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
+                    </div>
+                    <div class="txtb txtb-email" style="display: none">
+                        <input type="email" id="email" name="email" required>
+                        <span data-placeholder="Nama pengguna/Email"></span>
+                    </div>
+                    <div class="txtb">
+                        <input type="password" id="pass" name="pass" required>
+                        <span data-placeholder="Password"></span>
+                    </div>
+                    <div class="row login-row about-password">
+                        <span class="forget-pass">Lupa kata sandi?</span>
+                        <div class="remember-pass">
+                            <input type="checkbox">
+                            <label>ingat kata sandi</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer footer-login">
+                <div class="container" style="position: relative">
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-primary tombol">Masuk</button>
+                    </div>
+                    <div class="row reg-now justify-content-center">
+                        <p>Tidak ada akun? <span class="sign-up">Daftar sekarang</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script th:src="@{/assets/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap -->
+<script th:src="@{/assets/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE -->
+<script th:src="@{/assets/dist/js/adminlte.js}"></script>
+
+</body>
+</html>
