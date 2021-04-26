@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html layout:decorate="~{base2}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/style.css">
+</th:block>
+
+<div class="row card-row" layout:fragment="content-body">
+<!--    FORM PENGIRIM-->
+    <div class="col-md-4">
+        <div class="card card-dark">
+            <div class="card-header">
+                <h3 class="card-title">Data Pengirim</h3>
+            </div>
+            <form id="form-Pengirim" role="form">
+                <div class="card-body">
+                    <input id="idPengirim" name="idPengirim" type="hidden"/>
+                    <div class="form-group">
+                        <label for="namaPengirim">Nama </label>
+                        <input type="text" class="form-control" id="namaPengirim"
+                               name="namaPengirim" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="telpPengirim">No Telp </label>
+                        <input type="text" class="form-control" id="telpPengirim"
+                               name="telpPengirim" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="kotaPengirim">Kota Asal</label>
+                        <select class="form-control" id="kotaPengirim" name="kotaPengirim"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamatPengirim">Alamat </label>
+                        <input type="text" class="form-control" id="alamatPengirim"
+                               name="alamatPengirim" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="kodePosPengirim">Kode Pos Pengirim</label>
+                        <input type="text" class="form-control" id="kodePosPengirim"
+                               name="kodePosPengirim" placeholder="...............">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </form>
+        </div>
+    </div>
+<!--    FORM PENERIMA-->
+    <div class="col-md-4">
+        <div class="card card-dark">
+            <div class="card-header">
+                <h3 class="card-title">Data Penerima</h3>
+            </div>
+            <form id="form-Penerima" role="form">
+                <div class="card-body">
+                    <input id="idPenerima" name="idPenerima" type="hidden"/>
+                    <div class="form-group">
+                        <label for="namaPenerima">Nama </label>
+                        <input type="text" class="form-control" id="namaPenerima"
+                               name="namaPenerima" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="telpPenerima">No Telp </label>
+                        <input type="text" class="form-control" id="telpPenerima"
+                               name="telpPenerima" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="kotaPenerima">Kota Tujuan</label>
+                        <select class="form-control" id="kotaPenerima" name="kotaPenerima"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamatPenerima">Alamat </label>
+                        <input type="text" class="form-control" id="alamatPenerima"
+                               name="alamatPenerima" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="kodePosPenerima">Kode Pos </label>
+                        <input type="text" class="form-control" id="kodePosPenerima"
+                               name="kodePosPenerima" placeholder="...............">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </form>
+        </div>
+    </div>
+<!--    FORM BARANG-->
+    <div class="col-md-4">
+        <div class="card card-dark">
+            <div class="card-header">
+                <h3 class="card-title">Data Barang</h3>
+            </div>
+            <form id="form-Barang" role="form">
+                <div class="card-body">
+                    <input id="idBarang" name="idBarang" type="hidden"/>
+                    <div class="form-group">
+                        <label for="namaBarang">Nama Barang</label>
+                        <input type="text" class="form-control" id="namaBarang"
+                               name="namaBarang" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaLayanan">Jenis Layanan</label>
+                        <select class="form-control" id="namaLayanan" name="idLayanan"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlahBarang">Jumlah Barang</label>
+                        <input type="text" class="form-control" id="jumlahBarang"
+                               name="jumlahBarang" placeholder="...............">
+                    </div>
+                    <div class="form-group">
+                        <label for="kategoriBeratBarang">Berat Barang</label>
+                        <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="keteranganBarang">Keterangan</label>
+                        <input type="text" class="form-control" id="keteranganBarang"
+                               name="keteranganBarang" placeholder="...............">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </form>
+        </div>
+    </div>
+<!--    button save-->
+    <div class="card-footer justify-content-between">
+        <button class="btn btn-dark" id="btn-save-utama" type="button">Save</button>
+    </div>
+</div>
+
+<th:block layout:fragment="add-script">
+    <!-- script animasi -->
+    <script>
+        // navbar
+        $(window).scroll(function () {
+            var wScroll = $(this).scrollTop()
+            var height = $('.jumbotron').outerHeight()
+            var navHeight = $('.navbar').outerHeight()
+            var width = $(this).width()
+
+            // docked navbar
+            if (width<992) {
+                if (wScroll>height) {
+                    $('.navbar').css({
+                        'position' : 'fixed',
+                        'top' : 0,
+                        'left' : 0,
+                        'right' : 0,
+                    })
+                    $('.card-row').css({
+                        'margin-top' : navHeight
+                    })
+                } else {
+                    $('.navbar').css({
+                        'position' : 'static'
+                    })
+                    $('.card-row').css({
+                        'margin-top' : 0
+                    })
+                }
+            } else if (width>992) {
+                if (wScroll>height-navHeight) {
+                    $('.navbar').css({
+                        'position' : 'fixed',
+                        'top' : navHeight,
+                        'left' : 0,
+                        'right' : 0,
+                    })
+                } else {
+                    $('.navbar').css({
+                        'position' : 'static'
+                    })
+                }
+            }
+
+            // card fade animation
+            if (wScroll>height/2) {
+                $('.card-service').each(function(i) {
+                    setTimeout(function() {
+                        $('.card-service').eq(i).addClass('muncul')
+                    }, i*300)
+                })
+            }
+        });
+
+        // dropdown animation
+        $('#navbarDropdown').click(function() {
+            $('.dropdown-menu').slideToggle(600)
+        })
+        $('#content-body, .dropdown-item').click(function () {
+            $('.dropdown-menu').slideUp(600)
+        })
+
+        // auto go to middle after load page
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#content-body').offset().top + 40
+            }, 1500, 'easeOutCubic');
+        });
+
+        // modal form input animation
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur",function(){
+            if($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+
+        //form login change
+        $(document).on('click', '.col-telp', function() {
+            $('.col-email').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-tel').css({
+                'display' : 'block'
+            })
+            $('.txtb-email').css({
+                'display' : 'none'
+            })
+        })
+        $(document).on('click', '.col-email', function() {
+            $('.col-telp').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-email').css({
+                'display' : 'block'
+            })
+            $('.txtb-tel').css({
+                'display' : 'none'
+            })
+        })
+    </script>
+    <!-- script action -->
+    <script>
+        //login
+        $('.login').click(function () {
+            $('#modal-login').modal('show')
+        })
+        $('.forget-pass').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-forgot').modal('show')
+        })
+
+        //sign-up
+        $('.sign-up').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-signup').modal('show')
+        })
+        $('.back').click(function () {
+            $('#modal-signup').modal('hide')
+            $('#modal-login').modal('show')
+        })
+    </script>
+</th:block>
