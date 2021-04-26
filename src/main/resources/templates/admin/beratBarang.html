@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html layout:decorate="~{base}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 
-</body>
-</html>
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/beratBarang.css">
+</th:block>
+
+<!-- conten body -->
+<div class="row card-row" layout:fragment="content-body">
+    <div class="container berat-barang" style="border: 1px solid black; position: relative">
+        <div class="row row-berat-barang">
+            <div class="col-md-4 list-tambah">
+                <p>Berat Barang</p>
+                <p>Kategori</p>
+                <p>tambah</p>
+            </div>
+            <div class="col-md-8 tabel-container">
+                <table id="tabelBeratBarang" class="table table-bordered table-striped table-hover">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- page script -->
+<th:block layout:fragment="add-script">
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/beratBarang.js}"></script>
+
+    <script>
+        tableBeratBarang.create();
+
+        $('#btn-tambah').click(function () {
+            formBeratBarang.resetForm();
+            $('#modal-berat-barang').modal('show')
+        });
+
+        $('#btn-save').click(function () {
+            formBeratBarang.saveForm()
+        });
+
+        $('#btn-delete-row').click(function () {
+            actionDelete.deleteRowData();
+        });
+
+        $('#btn-delete').click(function () {
+            var h4 =  '<h4>Yakin ingin menghapus tabel ini?</h4>'
+            var p = '<p>Semua data pada tabel akan hilang setelah mengklik tombol "Delete"</p>';
+            $('#modal-header').html(h4)
+            $('#modal-hidden-id').html(p);
+            $('#btn-delete-row').addClass('delete-table')
+            $('#modal-delete').modal('show')
+        });
+
+        $(document).on('click', 'button.delete-table', function () {
+            actionDelete.deleteTable()
+        });
+    </script>
+</th:block>

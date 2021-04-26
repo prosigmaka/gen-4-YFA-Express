@@ -19,16 +19,7 @@
                 <p>tambah</p>
             </div>
             <div class="col-md-8 tabel-container">
-                <table id="beratBarang" class="table table-bordered table-striped table-hover">
-                    <thead style="background-color: #007bff">
-                    <tr>
-                        <th>Id</th>
-                        <th>Kategori</th>
-                        <th>Biaya</th>
-                    </tr>
-                    </thead>
-                    <tbody id="empty-table">
-                    </tbody>
+                <table id="tabelBeratBarang" class="table table-bordered table-striped table-hover">
                 </table>
             </div>
         </div>
@@ -37,47 +28,37 @@
 
 <!-- page script -->
 <th:block layout:fragment="add-script">
-    <!-- page script -->
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/beratBarang.js}"></script>
+
     <script>
-        $(function () {
-            $("#beratBarang").DataTable({
-                "responsive": false,
-                "autoWidth": true,
-                // scrollX: 200,
-                deferRender: true,
-                // scroller: true
-            });
+        tableBeratBarang.create();
+
+        $('#btn-tambah').click(function () {
+            formBeratBarang.resetForm();
+            $('#modal-berat-barang').modal('show')
         });
-    </script>
-    <!-- search table -->
-    <script>
-        $(function(){
-            var table = $('#beratBarang').DataTable();
 
-            table.columns( '.select-filter' ).every( function () {
-                var that = this;
+        $('#btn-save').click(function () {
+            formBeratBarang.saveForm()
+        });
 
-                // Create the select list and search operation
-                var select = $('<select />')
-                    .appendTo(
-                        this.footer()
-                    )
-                    .on( 'change', function () {
-                        that
-                            .search( $(this).val() )
-                            .draw();
-                    } );
+        $('#btn-delete-row').click(function () {
+            actionDelete.deleteRowData();
+        });
 
-                // Get the search data for the first column and add to the select list
-                this
-                    .cache( 'search' )
-                    .sort()
-                    .unique()
-                    .each( function ( d ) {
-                        select.append( $('<option value="'+d+'">'+d+'</option>') );
-                    } );
-            } );
+        $('#btn-delete').click(function () {
+            var h4 =  '<h4>Yakin ingin menghapus tabel ini?</h4>'
+            var p = '<p>Semua data pada tabel akan hilang setelah mengklik tombol "Delete"</p>';
+            $('#modal-header').html(h4)
+            $('#modal-hidden-id').html(p);
+            $('#btn-delete-row').addClass('delete-table')
+            $('#modal-delete').modal('show')
+        });
 
-        })
+        $(document).on('click', 'button.delete-table', function () {
+            actionDelete.deleteTable()
+        });
     </script>
 </th:block>
