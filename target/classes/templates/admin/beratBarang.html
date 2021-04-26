@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html layout:decorate="~{base}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="css/beratBarang.css">
+</th:block>
+
+<!-- conten body -->
+<div class="row card-row" layout:fragment="content-body">
+    <div class="container berat-barang" style="border: 1px solid black; position: relative">
+        <div class="row row-berat-barang">
+            <div class="col-md-4 list-tambah">
+                <p>Berat Barang</p>
+                <p>Kategori</p>
+                <p>tambah</p>
+            </div>
+            <div class="col-md-8 tabel-container">
+                <table id="beratBarang" class="table table-bordered table-striped table-hover">
+                    <thead style="background-color: #007bff">
+                    <tr>
+                        <th>Id</th>
+                        <th>Kategori</th>
+                        <th>Biaya</th>
+                    </tr>
+                    </thead>
+                    <tbody id="empty-table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- page script -->
+<th:block layout:fragment="add-script">
+    <!-- page script -->
+    <script>
+        $(function () {
+            $("#beratBarang").DataTable({
+                "responsive": false,
+                "autoWidth": true,
+                // scrollX: 200,
+                deferRender: true,
+                // scroller: true
+            });
+        });
+    </script>
+    <!-- search table -->
+    <script>
+        $(function(){
+            var table = $('#beratBarang').DataTable();
+
+            table.columns( '.select-filter' ).every( function () {
+                var that = this;
+
+                // Create the select list and search operation
+                var select = $('<select />')
+                    .appendTo(
+                        this.footer()
+                    )
+                    .on( 'change', function () {
+                        that
+                            .search( $(this).val() )
+                            .draw();
+                    } );
+
+                // Get the search data for the first column and add to the select list
+                this
+                    .cache( 'search' )
+                    .sort()
+                    .unique()
+                    .each( function ( d ) {
+                        select.append( $('<option value="'+d+'">'+d+'</option>') );
+                    } );
+            } );
+
+        })
+    </script>
+</th:block>

@@ -1,0 +1,3 @@
+com\kel3\yfaexpress\configuration\MvcConfig.class
+com\kel3\yfaexpress\YfaexpressApplication.class
+com\kel3\yfaexpress\controller\mvc\BaseMvcController.class
