@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html layout:decorate="~{base}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="/css/berat-layanan.css">
+</th:block>
+
+<!-- conten body -->
+<div class="row card-row" layout:fragment="content-body">
+    <div class="container berat-barang" style="position: relative">
+        <!-- berat barang -->
+        <div class="card">
+            <div class="card-header card-top">
+                <div class="table-title d-flex justify-content-between">
+                    <h3 class="card-title">Data Berat Barang</h3>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <button class="float-right btn-danger" id="btn-delete-bb" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
+                <button class="float-right btn-primary" id="btn-tambah-bb" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="card-body">
+                <table id="tableBeratBarang" class="table table-bordered table-striped table-hover">
+                </table>
+            </div>
+        </div>
+
+        <!-- layanan  -->
+        <div class="card">
+            <div class="card-header">
+                <div class="table-title d-flex justify-content-between">
+                    <h3 class="card-title">Layanan</h3>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <button class="float-right btn-danger" id="btn-delete-layanan" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
+                <button class="float-right btn-primary" id="btn-tambah-layanan" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="card-body">
+                <table id="tableLayanan" class="table table-bordered table-striped table-hover">
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal form bb -->
+    <div class="modal effect modal-berat-barang" id="modal-berat-barang" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <h5 class="modal-title">Berat Barang</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="form-popup" id="form-berat-barang">
+                        <input id="idBeratBarang" name="idBeratBarang" type="hidden"/>
+                        <div class="txtb txtb-name">
+                            <input type="text" id="kategoriBeratBarang" name="kategoriBeratBarang" required>
+                            <span data-placeholder="Kategori"></span>
+                        </div>
+                        <div class="txtb txtb-tel2">
+                            <input type="tel" id="biayaKategori" name="biayaKategori" required>
+                            <span data-placeholder="Biaya"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button id="btn-save-bb" type="button" class="btn btn-primary tombol">Tambahkan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal delete bb -->
+    <div class="modal effect" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <h5 class="modal-title" id="modal-konfirmasi">Konfirmasi Hapus</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>Yakin ingin menghapus tabel ini? </p>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="delete-row-bb" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal form layanan -->
+    <div class="modal effect modal-layanan" id="modal-layanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <h5 class="modal-title">Layanan</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="form-popup" id="form-layanan">
+                        <input id="idLayanan" name="idLayanan" type="hidden"/>
+                        <div class="txtb txtb-name">
+                            <input type="text" id="kategoriLayanan" name="kategoriLayanan" required>
+                            <span data-placeholder="Kategori"></span>
+                        </div>
+                        <div class="txtb txtb-tel2">
+                            <input type="tel" id="biayaLayanan" name="biayaLayanan" required>
+                            <span data-placeholder="Biaya"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button id="btn-save-layanan" type="button" class="btn btn-primary tombol">Tambahkan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal delete layanan -->
+</div>
+
+<!-- page script -->
+<th:block layout:fragment="add-script">
+    <!-- animation  -->
+    <script>
+        // dropdown table
+        $('.table-title>i').click(function () {
+            if ( $( this ).css( "transform" ) == 'none' ){
+                $(this).css("transform","rotate(180deg)");
+                $(this).parents('.card-header').next('.card-body').hide(200)
+            } else {
+                $(this).css("transform","" );
+                $(this).parents('.card-header').next('.card-body').show(200)
+            }
+        })
+
+        // modal form input animation
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur",function(){
+            if($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+    </script>
+
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/beratBarang.js}"></script>
+    <script th:src="@{/js/layanan.js}"></script>
+    <!-- action berat barang -->
+    <script>
+        tableBeratBarang.create();
+
+        $('#btn-tambah-bb').click(function () {
+            formBeratBarang.resetForm();
+            $('#modal-berat-barang').modal('show')
+        });
+
+        $('#btn-save-bb').click(function () {
+            formBeratBarang.saveForm()
+        });
+
+        $('#delete-row-bb').click(function () {
+            actionDelete.deleteRowData();
+        });
+
+        $('#btn-delete-bb').click(function () {
+            var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
+            $('.modal-body-delete').html(p)
+            $('#delete-row-bb').addClass('delete-table')
+            $('#modal-delete').modal('show')
+        });
+
+        $(document).on('click', 'button.delete-table', function () {
+            actionDelete.deleteTable()
+        });
+    </script>
+
+    <!-- action layanan -->
+    <script>
+        tableLayanan.create();
+
+        $('#btn-tambah-layanan').click(function () {
+            formLayanan.resetForm();
+            $('#modal-layanan').modal('show')
+        });
+
+        $('#btn-save-layanan').click(function () {
+            formLayanan.saveForm()
+        });
+
+        $('#delete-row-layanan').click(function () {
+            actionDelete.deleteRowData();
+        });
+
+        $('#btn-delete-layanan').click(function () {
+            var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
+            $('.modal-body-delete').html(p)
+            $('#delete-row-layanan').addClass('delete-table')
+            $('#modal-delete').modal('show')
+        });
+
+        $(document).on('click', 'button.delete-table', function () {
+            actionDelete.deleteTable();
+        })
+    </script>
+</th:block>
