@@ -62,36 +62,11 @@ var formKurir= {
     $('#form-Kurir')[0].reset();
     $("#idKurir").val("");
   },
-  // saveForm: function () {
-  //   if ($('#form-Transaksi').parsley().validate()) {
-  //     var dataResult = getJsonForm($("#form-Transaksi").serializeArray(), true);
-  //
-  //     $.ajax({
-  //       url: '/api/transaksi',
-  //       method: 'post',
-  //       contentType: 'application/json',
-  //       dataType: 'json',
-  //       data: JSON.stringify(dataResult),
-  //       success: function (res, status, xhr) {
-  //         if (xhr.status == 200 || xhr.status == 201) {
-  //           tabelTransaksi.create();
-  //           $('#modal-transaksi').modal('hide')
-  //
-  //         } else {
-  //
-  //         }
-  //       },
-  //       erorrr: function (err) {
-  //         console.log(err);
-  //       }
-  //     });
-  //   }
-  // },
-  setEditData: function (idCabang) {
+  setEditData: function (id) {
     formKurir.resetForm();
 
     $.ajax({
-      url: '/api/kurir/' + idCabang,
+      url: '/api/kurir/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -112,9 +87,9 @@ var formKurir= {
 };
 
 var actionDelete = {
-  deleteConfirm : function (idCabang) {
+  deleteConfirm : function (id) {
     $.ajax({
-      url: '/api/kurir/'+ idCabang,
+      url: '/api/kurir/'+ id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -136,7 +111,7 @@ var actionDelete = {
       var dataResult = getJsonForm($("#form-Kurir").serializeArray(), true);
 
       $.ajax({
-        url: '/api/kurir/' + dataResult.id,
+        url: '/api/kurir/' + dataResult.idKurir,
         method: 'delete',
         success: function () {
           tabelKurir.create();

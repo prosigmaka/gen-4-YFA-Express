@@ -44,7 +44,7 @@ public class ApiKurir {
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
-        kurirDto.setUrl(kurir.getFile());
+
         return kurirDto;
     }
 
@@ -56,7 +56,7 @@ public class ApiKurir {
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
-        kurirDto.setUrl(kurir.getFile());
+
 
         return kurirDto;
     }
@@ -82,9 +82,9 @@ public class ApiKurir {
     }
 
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
-        kurirRepository.deleteById(Integer.parseInt(id));
+    @DeleteMapping("/{idKurir}")
+    public void delete(@PathVariable String idKurir) {
+        kurirRepository.deleteById(Integer.parseInt(idKurir));
     }
 
     @DeleteMapping
