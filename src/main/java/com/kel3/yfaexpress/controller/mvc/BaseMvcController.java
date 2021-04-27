@@ -27,7 +27,7 @@ public class BaseMvcController {
         return "admin/kurir";
     }
 
-    @GetMapping("admin/beratBarang")
+    @GetMapping("admin/beratLayanan")
     public String beratBarang() {
         return "admin/berat-layanan";
     }
