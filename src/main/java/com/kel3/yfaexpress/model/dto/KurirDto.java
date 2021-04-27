@@ -7,5 +7,5 @@ public class KurirDto {
     private Integer idKurir;
     private String namaKurir;
     private String noTelpKurir;
-    private String url;
+    private String file;
 }
