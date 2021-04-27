@@ -3,6 +3,7 @@ package com.kel3.yfaexpress.controller.restapi;
 import com.kel3.yfaexpress.model.dto.PenerimaDto;
 import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.repository.PenerimaRepository;
+import com.kel3.yfaexpress.service.PenerimaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ApiPenerima {
     @Autowired
     private ModelMapper modelMapper;
 
-//    @Autowired
-//    private KurirService kurirService;
+    @Autowired
+    private PenerimaService penerimaService;
 
     @GetMapping()
     public List<PenerimaDto> getListPenerima() {
@@ -60,10 +61,17 @@ public class ApiPenerima {
     }
 
     @PostMapping
-    public Penerima save(@RequestBody Penerima penerima) {
-        return penerimaRepository.save(penerima);
-    }
+    public PenerimaDto editSavePenerima(@RequestBody PenerimaDto penerimaDto) {
+       
+        Penerima penerima = modelMapper.map(penerimaDto, Penerima.class);
+        penerima.setIdPenerima(penerimaDto.getIdPenerima());
+        penerima = penerimaService.savePenerimaMaterDetail(penerima);
+        /*penerimaDtoDb sudah mengandung primary key penerima dan penerimadto*/
+        PenerimaDto penerimaDtoDB = mapPenerimaToPenerimaDto(penerima);
 
+        return penerimaDtoDB;
+    }
+    
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer idPenerima) {
         penerimaRepository.deleteById(idPenerima);
