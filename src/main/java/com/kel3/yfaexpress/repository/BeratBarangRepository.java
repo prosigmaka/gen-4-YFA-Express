@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BeratBarangRepository extends JpaRepository<BeratBarang, Integer> {
-    List<BeratBarang> findAllByIdBeratBarang(Integer idBeratBarang);
+
 }
