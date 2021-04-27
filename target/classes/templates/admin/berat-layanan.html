@@ -231,17 +231,17 @@
         });
 
         $('#delete-row-layanan').click(function () {
-            actionDelete.deleteRowData();
+            actionDeleteLayanan.deleteRowData();
         });
 
         $('#btn-delete-layanan').click(function () {
             var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
             $('.modal-body-delete').html(p)
-            $('#delete-row-layanan').addClass('delete-table')
+            $('#delete-row-layanan').addClass('delete-table-layanan')
             $('#modal-delete-layanan').modal('show')
         });
 
-        $(document).on('click', 'button.delete-table', function () {
+        $(document).on('click', 'button.delete-table-layanan', function () {
             actionDeleteLayanan.deleteTable();
         })
     </script>

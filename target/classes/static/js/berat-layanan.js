@@ -305,7 +305,7 @@ var actionDeleteLayanan = {
         method: 'delete',
         success: function () {
           tableLayanan.create();
-          $('#modal-delete').modal('hide');
+          $('#modal-delete-layanan').modal('hide');
         },
         erorrr: function (err) {
           console.log(err);
@@ -320,7 +320,7 @@ var actionDeleteLayanan = {
       method: 'delete',
       success: function () {
         tableLayanan.create()
-        $('#modal-delete').modal('hide')
+        $('#modal-delete-layanan').modal('hide')
       }
 
     })
