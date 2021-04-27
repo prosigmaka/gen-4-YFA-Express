@@ -85,6 +85,12 @@ public class ApiKurir {
         kurirRepository.deleteById(Integer.parseInt(id));
     }
 
+    @DeleteMapping
+    @ResponseBody
+    public void deleteTableKurir() {
+        kurirRepository.deleteAll();
+    }
+
     @GetMapping("/transaksi")
     public Kurir latTransactional() {
         Kurir kurir = kurirService.latTransactional();
