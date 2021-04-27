@@ -17,10 +17,10 @@ public class Transaksi {
     private Integer idTransaksi;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private User user;
-    @Column(name = "id_user")
-    private Integer idUser;
+    @Column(name = "id")
+    private Integer id;
 
     @OneToOne
     @JoinColumn(name = "id_barang", insertable = false, updatable = false)
