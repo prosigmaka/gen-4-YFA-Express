@@ -1,4 +1,8 @@
 /* body */
+body {
+  background-color: #F5F5F5;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -6,6 +10,14 @@ body::-webkit-scrollbar {
 body, html {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.btn-primary {
+  background-color: rgba(30, 171, 255, 1);
+}
+
+.btn-primary, .btn-danger, .btn-success {
+  border: none;
 }
 
 /* navbar */
@@ -127,3 +139,6 @@ a.nav-link, .login {
     background-position-x: 0;
   }
 }
+
+
+
