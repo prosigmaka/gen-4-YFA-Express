@@ -135,6 +135,29 @@
         </div>
     </div>
     <!-- modal delete layanan -->
+    <div class="modal effect" id="modal-delete-layanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <h5 class="modal-title" id="modal-konfirmasi-layanan">Konfirmasi Hapus</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>Yakin ingin menghapus tabel ini? </p>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="delete-row-layanan" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- page script -->
@@ -164,8 +187,7 @@
 
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/default.js}"></script>
-    <script th:src="@{/js/beratBarang.js}"></script>
-    <script th:src="@{/js/layanan.js}"></script>
+    <script th:src="@{/js/berat-layanan.js}"></script>
     <!-- action berat barang -->
     <script>
         tableBeratBarang.create();
@@ -216,11 +238,11 @@
             var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
             $('.modal-body-delete').html(p)
             $('#delete-row-layanan').addClass('delete-table')
-            $('#modal-delete').modal('show')
+            $('#modal-delete-layanan').modal('show')
         });
 
         $(document).on('click', 'button.delete-table', function () {
-            actionDelete.deleteTable();
+            actionDeleteLayanan.deleteTable();
         })
     </script>
 </th:block>

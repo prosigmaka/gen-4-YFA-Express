@@ -59,7 +59,7 @@ public class ApiBeratBarang {
 
     @DeleteMapping
     @ResponseBody
-    public void deleteTablePengirim() {
+    public void deleteTableBerat() {
         beratBarangRepository.deleteAll();
     }
 }
