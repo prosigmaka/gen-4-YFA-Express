@@ -1,8 +1,6 @@
 package com.kel3.yfaexpress.controller.restapi;
 
-import com.kel3.yfaexpress.model.dto.KurirDto;
 import com.kel3.yfaexpress.model.dto.PenerimaDto;
-import com.kel3.yfaexpress.model.entity.Kurir;
 import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.repository.PenerimaRepository;
 import org.modelmapper.ModelMapper;
