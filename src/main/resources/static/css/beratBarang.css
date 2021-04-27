@@ -209,10 +209,10 @@ thead {
 .footer-login {
   display: block;
   border-top: none;
-  margin-top: -45px;
+  margin-top: 0;
 }
 
-.tombol {
+.tombol, .delete-table {
   border-radius: 20px;
 }
 
@@ -229,7 +229,7 @@ thead {
   color: rgba(30,171,255,1);
 }
 
-.signup-form {
+.form-popup {
   margin-top: -15px;
 }
 

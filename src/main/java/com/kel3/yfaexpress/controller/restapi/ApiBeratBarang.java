@@ -38,9 +38,13 @@ public class ApiBeratBarang {
         return bbDto;
     }
 
-    @GetMapping("/{id}")
-    public List<BeratBarang> getById(@PathVariable Integer idBeratBarang) {
-        return beratBarangRepository.findAllByIdBeratBarang(idBeratBarang);
+    @GetMapping("/{idBeratBarang}")
+    public BeratBarangDto getById(@PathVariable Integer idBeratBarang) {
+        BeratBarang beratBarang = beratBarangRepository.findById(idBeratBarang).get();
+        BeratBarangDto beratBarangDto = new BeratBarangDto();
+        modelMapper.map(beratBarang, beratBarangDto);
+        beratBarangDto.setIdBeratBarang(beratBarang.getIdBeratBarang());
+        return beratBarangDto;
     }
 
     @PostMapping
@@ -48,7 +52,7 @@ public class ApiBeratBarang {
         return beratBarangRepository.save(beratBarang);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{idBeratBarang}")
     public void delete(@PathVariable Integer idBeratBarang) {
         beratBarangRepository.deleteById(idBeratBarang);
     }

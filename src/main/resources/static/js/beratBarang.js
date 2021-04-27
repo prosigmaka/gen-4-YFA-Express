@@ -32,8 +32,8 @@ var tableBeratBarang = {
                 title: "Action",
                 data: null,
                 render: function (data, type, row) {
-                  return "<button class='btn-success' data-toggle='tooltip' title='edit' data-placement='bottom' onclick=formberatBarang.setEditData('" + data.idberatBarang + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>" + "<span>   </span>" +
-                    "<button class='btn-danger' data-toggle='tooltip' title='delete' data-placement='bottom' onclick=actionDelete.deleteConfirm('" + data.idberatBarang + "') style='border-radius: 20%'><i class='fa fa-minus-circle'></i></button>"
+                  return "<button class='btn-success' data-toggle='tooltip' title='edit' data-placement='bottom' onclick=formBeratBarang.setEditData('" + data.idBeratBarang + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>" + "<span>   </span>" +
+                    "<button class='btn-danger' data-toggle='tooltip' title='delete' data-placement='bottom' onclick=actionDelete.deleteConfirm('" + data.idBeratBarang + "') style='border-radius: 20%'><i class='fa fa-minus-circle'></i></button>"
                 }
               }
             ],
@@ -56,7 +56,7 @@ var tableBeratBarang = {
 var formBeratBarang = {
   resetForm: function () {
     $('#form-berat-barang')[0].reset();
-    $('#idberatBarang').val("");
+    $('#idBeratBarang').val("");
   },
   saveForm: function () {
     if ($('#form-berat-barang').parsley().validate()) {
@@ -83,11 +83,11 @@ var formBeratBarang = {
     }
 
   },
-  setEditData: function (idCabang) {
-    formberatBarang.resetForm();
+  setEditData: function (id) {
+    formBeratBarang.resetForm();
 
     $.ajax({
-      url: '/api/berat-barang/' + idCabang,
+      url: '/api/berat-barang/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -117,10 +117,9 @@ var actionDelete = {
       success: function (res, status, xhr) {
         if (xhr.status == 200 || xhr.status == 201) {
           $('#form-berat-barang').fromJSON(JSON.stringify(res));
-          var h4 =  '<h4>Yakin ingin menghapus data ini?</h4>'
-          var p = '<p>Data ini akan hilang setelah mengklik tombol "Delete"</p>';
-          $('#modal-header').html(h4)
-          $('#modal-hidden-id').html(p);
+          var p =  '<p>Yakin ingin menghapus data ini?</p>'
+          $('.modal-body-delete').html(p)
+          $('#delete-row-bb').removeClass('delete-table')
           $('#modal-delete').modal('show')
         } else {
 
@@ -137,7 +136,7 @@ var actionDelete = {
       var dataResult = getJsonForm($("#form-berat-barang").serializeArray(), true);
 
       $.ajax({
-        url: '/api/berat-barang/' + dataResult.idberatBarang,
+        url: '/api/berat-barang/' + dataResult.idBeratBarang,
         method: 'delete',
         success: function () {
           tableBeratBarang.create();

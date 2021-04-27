@@ -27,7 +27,8 @@
                 </table>
             </div>
         </div>
-        <!--  -->
+
+        <!-- layanan  -->
         <div class="card">
             <div class="card-header">
                 <div class="table-title d-flex justify-content-between">
@@ -44,52 +45,56 @@
         </div>
     </div>
 
-    <div class="modal effect modal-berat-barang" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- modal form bb -->
+    <div class="modal effect modal-berat-barang" id="modal-berat-barang" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-signup">
                 <div class="modal-header modal-header-signup">
-                    <div class="back text-center" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
-                    </div>
-                    <h5 class="modal-title" id="modal-daftar">Daftar</h5>
+                    <h5 class="modal-title" id="modal-daftar">Berat Barang</h5>
                     <div class="cls text-center" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="fa fa-times"></i></span>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="signup-form" id="form-berat-barang">
+                    <form class="form-popup" id="form-berat-barang">
+                        <input id="idBeratBarang" name="idBeratBarang" type="hidden"/>
                         <div class="txtb txtb-name">
-                            <input type="text" id="name" name="name" required>
-                            <span data-placeholder="Nama"></span>
+                            <input type="text" id="kategoriBeratBarang" name="kategoriBeratBarang" required>
+                            <span data-placeholder="Kategori"></span>
                         </div>
                         <div class="txtb txtb-tel2">
-                            <input type="tel" id="tel2" name="tel2" required>
-                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
-                        </div>
-                        <div class="txtb txtb-email2">
-                            <input type="email" id="email2" name="email2" required>
-                            <span data-placeholder="Email"></span>
-                        </div>
-                        <div class="txtb">
-                            <input type="password" id="pass2" name="pass2" required>
-                            <span data-placeholder="Password"></span>
-                        </div>
-                        <div class="txtb">
-                            <input type="password" id="pass3" name="pass3" required>
-                            <span data-placeholder="Konfirmasi password"></span>
-                        </div>
-                        <div class="row signup-row">
-                            <div class="privasi">
-                                <input type="checkbox" id="agree" name="agree" value="Y" required>
-                                <p>Saya sudah membaca, mengerti dan menyetujui <a href="">【Syarat dan Ketentuan YFA Express】</a> dan <a href="">【Ketentuan privasi】</a></p>
-                            </div>
+                            <input type="tel" id="biayaKategori" name="biayaKategori" required>
+                            <span data-placeholder="Biaya"></span>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer footer-login">
                     <div class="container" style="position: relative">
                         <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary tombol">Konfirmasi Pendaftaran</button>
+                            <button id="btn-save-bb" type="button" class="btn btn-primary tombol">Tambahkan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal delete bb -->
+    <div class="modal effect" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-header modal-header-signup">
+                    <h5 class="modal-title" id="modal-konfirmasi">Konfirmasi Hapus</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>Yakin ingin menghapus tabel ini? </p>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="delete-row-bb" class="btn btn-danger">Hapus</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +106,9 @@
 
 <!-- page script -->
 <th:block layout:fragment="add-script">
+    <!-- animation  -->
     <script>
+        // dropdown table
         $('.table-title>i').click(function () {
             if ( $( this ).css( "transform" ) == 'none' ){
                 $(this).css("transform","rotate(180deg)");
@@ -111,34 +118,42 @@
                 $(this).parents('.card-header').next('.card-body').show(200)
             }
         })
+
+        // modal form input animation
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur",function(){
+            if($(this).val() == "")
+                $(this).removeClass("focus");
+        });
     </script>
 
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/beratBarang.js}"></script>
-    <script th:src="@{/js/kurir.js}"></script>
+
+    <!-- action -->
     <script>
         tableBeratBarang.create();
 
         $('#btn-tambah-bb').click(function () {
             formBeratBarang.resetForm();
-            $('.modal-berat-barang').modal('show')
+            $('#modal-berat-barang').modal('show')
         });
 
-        $('#btn-save').click(function () {
+        $('#btn-save-bb').click(function () {
             formBeratBarang.saveForm()
         });
 
-        $('#btn-delete-row').click(function () {
+        $('#delete-row-bb').click(function () {
             actionDelete.deleteRowData();
         });
 
         $('#btn-delete-bb').click(function () {
-            var h4 =  '<h4>Yakin ingin menghapus tabel ini?</h4>'
-            var p = '<p>Semua data pada tabel akan hilang setelah mengklik tombol "Delete"</p>';
-            $('#modal-header').html(h4)
-            $('#modal-hidden-id').html(p);
-            $('#btn-delete-row').addClass('delete-table')
+            var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
+            $('.modal-body-delete').html(p)
+            $('#delete-row-bb').addClass('delete-table')
             $('#modal-delete').modal('show')
         });
 
