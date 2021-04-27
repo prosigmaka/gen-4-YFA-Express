@@ -32,7 +32,7 @@ var tableBeratBarang = {
                 title: "Action",
                 data: null,
                 render: function (data, type, row) {
-                  return "<button class='btn-success' data-toggle='tooltip' title='edit' data-placement='bottom' onclick=formBeratBarang.setEditData('" + data.idBeratBarang + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>" + "<span>   </span>" +
+                  return "<button class='btn-success' data-toggle='tooltip' title='edit' data-placement='bottom' onclick=formBeratBarang.setEditData('" + data.idBeratBarang + "') style='border-radius: 20%; margin-right: 5px'><i class='fa fa-pencil-alt'></i></button>" +
                     "<button class='btn-danger' data-toggle='tooltip' title='delete' data-placement='bottom' onclick=actionDelete.deleteConfirm('" + data.idBeratBarang + "') style='border-radius: 20%'><i class='fa fa-minus-circle'></i></button>"
                 }
               }

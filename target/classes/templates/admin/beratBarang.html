@@ -30,16 +30,16 @@
 
         <!-- layanan  -->
         <div class="card">
-            <div class="card-header">
+            <div class="card-header card-top">
                 <div class="table-title d-flex justify-content-between">
                     <h3 class="card-title">Data Berat Barang</h3>
                     <i class="fa fa-chevron-down"></i>
                 </div>
-                <button class="float-right btn-danger" id="btn-delete" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
-                <button class="float-right btn-primary" id="btn-tambah" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
+                <button class="float-right btn-danger" id="btn-delete-layanan" data-toggle="tooltip" title="delete table" data-placement="top" style="border-radius: 20%; margin-left: 5px;"><i class="fa fa-trash-alt"></i></button>
+                <button class="float-right btn-primary" id="btn-tambah-layanan" data-toggle="tooltip" title="tambah" data-placement="top" style="border-radius: 20%;"><i class="fa fa-plus"></i></button>
             </div>
             <div class="card-body">
-                <table id="tabelKurir" class="table table-bordered table-striped table-hover">
+                <table id="tableLayanan" class="table table-bordered table-striped table-hover">
                 </table>
             </div>
         </div>
@@ -132,8 +132,7 @@
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/beratBarang.js}"></script>
-
-    <!-- action -->
+    <!-- action berat barang -->
     <script>
         tableBeratBarang.create();
 
