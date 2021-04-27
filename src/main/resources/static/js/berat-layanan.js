@@ -1,4 +1,4 @@
-// Berat barang
+//berat barang
 var tableBeratBarang = {
   create: function () {
     // jika table tersebut datatable, maka clear and dostroy
@@ -163,8 +163,7 @@ var actionDelete = {
   }
 };
 
-
-//Layanan
+//layanan
 var tableLayanan = {
   create: function () {
     // jika table tersebut datatable, maka clear and dostroy
@@ -200,7 +199,7 @@ var tableLayanan = {
                 data: null,
                 render: function (data, type, row) {
                   return "<button class='btn-success' data-toggle='tooltip' title='edit' data-placement='bottom' onclick=formLayanan.setEditData('" + data.idLayanan + "') style='border-radius: 20%; margin-right: 5px'><i class='fa fa-pencil-alt'></i></button>" +
-                    "<button class='btn-danger' data-toggle='tooltip' title='delete' data-placement='bottom' onclick=actionDelete.deleteConfirm('" + data.idLayanan + "') style='border-radius: 20%'><i class='fa fa-minus-circle'></i></button>"
+                    "<button class='btn-danger' data-toggle='tooltip' title='delete' data-placement='bottom' onclick=actionDeleteLayanan.deleteConfirm('" + data.idLayanan + "') style='border-radius: 20%'><i class='fa fa-minus-circle'></i></button>"
                 }
               }
             ],
@@ -274,7 +273,7 @@ var formLayanan = {
   }
 };
 
-var actionDelete = {
+var actionDeleteLayanan = {
   deleteConfirm: function (id) {
     $.ajax({
       url: '/api/layanan/' + id,
@@ -286,8 +285,8 @@ var actionDelete = {
           $('#form-layanan').fromJSON(JSON.stringify(res));
           var p =  '<p>Yakin ingin menghapus data ini?</p>'
           $('.modal-body-delete').html(p)
-          $('#delete-row-bb').removeClass('delete-table')
-          $('#modal-delete').modal('show')
+          $('#delete-row-layanan').removeClass('delete-table-layanan')
+          $('#modal-delete-layanan').modal('show')
         } else {
 
         }
@@ -307,7 +306,7 @@ var actionDelete = {
         method: 'delete',
         success: function () {
           tableLayanan.create();
-          $('#modal-delete').modal('hide');
+          $('#modal-delete-layanan').modal('hide');
         },
         erorrr: function (err) {
           console.log(err);
@@ -322,13 +321,10 @@ var actionDelete = {
       method: 'delete',
       success: function () {
         tableLayanan.create()
-        $('#modal-delete').modal('hide')
+        $('#modal-delete-layanan').modal('hide')
       }
 
     })
   }
 };
-
-
-
 

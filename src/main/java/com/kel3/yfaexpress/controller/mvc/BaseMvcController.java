@@ -17,17 +17,17 @@ public class BaseMvcController {
         return "FE-layanan";
     }
 
-    @GetMapping("dropoff")
+    @GetMapping("user-admin/dropoff")
     public String dropoff() {
         return "user/dropoff";
     }
 
-    @GetMapping("kurir")
+    @GetMapping("admin/kurir")
     public String kurir() {
         return "admin/kurir";
     }
 
-    @GetMapping("beratBarang")
+    @GetMapping("admin/beratBarang")
     public String beratBarang() {
         return "admin/berat-layanan";
     }
