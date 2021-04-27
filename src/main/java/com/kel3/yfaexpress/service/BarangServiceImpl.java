@@ -26,17 +26,11 @@ public class BarangServiceImpl implements BarangService {
     @Autowired
     private PenerimaRepository penerimaRepository;
 
-
-    @Override
-    public Barang latTransactional() { return null; }
-
     @Override
     public Barang saveBarangMaterDetail(Barang barang) {
-        barang = barangRepository.save(barang);
-        barang.setBeratBarang(beratBarangRepository.findById(barang.getIdBeratBarang()).get());
-        barang.setLayanan(layananRepository.findById(barang.getIdLayanan()).get());
-        barang.setPengirim(pengirimRepository.findById(barang.getIdPengirim()).get());
-        barang.setPenerima(penerimaRepository.findById(barang.getIdPenerima()).get());
+        pengirimRepository.save(barang.getPengirim());
+        penerimaRepository.save(barang.getPenerima());
+        barangRepository.save(barang);
         return barang;
     }
 }

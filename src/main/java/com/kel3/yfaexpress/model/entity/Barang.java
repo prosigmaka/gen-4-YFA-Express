@@ -13,12 +13,9 @@ public class Barang {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator=TABLE_BARANG)
     @SequenceGenerator(name = TABLE_BARANG, sequenceName = "t_barang_seq")
-
-
     private Integer idBarang;
     private String namaBarang;
     private Integer jumlahBarang;
-
     //private Integer idJarak;
 
     @ManyToOne
@@ -34,15 +31,11 @@ public class Barang {
     private Integer idLayanan;
 
     @OneToOne
-    @JoinColumn (name = "id_pengirim",insertable = false, updatable = false)
+    @JoinColumn (name = "id_pengirim")
     private Pengirim pengirim;
-    @Column(name = "id_pengirim",nullable = false)
-    private Integer idPengirim;
 
     @OneToOne
-    @JoinColumn (name = "id_penerima",insertable = false, updatable = false)
+    @JoinColumn (name = "id_penerima")
     private Penerima penerima;
-    @Column(name = "id_penerima",nullable = false)
-    private Integer idPenerima;
 
 }
