@@ -284,7 +284,7 @@ var actionDeleteLayanan = {
           $('#form-layanan').fromJSON(JSON.stringify(res));
           var p =  '<p>Yakin ingin menghapus data ini?</p>'
           $('.modal-body-delete').html(p)
-          $('#delete-row-layanan').removeClass('delete-table')
+          $('#delete-row-layanan').removeClass('delete-table-layanan')
           $('#modal-delete-layanan').modal('show')
         } else {
 

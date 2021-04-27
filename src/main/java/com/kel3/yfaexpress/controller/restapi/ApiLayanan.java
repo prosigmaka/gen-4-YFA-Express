@@ -41,9 +41,9 @@ public class ApiLayanan {
         return layananRepository.save(layanan);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        layananRepository.deleteById(id);
+    @DeleteMapping("/{idLayanan}")
+    public void delete(@PathVariable Integer idLayanan) {
+        layananRepository.deleteById(idLayanan);
     }
 
     @DeleteMapping
