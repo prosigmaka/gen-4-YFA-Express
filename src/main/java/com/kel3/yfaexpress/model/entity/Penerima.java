@@ -20,16 +20,16 @@ public class Penerima {
     private String namaPenerima;
 
     @Column(name ="no_telp_penerima",nullable = false)
-    private Number noTelpPenerima;
+    private String telpPenerima;
 
     @Column(name ="alamatpenerima",nullable = false)
-    private Number alamatPenerima;
+    private String alamatPenerima;
 
     @Column(name ="kode_pos_penerima",nullable = false)
-    private Number kodePosPenerima;
+    private String kodePosPenerima;
 
     @Column(name ="kota_penerima",nullable = false)
-    private Number kotaPenerima;
+    private String kotaPenerima;
 
 
 //    Belum ada entity KOTA
