@@ -15,7 +15,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tabel Kurir</h3>
+                        <h3 class="card-title">Data Kurir</h3>
                         <button class="float-right btn-primary" id="btn-tambah-kurir">Tambah</button>
                     </div>
                     <!-- /.card-header -->
@@ -27,35 +27,34 @@
                 </div>
                 <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
     </div>
-
-    <div class="modal fade" id="modal-kurir">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #0a0e14">
-                    <h4 class="modal-title" style="color: white">Data Kurir</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <!--    FORM KURIR-->
+    <div class="modal effect" id="modal-kurir" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-kurir">
+                <div class="modal-header modal-header-kurir">
+                    <!--                    <div class="back text-center" data-dismiss="modal" aria-label="Close">-->
+                    <!--                        <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>-->
+                    <!--                    </div>-->
+                    <h5 class="modal-title" id="modal-formkurir">Form Kurir</h5>
+                    <div class="cls text-center" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    <form id="form-Kurir" role="form" enctype="multipart/form-data" method="POST">
+                    <form class="kurir-form" id="form-Kurir" role="form" enctype="multipart/form-data" method="POST">
                         <input id="idKurir" name="idKurir" type="hidden"/>
-                        <div class="form-group">
-                            <label>Nama : </label>
-                            <select class="js-example-responsive form-control" style="width: 100%;"
-                                    id="namaKurir" name="idKurir" required>
-
-                            </select>
+                        <div class="txtb txtb-nameKurir">
+                            <input type="text" id="namaKurir" name="idKurir" required>
+                            <span data-placeholder="Nama Kurir"></span>
                         </div>
-                        <div class="form-group">
-                            <label>No Telp : </label>
-                            <input class="js-example-responsive form-control" style="width: 100%;"
-                                   id="noTelpKurir" name="noTelpKurir" required>
+                        <div class="txtb txtb-telpLKurir">
+                            <input type="tel" id="noTelpKurir" name="noTelpKurir" required>
+                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
                         </div>
-                        <div class="form-group">
+                        <div class="txtb txtb-fotokurir">
                             <label>Foto</label>
                             <input type="file" class="form-control" id="fileImage" name="file"
                                    accept="image/png, image/jpeg">
@@ -65,16 +64,17 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-                    <button class="btn btn-primary" id="btn-save-kurir" type="button">Save</button>
+                <div class="modal-footer footer-kurir">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="btn-save-kurir" class="btn btn-primary tombol">Save Data
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
     </div>
-
     <div class="modal fade" id="modal-delete">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
@@ -147,7 +147,8 @@
             // If you want to add an extra field for the FormData
             data.append('kurir', new Blob([JSON.stringify({
                 "idKurir": document.getElementById("namaKurir").value,
-                "telpKurir": document.getElementById("telpKurir").value
+                "noTelpKurir": document.getElementById("noTelpKurir").value
+
             })], {
                 type: "application/json"
             }));

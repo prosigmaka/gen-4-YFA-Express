@@ -7,5 +7,4 @@ public class KurirDto {
     private Integer idKurir;
     private String namaKurir;
     private Number noTelpKurir;
-    private String fotoKurir;
 }

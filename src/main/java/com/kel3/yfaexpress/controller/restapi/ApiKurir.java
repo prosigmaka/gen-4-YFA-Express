@@ -42,6 +42,8 @@ public class ApiKurir {
     private KurirDto mapKurirToKurirDto(Kurir kurir) {
         KurirDto kurirDto = modelMapper.map(kurir, KurirDto.class);
         kurirDto.setIdKurir(kurir.getIdKurir());
+        kurirDto.setNamaKurir(kurir.getNamaKurir());
+        kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
         return kurirDto;
     }
 
@@ -49,7 +51,7 @@ public class ApiKurir {
     public KurirDto getKurir(@PathVariable Integer id) {
         Kurir kurir = kurirRepository.findById(id).get();
         KurirDto kurirDto = new KurirDto();
-        // jika tidak pakai model mapper maka perlu setter getter satu satu
+        modelMapper.map(kurir, kurirDto);
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
