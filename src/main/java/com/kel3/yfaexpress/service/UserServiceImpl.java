@@ -1,9 +1,9 @@
 package com.kel3.yfaexpress.service;
 
 import com.kel3.yfaexpress.model.entity.Role;
-import com.kel3.yfaexpress.model.entity.User;
-import com.kel3.yfaexpress.repository.UserRepository;
 import com.kel3.yfaexpress.model.dto.UserRegistrationDto;
+import com.kel3.yfaexpress.model.entity.Useraa;
+import com.kel3.yfaexpress.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,22 +30,22 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User save(UserRegistrationDto registrationDto) {
-		User user = new User(registrationDto.getFirstName(),
+	public Useraa save(UserRegistrationDto registrationDto) {
+		Useraa useraa = new Useraa(registrationDto.getFirstName(),
 				registrationDto.getLastName(), registrationDto.getEmail(),
 				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
 
-		return userRepository.save(user);
+		return userRepository.save(useraa);
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		User user = userRepository.findByEmail(username);
-		if(user == null) {
+		Useraa useraa = userRepository.findByEmail(username);
+		if(useraa == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+		return new org.springframework.security.core.userdetails.User(useraa.getEmail(), useraa.getPassword(), mapRolesToAuthorities(useraa.getRoles()));
 	}
 
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
@@ -53,3 +53,4 @@ public class UserServiceImpl implements UserService{
 	}
 
 }
+

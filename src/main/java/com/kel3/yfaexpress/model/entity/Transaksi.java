@@ -16,11 +16,11 @@ public class Transaksi {
     @SequenceGenerator(name = TABLE_NAME , sequenceName = "t_transaksi_seq")
     private Integer idTransaksi;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user", insertable = false, updatable = false)
-    private User user;
-    @Column(name = "id_user")
-    private Integer idUser;
+//    @ManyToOne
+//    @JoinColumn(name = "id_user", insertable = false, updatable = false)
+//    private Useraa user;
+//    @Column(name = "id_user")
+//    private Integer idUser;
 
     @OneToOne
     @JoinColumn(name = "id_barang", insertable = false, updatable = false)
