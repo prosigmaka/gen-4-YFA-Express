@@ -33,7 +33,7 @@ public class Transaksi {
 
 //    @ManyToOne
 //    @JoinColumn(name = "id_total_biaya", insertable = false, updatable = false)
-//    private TotalBiaya totalBiaya;
+//    private TotalBiayaRepository totalBiaya;
     @Column(name = "id_total_biaya")
     private Integer idTotalBiaya;
 

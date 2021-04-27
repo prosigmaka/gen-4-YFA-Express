@@ -5,14 +5,14 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = Barang.TABLE_BARANG)
+@Table(name = Barang.TABLE_TOTAL_BIAYA)
 @Data
 public class Barang {
-    public static final String TABLE_BARANG = "t_barang";
+    public static final String TABLE_TOTAL_BIAYA = "t_barang";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator=TABLE_BARANG)
-    @SequenceGenerator(name = TABLE_BARANG, sequenceName = "t_barang_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator= TABLE_TOTAL_BIAYA)
+    @SequenceGenerator(name = TABLE_TOTAL_BIAYA, sequenceName = "t_barang_seq")
 
 
     private Integer idBarang;

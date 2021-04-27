@@ -50,7 +50,8 @@ public class TransaksiDto {
 
     //dto total biaya
     private Integer idTotalBiaya;
-//    copas isi Dto TotalBiaya
+    private Integer totalBiaya;
+//    copas isi Dto TotalBiayaRepository
     //end of dto total biaya
 
     //dto kurir

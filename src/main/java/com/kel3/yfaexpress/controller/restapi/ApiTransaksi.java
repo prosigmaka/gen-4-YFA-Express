@@ -28,9 +28,7 @@ public class ApiTransaksi {
     public List<TransaksiDto> getListTransaksi() {
         List<Transaksi> transaksiList = transaksiRepository.findAll();
         List<TransaksiDto> transaksiDto =
-                transaksiList.stream()
-                        .map(transaksi -> mapTransaksiToTransaksiDto(transaksi))
-                        .collect(Collectors.toList());
+                transaksiList.stream().map(transaksi -> mapTransaksiToTransaksiDto(transaksi)).collect(Collectors.toList());
         return transaksiDto;
     }
 
@@ -40,7 +38,6 @@ public class ApiTransaksi {
         modelMapper.map(transaksi.getKurir(), transaksiDto);
         modelMapper.map(transaksi.getBarang(), transaksiDto);
 //        modelMapper.map(transaksi.getTotalBiaya(), transaksiDto);
-
         return transaksiDto;
     }
 
