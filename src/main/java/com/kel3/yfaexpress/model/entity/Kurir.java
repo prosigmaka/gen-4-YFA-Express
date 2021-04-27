@@ -16,7 +16,7 @@ public class Kurir {
 
     private Integer idKurir;
     private String namaKurir;
-    private Number noTelpKurir;
+    private String noTelpKurir;
     @Column(name = "url")
     private String file;
 

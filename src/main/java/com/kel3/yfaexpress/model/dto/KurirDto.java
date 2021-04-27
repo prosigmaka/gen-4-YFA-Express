@@ -6,6 +6,6 @@ import lombok.Data;
 public class KurirDto {
     private Integer idKurir;
     private String namaKurir;
-    private Number noTelpKurir;
+    private String noTelpKurir;
     private String url;
 }
