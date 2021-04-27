@@ -47,7 +47,7 @@
                     <form class="kurir-form" id="form-Kurir" role="form" enctype="multipart/form-data" method="POST">
                         <input id="idKurir" name="idKurir" type="hidden"/>
                         <div class="txtb txtb-nameKurir">
-                            <input type="text" id="namaKurir" name="idKurir" required>
+                            <input type="text" id="namaKurir" name="namaKurir" required>
                             <span data-placeholder="Nama Kurir"></span>
                         </div>
                         <div class="txtb txtb-telpLKurir">
@@ -146,7 +146,7 @@
 
             // If you want to add an extra field for the FormData
             data.append('kurir', new Blob([JSON.stringify({
-                "idKurir": document.getElementById("namaKurir").value,
+                "namaKurir": document.getElementById("namaKurir").value,
                 "noTelpKurir": document.getElementById("noTelpKurir").value
 
             })], {

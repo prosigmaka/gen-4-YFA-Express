@@ -44,6 +44,7 @@ public class ApiKurir {
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
+        kurirDto.setUrl(kurir.getFile());
         return kurirDto;
     }
 
@@ -55,6 +56,7 @@ public class ApiKurir {
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
+        kurirDto.setUrl(kurir.getFile());
 
         return kurirDto;
     }
