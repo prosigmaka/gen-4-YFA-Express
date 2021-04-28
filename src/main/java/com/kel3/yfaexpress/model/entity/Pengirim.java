@@ -16,7 +16,7 @@ public class Pengirim {
     private Integer idPengirim;
     private String namaPengirim;
     private String telpPengirim;
-    private String kotaPengirim;
+//    private String kotaPengirim;
     private String alamatPengirim;
     private String kodePosPengirim;
 }

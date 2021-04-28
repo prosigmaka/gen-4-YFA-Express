@@ -35,7 +35,7 @@ var tableBarang = {
               {title: "Id Penerima", data: "idPenerima"},
               {title: "Nama Penerima", data: "namaPenerima"},
               {title: "Telp Penerima", data: "telpPenerima"},
-              {title: "Kota Penerima", data: "kotaPenerima"},
+              // {title: "Kota Penerima", data: "kotaPenerima"},
               {title: "Alamat Penerima", data: "alamatPenerima"},
               {title: "Kode Pos Penerima", data: "kodePosPenerima"},
 
@@ -148,6 +148,22 @@ var dropdown = {
           s += '<option value="' + data[i].idBeratBarang + '">' + data[i].kategoriBeratBarang + '</option>';
         }
         $("#kategoriBeratBarang").append(s);
+      }
+    });
+  },
+
+  pilihKota: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/kota",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Kota</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].idKota + '">' + data[i].kota + '</option>';
+        }
+        $("#kota").append(s);
       }
     });
   }

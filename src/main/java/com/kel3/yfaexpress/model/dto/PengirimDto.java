@@ -7,7 +7,7 @@ public class PengirimDto {
     private Integer idPengirim;
     private String namaPengirim;
     private Number telpPengirim;
-    private String kotaPengirim;
+    //private String kotaPengirim;
     private String alamatPengirim;
     private Number kodePosPengirim;
 }

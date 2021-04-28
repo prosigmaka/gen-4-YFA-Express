@@ -28,8 +28,8 @@ public class Penerima {
     @Column(name ="kode_pos_penerima",nullable = false)
     private String kodePosPenerima;
 
-    @Column(name ="kota_penerima",nullable = false)
-    private String kotaPenerima;
+//    @Column(name ="kota_penerima",nullable = false)
+//    private String kotaPenerima;
 
 
 //    Belum ada entity KOTA

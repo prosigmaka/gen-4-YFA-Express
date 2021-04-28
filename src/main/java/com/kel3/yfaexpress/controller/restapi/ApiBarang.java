@@ -54,6 +54,7 @@ public class ApiBarang {
         modelMapper.map(barang.getLayanan(),barangDto);
         modelMapper.map(barang.getPengirim(),barangDto);
         modelMapper.map(barang.getPenerima(),barangDto);
+        modelMapper.map(barang.getKota(),barangDto);
         barangDto.setIdBarang(barang.getIdBarang());
 
         return barangDto;
@@ -75,6 +76,7 @@ public class ApiBarang {
         BarangDto barangDto = modelMapper.map(barang, BarangDto.class);
         modelMapper.map(barang.getBeratBarang(),barangDto);
         modelMapper.map(barang.getLayanan(),barangDto);
+        modelMapper.map(barang.getKota(),barangDto);
         modelMapper.map(barang.getPengirim(),barangDto);
         modelMapper.map(barang.getPenerima(),barangDto);
         return barangDto;

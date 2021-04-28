@@ -16,7 +16,7 @@ public class Barang {
     private Integer idBarang;
     private String namaBarang;
     private Integer jumlahBarang;
-    private String keteranganBarang;
+//    private String keteranganBarang;
     //private Integer idJarak;
 
     @ManyToOne
@@ -30,6 +30,12 @@ public class Barang {
     private Layanan layanan;
     @Column(name = "id_layanan",nullable = false)
     private Integer idLayanan;
+
+    @ManyToOne
+    @JoinColumn (name = "id_kota",insertable = false, updatable = false)
+    private Kota kota;
+    @Column(name = "id_kota",nullable = false)
+    private Integer idKota;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")

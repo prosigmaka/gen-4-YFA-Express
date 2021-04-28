@@ -1,11 +1,7 @@
 package com.kel3.yfaexpress.service;
 
 import com.kel3.yfaexpress.model.entity.Barang;
-import com.kel3.yfaexpress.repository.BarangRepository;
-import com.kel3.yfaexpress.repository.BeratBarangRepository;
-import com.kel3.yfaexpress.repository.LayananRepository;
-import com.kel3.yfaexpress.repository.PengirimRepository;
-import com.kel3.yfaexpress.repository.PenerimaRepository;
+import com.kel3.yfaexpress.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +18,8 @@ public class BarangServiceImpl implements BarangService {
     @Autowired
     private LayananRepository layananRepository;
     @Autowired
+    private KotaRepository kotaRepository;
+    @Autowired
     private PengirimRepository pengirimRepository;
     @Autowired
     private PenerimaRepository penerimaRepository;
@@ -33,6 +31,7 @@ public class BarangServiceImpl implements BarangService {
         barang = barangRepository.save(barang);
         barang.setLayanan(layananRepository.findById(barang.getIdLayanan()).get());
         barang.setBeratBarang(beratBarangRepository.findById(barang.getIdBeratBarang()).get());
+        barang.setKota(kotaRepository.findById(barang.getIdKota()).get());
         return barang;
     }
 }

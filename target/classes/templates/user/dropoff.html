@@ -30,13 +30,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="telpPengirim">No Telp : </label>
-                                <input type="text" class="form-control" id="telpPengirim"
+                                <input type="tel" class="form-control" id="telpPengirim"
                                        name="telpPengirim" placeholder="No Telp Pengirim">
                             </div>
-                            <div class="form-group">
-                                <label for="kotaPengirim">Kota Asal :</label>
-                                <input class="form-control" id="kotaPengirim" name="kotaPengirim">
-                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label for="kota">Kota Asal dan Tujuan :</label>-->
+<!--                                <select class="form-control" id="kota" name="idKota"></select>-->
+<!--                            </div>-->
                             <div class="form-group">
                                 <label for="alamatPengirim">Alamat :</label>
                                 <input type="text" class="form-control" id="alamatPengirim"
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="kodePosPengirim">Kode Pos :</label>
-                                <input type="text" class="form-control" id="kodePosPengirim"
+                                <input type="tel" class="form-control" id="kodePosPengirim"
                                        name="kodePosPengirim" placeholder="Kode Pos Pengirim">
                             </div>
                         </div>
@@ -68,13 +68,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="telpPenerima">No Telp : </label>
-                                <input type="text" class="form-control" id="telpPenerima"
+                                <input type="tel" class="form-control" id="telpPenerima"
                                        name="telpPenerima" placeholder="No Telp Penerima">
                             </div>
-                            <div class="form-group">
-                                <label for="kotaPenerima">Kota Tujuan :</label>
-                                <input class="form-control" id="kotaPenerima" name="kotaPenerima">
-                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label for="kotaPenerima">Kota Tujuan :</label>-->
+<!--                                <input class="form-control" id="kotaPenerima" name="kotaPenerima">-->
+<!--                            </div>-->
                             <div class="form-group">
                                 <label for="alamatPenerima">Alamat : </label>
                                 <input type="text" class="form-control" id="alamatPenerima"
@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="kodePosPenerima">Kode Pos : </label>
-                                <input type="text" class="form-control" id="kodePosPenerima"
+                                <input type="tel" class="form-control" id="kodePosPenerima"
                                        name="kodePosPenerima" placeholder="Kode Pos Penerima">
                             </div>
                         </div>
@@ -118,9 +118,8 @@
                                 <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
                             </div>
                             <div class="form-group">
-                                <label for="keteranganBarang">Keterangan :</label>
-                                <input type="text" class="form-control" id="keteranganBarang"
-                                       name="keteranganBarang" placeholder="Keterangan Barang">
+                                    <label for="kota">Kota Asal dan Tujuan :</label>
+                                    <select class="form-control" id="kota" name="idKota"></select>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -172,6 +171,7 @@
 
         dropdown.pilihLayanan();
         dropdown.pilihBeratBarang();
+        dropdown.pilihKota();
     </script>
     <!-- script animasi -->
     <script>

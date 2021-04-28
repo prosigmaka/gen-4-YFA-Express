@@ -7,7 +7,7 @@ public class PenerimaDto {
     private Integer idPenerima;
     private String namaPenerima;
     private Number telpPenerima;
-    private String kotaPenerima;
+ //   private String kotaPenerima;
     private String alamatPenerima;
     private Number kodePosPenerima;
 }
