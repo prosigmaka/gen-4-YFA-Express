@@ -20,16 +20,16 @@ public class BarangDto {
 
     private Integer idPengirim;
     private String namaPengirim;
-    private Number telpPengirim;
+    private String telpPengirim;
     private String kotaPengirim;
     private String alamatPengirim;
-    private Number kodePosPengirim;
+    private String kodePosPengirim;
 
     private Integer idPenerima;
     private String namaPenerima;
-    private Number telpPenerima;
+    private String telpPenerima;
     private String kotaPenerima;
     private String alamatPenerima;
-    private Number kodePosPenerima;
+    private String kodePosPenerima;
 
 }
