@@ -13,13 +13,14 @@
 <div class="row card-row" layout:fragment="content-body">
     <!--    FORM PENGIRIM-->
     <div class="container form-container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Pengirim</h3>
-                    </div>
-                    <form id="form-Pengirim" role="form">
+        <form id="formDropOff">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Pengirim</h3>
+                        </div>
+                        <!--                        <form id="form-Pengirim" role="form">-->
                         <div class="card-body">
                             <input id="idPengirim" name="idPengirim" type="hidden"/>
                             <div class="form-group">
@@ -34,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="kotaPengirim">Kota Asal :</label>
-                                <select class="form-control" id="kotaPengirim" name="kotaPengirim"></select>
+                                <input class="form-control" id="kotaPengirim" name="kotaPengirim">
                             </div>
                             <div class="form-group">
                                 <label for="alamatPengirim">Alamat :</label>
@@ -48,16 +49,16 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
-                </div>
-            </div>
-            <!--    FORM PENERIMA-->
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Penerima</h3>
+                        <!--                        </form>-->
                     </div>
-                    <form id="form-Penerima" role="form">
+                </div>
+                <!--    FORM PENERIMA-->
+                <div class="col-md-4">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Penerima</h3>
+                        </div>
+                        <!--                        <form id="form-Penerima" role="form">-->
                         <div class="card-body">
                             <input id="idPenerima" name="idPenerima" type="hidden"/>
                             <div class="form-group">
@@ -72,7 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="kotaPenerima">Kota Tujuan :</label>
-                                <select class="form-control" id="kotaPenerima" name="kotaPenerima"></select>
+                                <input class="form-control" id="kotaPenerima" name="kotaPenerima">
                             </div>
                             <div class="form-group">
                                 <label for="alamatPenerima">Alamat : </label>
@@ -86,16 +87,16 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
-                </div>
-            </div>
-            <!--    FORM BARANG-->
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Barang</h3>
+                        <!--                        </form>-->
                     </div>
-                    <form id="form-Barang" role="form">
+                </div>
+                <!--    FORM BARANG-->
+                <div class="col-md-4">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Barang</h3>
+                        </div>
+                        <!--                        <form id="form-Barang" role="form">-->
                         <div class="card-body">
                             <input id="idBarang" name="idBarang" type="hidden"/>
                             <div class="form-group">
@@ -104,8 +105,8 @@
                                        name="namaBarang" placeholder="Nama Barang">
                             </div>
                             <div class="form-group">
-                                <label for="namaLayanan">Jenis Layanan :</label>
-                                <select class="form-control" id="namaLayanan" name="idLayanan"></select>
+                                <label for="kategoriLayanan">Jenis Layanan :</label>
+                                <select class="form-control" id="kategoriLayanan" name="idLayanan"></select>
                             </div>
                             <div class="form-group">
                                 <label for="jumlahBarang">Jumlah Barang :</label>
@@ -123,41 +124,55 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
+                        <!--                        </form>-->
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="card card-dark">
+                        <form id="form-TotalBiaya" role="form">
+                            <div class="card-body">
+                                <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
+                                <div class="form-group">
+                                    <label for="biayaKirim">Biaya Kirim :</label>
+                                    <input type="text" class="form-control" id="biayaKirim"
+                                           name="biayaKirim" placeholder="Biaya Kirim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="totalBiaya">Total Biaya :</label>
+                                    <input type="text" class="form-control" id="totalBiaya"
+                                           name="totalBiaya" placeholder="Total Biaya">
+                                </div>
+                                <!--    button save-->
+                                <div class=" button-order-close justify-content-between ">
+                                    <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
+                                    <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8 offset-md-2">
-                <div class="card card-dark">
-                    <form id="form-TotalBiaya" role="form">
-                        <div class="card-body">
-                            <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
-                            <div class="form-group">
-                                <label for="biayaKirim">Biaya Kirim :</label>
-                                <input type="text" class="form-control" id="biayaKirim"
-                                       name="biayaKirim" placeholder="Biaya Kirim">
-                            </div>
-                            <div class="form-group">
-                                <label for="totalBiaya">Total Biaya :</label>
-                                <input type="text" class="form-control" id="totalBiaya"
-                                       name="totalBiaya" placeholder="Total Biaya">
-                            </div>
-                            <!--    button save-->
-                            <div class=" button-order-close justify-content-between ">
-                                <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
-                                <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
+        </form>
     </div>
-
 </div>
 
 <th:block layout:fragment="add-script">
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/dropoffAdmin.js}"></script>
+
+    <!-- action berat barang -->
+    <script>
+        tableBarang.create();
+
+        $('#btn-save-utama').click(function () {
+            formDropOff.saveForm()
+        });
+
+        dropdown.pilihLayanan();
+        dropdown.pilihBeratBarang();
+    </script>
     <!-- script animasi -->
     <script>
         // card fade animation

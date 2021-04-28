@@ -16,22 +16,23 @@ var tableBarang = {
           $('#tableBarang').DataTable({
             data: res,
             columns: [
-              // {title: "Id Barang", data: "idBrang"},
+              {title: "Id Barang", data: "idBrang"},
               {title: "Nama ", data: "namaBarang"},
               {title: "jumlah", data: "jumlahBarang"},
-              // {title: "Id Berat Barang", data: "idBeratBarang"},
-              // {title: "Kategori Berat Barang", data: "kategoriBeratBarang"},
+              {title: "Keterangan", data: "keteranganBarang"},
+              {title: "Id Berat Barang", data: "idBeratBarang"},
+              {title: "Kategori Berat Barang", data: "kategoriBeratBarang"},
               {title: "Biaya Berat Barang", data: "biayaKategori"},
-              // {title: "Id Layanan", data: "idLayanan"},
-              // {title: "Kategori Layanan", data: "kategoriLayanan"},
+              {title: "Id Layanan", data: "idLayanan"},
+              {title: "Kategori Layanan", data: "kategoriLayanan"},
               {title: "Biaya Layanan", data: "biayaLayanan"},
-              // {title: "Id Pengirim", data: "idPengirim"},
+              {title: "Id Pengirim", data: "idPengirim"},
               {title: "Nama Pengirim", data: "namaPengirim"},
-              // {title: "Telp Pengirim", data: "telpPengirim"},
+              {title: "Telp Pengirim", data: "telpPengirim"},
               {title: "Kota Pengirim", data: "kotaPengirim"},
-              // {title: "Alamat Pengirim", data: "alamatPengirim"},
-              // {title: "Kode Pos Pengirim", data: "kodePosPengirim"},
-              // {title: "Id Penerima", data: "idPenerima"},
+              {title: "Alamat Pengirim", data: "alamatPengirim"},
+              {title: "Kode Pos Pengirim", data: "kodePosPengirim"},
+              {title: "Id Penerima", data: "idPenerima"},
               {title: "Nama Penerima", data: "namaPenerima"},
               {title: "Telp Penerima", data: "telpPenerima"},
               {title: "Kota Penerima", data: "kotaPenerima"},
@@ -42,7 +43,7 @@ var tableBarang = {
                 title: "Action",
                 data: null,
                 render: function (data, type, row) {
-                  return "<button class='btn-success' onclick=formBarang.setEditData('" + data.id + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>"+"<span></span>"+
+                  return "<button class='btn-success' onclick=formDropOff.setEditData('" + data.id + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>" + "<span></span>" +
                     "<button class='btn-danger' onclick=actionDelete.deleteConfirm('" + data.id + "') style='border-radius: 20%'><i class='fa fa-trash'></i></button>"
 
                 }
@@ -63,17 +64,18 @@ var tableBarang = {
   }
 };
 
-var formBarang = {
+var formDropOff = {
+
   resetForm: function () {
-    $('#form-Barang')[0].reset();
+    $('#formDropOff')[0].reset();
     $("#id").val("");
     $("#idPengirim").val("");
     $("#idPenerima").val("");
   },
   saveForm: function () {
-    if ($('#form-Barang').parsley().validate()) {
-      var dataResult = getJsonForm($("#form-Barang").serializeArray(), true);
-
+    if ($('#formDropOff').parsley().validate()) {
+      var dataResult = getJsonForm($("#formDropOff").serializeArray(), true);
+      console.log(dataResult)
       $.ajax({
         url: '/api/barang',
         method: 'post',
@@ -95,7 +97,7 @@ var formBarang = {
       });
     }
   }, setEditData: function (id) {
-    formBarang.resetForm();
+    formDropOff.resetForm();
 
     $.ajax({
       url: '/api/barang/' + id,
@@ -104,7 +106,7 @@ var formBarang = {
       dataType: 'json',
       success: function (res, status, xhr) {
         if (xhr.status == 200 || xhr.status == 201) {
-          $('#form-Barang').fromJSON(JSON.stringify(res));
+          $('#formDropOff').fromJSON(JSON.stringify(res));
           $('#modal-barang').modal('show')
 
         } else {
@@ -117,17 +119,51 @@ var formBarang = {
     });
   }
 };
+var dropdown = {
+  pilihLayanan: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/layanan",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Layanan</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].idLayanan + '">' + data[i].kategoriLayanan + '</option>';
+        }
+        $("#kategoriLayanan").append(s);
+      }
+    });
+  },
+
+  pilihBeratBarang: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/beratBarang",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Berat Barang</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].idBeratBarang + '">' + data[i].kategoriBeratBarang + '</option>';
+        }
+        $("#kategoriBeratBarang").append(s);
+      }
+    });
+  }
+}
+
 
 var actionDelete = {
-  deleteConfirm : function (id) {
+  deleteConfirm: function (id) {
     $.ajax({
-      url: '/api/barang/'+ id,
+      url: '/api/barang/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
       success: function (res, status, xhr) {
         if (xhr.status == 200 || xhr.status == 201) {
-          $('#form-Barang').fromJSON(JSON.stringify(res));
+          $('#form-DropOff').fromJSON(JSON.stringify(res));
           $('#modal-delete').modal('show')
         } else {
 
@@ -139,8 +175,8 @@ var actionDelete = {
     });
   },
   deleteRowData: function () {
-    if ($('#form-barang').parsley().validate()) {
-      var dataResult = getJsonForm($("#form-barang").serializeArray(), true);
+    if ($('#form-DropOff').parsley().validate()) {
+      var dataResult = getJsonForm($("#form-DropOff").serializeArray(), true);
 
       $.ajax({
         url: '/api/barang/' + dataResult.idBarang,

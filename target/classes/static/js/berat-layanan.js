@@ -8,7 +8,7 @@ var tableBeratBarang = {
     }
 
     $.ajax({
-      url: '/api/berat-barang',
+      url: '/api/beratBarang',
       method: 'get',
       contentType: 'application/json',
       success: function (res, status, xhr) {
@@ -62,7 +62,7 @@ var formBeratBarang = {
     if ($('#form-berat-barang').parsley().validate()) {
       var dataResult = getJsonForm($("#form-berat-barang").serializeArray(), true);
       $.ajax({
-        url: '/api/berat-barang',
+        url: '/api/beratBarang',
         method: 'post',
         contentType: 'application/json',
         dataType: 'json',
@@ -87,7 +87,7 @@ var formBeratBarang = {
     formBeratBarang.resetForm();
 
     $.ajax({
-      url: '/api/berat-barang/' + id,
+      url: '/api/beratBarang/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -110,7 +110,7 @@ var formBeratBarang = {
 var actionDelete = {
   deleteConfirm: function (id) {
     $.ajax({
-      url: '/api/berat-barang/' + id,
+      url: '/api/beratBarang/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -136,7 +136,7 @@ var actionDelete = {
       var dataResult = getJsonForm($("#form-berat-barang").serializeArray(), true);
 
       $.ajax({
-        url: '/api/berat-barang/' + dataResult.idBeratBarang,
+        url: '/api/beratBarang/' + dataResult.idBeratBarang,
         method: 'delete',
         success: function () {
           tableBeratBarang.create();
@@ -151,7 +151,7 @@ var actionDelete = {
 
   deleteTable : function () {
     $.ajax({
-      url: '/api/berat-barang',
+      url: '/api/beratBarang',
       method: 'delete',
       success: function () {
         tableBeratBarang.create()

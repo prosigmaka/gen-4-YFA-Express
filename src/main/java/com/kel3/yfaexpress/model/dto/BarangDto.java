@@ -7,6 +7,7 @@ public class BarangDto {
     private Integer idBarang;
     private String namaBarang;
     private Integer jumlahBarang;
+    private String keteranganBarang;
 
     private Integer idBeratBarang;
     private String kategoriBeratBarang;

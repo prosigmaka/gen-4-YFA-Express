@@ -30,7 +30,9 @@ public class BarangServiceImpl implements BarangService {
     public Barang saveBarangMaterDetail(Barang barang) {
         pengirimRepository.save(barang.getPengirim());
         penerimaRepository.save(barang.getPenerima());
-        barangRepository.save(barang);
+        barang = barangRepository.save(barang);
+        barang.setLayanan(layananRepository.findById(barang.getIdLayanan()).get());
+        barang.setBeratBarang(beratBarangRepository.findById(barang.getIdBeratBarang()).get());
         return barang;
     }
 }
