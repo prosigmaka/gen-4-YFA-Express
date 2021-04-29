@@ -54,6 +54,7 @@ public class TransaksiDto {
     private String email;
 
     //TRANSAKSI
+    private Integer idTransaksi;
     private String statusDelivery;
     private String statusPayment;
 }
