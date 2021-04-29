@@ -5,7 +5,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class Users {
 
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -31,11 +31,11 @@ public class User {
 
 	private Collection<Role> roles;
 
-	public User() {
+	public Users() {
 
 	}
 
-	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+	public Users(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

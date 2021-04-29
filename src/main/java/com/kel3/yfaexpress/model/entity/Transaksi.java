@@ -1,6 +1,5 @@
 package com.kel3.yfaexpress.model.entity;
 
-import io.swagger.models.auth.In;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +17,7 @@ public class Transaksi {
 
     @ManyToOne
     @JoinColumn(name = "id", insertable = false, updatable = false)
-    private User user;
+    private Users users;
     @Column(name = "id")
     private Integer id;
 
