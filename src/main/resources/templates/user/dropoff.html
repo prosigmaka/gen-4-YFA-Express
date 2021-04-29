@@ -162,6 +162,23 @@
             </div>
         </form>
     </div>
+    <!-- modal sukses order -->
+    <div class="modal effect" id="modal-sukses" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-body">
+                    <p>Order Berhasil</p>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="oke" class="btn btn-success">Okee</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <th:block layout:fragment="add-script">
@@ -175,7 +192,11 @@
 
         $('#btn-save-utama').click(function () {
             formDropOff.saveForm()
+            $('#modal-sukses').modal("show")
         });
+        $('#oke').click(function (){
+            $('#modal-sukses').modal("hide")
+        })
 
         dropdown.pilihLayanan();
         dropdown.pilihBeratBarang();
