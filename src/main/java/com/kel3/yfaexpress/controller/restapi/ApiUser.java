@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/registration")
 public class ApiUser {
 
-	private UserService userService;
+	private final UserService userService;
 
 	public ApiUser(UserService userService) {
 		super();
@@ -20,9 +20,9 @@ public class ApiUser {
 	}
 
 	@ModelAttribute("user")
-    public UserRegistrationDto userRegistrationDto() {
-        return new UserRegistrationDto();
-    }
+	public UserRegistrationDto userRegistrationDto() {
+		return new UserRegistrationDto();
+	}
 
 	@GetMapping
 	public String showRegistrationForm() {
