@@ -32,6 +32,10 @@ public class BaseMvcController {
         return "admin/berat-layanan";
     }
 
+    @GetMapping("/login")
+    public String login() { return "login"; }
 
+    @GetMapping("/")
+    public String home() { return "index"; }
 
 }
