@@ -13,217 +13,206 @@
 <div class="row card-row" layout:fragment="content-body">
     <!--    FORM PENGIRIM-->
     <div class="container form-container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Pengirim</h3>
-                    </div>
-                    <form id="form-Pengirim" role="form">
+        <form id="formDropOff">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Pengirim</h3>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                        <!--                        <form id="form-Pengirim" role="form">-->
                         <div class="card-body">
-                            <input id="idPengirim" name="idPengirim" type="hidden"/>
-                            <div class="form-group">
-                                <label for="namaPengirim">Nama : </label>
-                                <input type="text" class="form-control" id="namaPengirim"
-                                       name="namaPengirim" placeholder="Nama Pengirim">
-                            </div>
-                            <div class="form-group">
-                                <label for="telpPengirim">No Telp : </label>
-                                <input type="text" class="form-control" id="telpPengirim"
-                                       name="telpPengirim" placeholder="No Telp Pengirim">
-                            </div>
-                            <div class="form-group">
-                                <label for="kotaPengirim">Kota Asal :</label>
-                                <select class="form-control" id="kotaPengirim" name="kotaPengirim"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamatPengirim">Alamat :</label>
-                                <input type="text" class="form-control" id="alamatPengirim"
-                                       name="alamatPengirim" placeholder="Alamat Pengirim">
-                            </div>
-                            <div class="form-group">
-                                <label for="kodePosPengirim">Kode Pos :</label>
-                                <input type="text" class="form-control" id="kodePosPengirim"
-                                       name="kodePosPengirim" placeholder="Kode Pos Pengirim">
+                            <div class="container">
+                                <input id="idPengirim" name="idPengirim" type="hidden"/>
+                                <div class="form-group">
+                                    <label for="namaPengirim">Nama : </label>
+                                    <input type="text" class="form-control" id="namaPengirim"
+                                           name="namaPengirim" placeholder="Nama Pengirim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telpPengirim">No Telp : </label>
+                                    <input type="tel" class="form-control" id="telpPengirim"
+                                           name="telpPengirim" placeholder="No Telp Pengirim">
+                                </div>
+                                <!--                            <div class="form-group">-->
+                                <!--                                <label for="kota">Kota Asal dan Tujuan :</label>-->
+                                <!--                                <select class="form-control" id="kota" name="idKota"></select>-->
+                                <!--                            </div>-->
+                                <div class="form-group">
+                                    <label for="alamatPengirim">Alamat :</label>
+                                    <input type="text" class="form-control" id="alamatPengirim"
+                                           name="alamatPengirim" placeholder="Alamat Pengirim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kodePosPengirim">Kode Pos :</label>
+                                    <input type="tel" class="form-control" id="kodePosPengirim"
+                                           name="kodePosPengirim" placeholder="Kode Pos Pengirim">
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
-                </div>
-            </div>
-            <!--    FORM PENERIMA-->
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Penerima</h3>
+                        <!--                        </form>-->
                     </div>
-                    <form id="form-Penerima" role="form">
+                </div>
+                <!--    FORM PENERIMA-->
+                <div class="col-12">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Penerima</h3>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                        <!--                        <form id="form-Penerima" role="form">-->
                         <div class="card-body">
-                            <input id="idPenerima" name="idPenerima" type="hidden"/>
-                            <div class="form-group">
-                                <label for="namaPenerima">Nama :</label>
-                                <input type="text" class="form-control" id="namaPenerima"
-                                       name="namaPenerima" placeholder="Nama Penerima">
-                            </div>
-                            <div class="form-group">
-                                <label for="telpPenerima">No Telp : </label>
-                                <input type="text" class="form-control" id="telpPenerima"
-                                       name="telpPenerima" placeholder="No Telp Penerima">
-                            </div>
-                            <div class="form-group">
-                                <label for="kotaPenerima">Kota Tujuan :</label>
-                                <select class="form-control" id="kotaPenerima" name="kotaPenerima"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamatPenerima">Alamat : </label>
-                                <input type="text" class="form-control" id="alamatPenerima"
-                                       name="alamatPenerima" placeholder="Alamat Penerima">
-                            </div>
-                            <div class="form-group">
-                                <label for="kodePosPenerima">Kode Pos : </label>
-                                <input type="text" class="form-control" id="kodePosPenerima"
-                                       name="kodePosPenerima" placeholder="Kode Pos Penerima">
+                            <div class="container">
+                                <input id="idPenerima" name="idPenerima" type="hidden"/>
+                                <div class="form-group">
+                                    <label for="namaPenerima">Nama :</label>
+                                    <input type="text" class="form-control" id="namaPenerima"
+                                           name="namaPenerima" placeholder="Nama Penerima">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telpPenerima">No Telp : </label>
+                                    <input type="tel" class="form-control" id="telpPenerima"
+                                           name="telpPenerima" placeholder="No Telp Penerima">
+                                </div>
+                                <!--                            <div class="form-group">-->
+                                <!--                                <label for="kotaPenerima">Kota Tujuan :</label>-->
+                                <!--                                <input class="form-control" id="kotaPenerima" name="kotaPenerima">-->
+                                <!--                            </div>-->
+                                <div class="form-group">
+                                    <label for="alamatPenerima">Alamat : </label>
+                                    <input type="text" class="form-control" id="alamatPenerima"
+                                           name="alamatPenerima" placeholder="Alamat Penerima">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kodePosPenerima">Kode Pos : </label>
+                                    <input type="tel" class="form-control" id="kodePosPenerima"
+                                           name="kodePosPenerima" placeholder="Kode Pos Penerima">
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
-                </div>
-            </div>
-            <!--    FORM BARANG-->
-            <div class="col-md-4">
-                <div class="card card-dark">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Barang</h3>
+                        <!--                        </form>-->
                     </div>
-                    <form id="form-Barang" role="form">
+                </div>
+                <!--    FORM BARANG-->
+                <div class="col-12">
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Barang</h3>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                        <!--                        <form id="form-Barang" role="form">-->
                         <div class="card-body">
-                            <input id="idBarang" name="idBarang" type="hidden"/>
-                            <div class="form-group">
-                                <label for="namaBarang">Nama Barang :</label>
-                                <input type="text" class="form-control" id="namaBarang"
-                                       name="namaBarang" placeholder="Nama Barang">
-                            </div>
-                            <div class="form-group">
-                                <label for="namaLayanan">Jenis Layanan :</label>
-                                <select class="form-control" id="namaLayanan" name="idLayanan"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="jumlahBarang">Jumlah Barang :</label>
-                                <input type="text" class="form-control" id="jumlahBarang"
-                                       name="jumlahBarang" placeholder="Jumlah Barang">
-                            </div>
-                            <div class="form-group">
-                                <label for="kategoriBeratBarang">Berat Barang :</label>
-                                <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="keteranganBarang">Keterangan :</label>
-                                <input type="text" class="form-control" id="keteranganBarang"
-                                       name="keteranganBarang" placeholder="Keterangan Barang">
+                            <div class="container">
+                                <input id="idBarang" name="idBarang" type="hidden"/>
+                                <div class="form-group">
+                                    <label for="namaBarang">Nama Barang :</label>
+                                    <input type="text" class="form-control" id="namaBarang"
+                                           name="namaBarang" placeholder="Nama Barang">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kategoriLayanan">Jenis Layanan :</label>
+                                    <select class="form-control" id="kategoriLayanan" name="idLayanan"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlahBarang">Jumlah Barang :</label>
+                                    <input type="text" class="form-control" id="jumlahBarang"
+                                           name="jumlahBarang" placeholder="Jumlah Barang">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kategoriBeratBarang">Berat Barang :</label>
+                                    <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="kota">Kota Asal dan Tujuan :</label>
+                                    <select class="form-control" id="kota" name="idKota"></select>
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </form>
+                        <!--                        </form>-->
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8 offset-md-2">
-                <div class="card card-dark">
+                <div class="col-12">
                     <form id="form-TotalBiaya" role="form">
-                        <div class="card-body">
-                            <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
-                            <div class="form-group">
-                                <label for="biayaKirim">Biaya Kirim :</label>
-                                <input type="text" class="form-control" id="biayaKirim"
-                                       name="biayaKirim" placeholder="Biaya Kirim">
-                            </div>
-                            <div class="form-group">
-                                <label for="totalBiaya">Total Biaya :</label>
-                                <input type="text" class="form-control" id="totalBiaya"
-                                       name="totalBiaya" placeholder="Total Biaya">
+                        <div class="card-body total-biaya">
+                            <div class="container">
+                                <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
+                                <div class="form-group">
+                                    <label>Biaya Kirim :</label>
+                                    <p class="biayaKirim">0</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Total Biaya :</label>
+                                    <p class="totalBiaya">0</p>
+                                </div>
                             </div>
                             <!--    button save-->
-                            <div class=" button-order-close justify-content-between ">
-                                <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
-                                <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
+                            <div class="row button-order-close">
+                                <div class="order-click">
+                                    <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
+                                    <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
+                                </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
-
+        </form>
+    </div>
+    <!-- modal sukses order -->
+    <div class="modal effect" id="modal-sukses" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-signup">
+                <div class="modal-body">
+                    <p>Order Berhasil</p>
+                </div>
+                <div class="modal-footer footer-login">
+                    <div class="container" style="position: relative">
+                        <div class="row justify-content-center">
+                            <button type="button" id="oke" class="btn btn-success">Okee</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 
 <th:block layout:fragment="add-script">
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/dropoff.js}"></script>
+
+    <!-- action berat barang -->
+    <script>
+        tableBarang.create();
+
+        $('#btn-save-utama').click(function () {
+            formDropOff.saveForm()
+            $('#modal-sukses').modal("show")
+        });
+        $('#oke').click(function (){
+            $('#modal-sukses').modal("hide")
+        })
+
+        dropdown.pilihLayanan();
+        dropdown.pilihBeratBarang();
+        dropdown.pilihKota();
+    </script>
     <!-- script animasi -->
     <script>
-        // card fade animation
-        $(window).scroll(function () {
-            var wScroll = $(this).scrollTop()
-            var height = $('.jumbotron').outerHeight()
-
-            if (wScroll > height / 2) {
-                $('.card-service').each(function (i) {
-                    setTimeout(function () {
-                        $('.card-service').eq(i).addClass('muncul')
-                    }, i * 300)
-                })
+        // dropdown table
+        $('.card-header>i').click(function () {
+            if ( $( this ).css( "transform" ) == 'none' ){
+                $(this).css("transform","rotate(180deg)");
+                $(this).parents('.card-header').next('.card-body').hide(200)
+            } else {
+                $(this).css("transform","" );
+                $(this).parents('.card-header').next('.card-body').show(200)
             }
-        });
-
-        // modal form input animation
-        $(".txtb input").on("focus", function () {
-            $(this).addClass("focus");
-        });
-        $(".txtb input").on("blur", function () {
-            if ($(this).val() == "")
-                $(this).removeClass("focus");
-        });
-
-        //form login change
-        $(document).on('click', '.col-telp', function () {
-            $('.col-email').removeClass('on')
-            $(this).addClass('on')
-            $('.txtb-tel').css({
-                'display': 'block'
-            })
-            $('.txtb-email').css({
-                'display': 'none'
-            })
-        })
-        $(document).on('click', '.col-email', function () {
-            $('.col-telp').removeClass('on')
-            $(this).addClass('on')
-            $('.txtb-email').css({
-                'display': 'block'
-            })
-            $('.txtb-tel').css({
-                'display': 'none'
-            })
-        })
-    </script>
-    <!-- script action -->
-    <script>
-        //login
-        $('.login').click(function () {
-            $('#modal-login').modal('show')
-        })
-        $('.forget-pass').click(function () {
-            $('#modal-login').modal('hide')
-            $('#modal-forgot').modal('show')
-        })
-
-        //sign-up
-        $('.sign-up').click(function () {
-            $('#modal-login').modal('hide')
-            $('#modal-signup').modal('show')
-        })
-        $('.back').click(function () {
-            $('#modal-signup').modal('hide')
-            $('#modal-login').modal('show')
         })
     </script>
 </th:block>
