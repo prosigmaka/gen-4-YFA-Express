@@ -1,13 +1,11 @@
 package com.kel3.yfaexpress.controller.restapi;
 
-import com.kel3.yfaexpress.model.dto.BeratBarangDto;
+
 import com.kel3.yfaexpress.model.dto.LayananDto;
-import com.kel3.yfaexpress.model.entity.BeratBarang;
 import com.kel3.yfaexpress.model.entity.Layanan;
 import com.kel3.yfaexpress.repository.LayananRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface KotaRepository extends JpaRepository<Kota, Integer> {
-    List<Kota> findAllByIdKota(Integer idKota);
+
 }

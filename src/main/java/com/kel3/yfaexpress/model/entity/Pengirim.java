@@ -15,8 +15,8 @@ public class Pengirim {
     @SequenceGenerator(name = TABLE_NAME , sequenceName = "t_pengirim_seq")
     private Integer idPengirim;
     private String namaPengirim;
-    private Number telpPengirim;
-    private String kotaPengirim;
+    private String telpPengirim;
+    //    private String kotaPengirim;
     private String alamatPengirim;
-    private Number kodePosPengirim;
+    private String kodePosPengirim;
 }

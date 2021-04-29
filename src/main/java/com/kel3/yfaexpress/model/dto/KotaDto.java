@@ -6,4 +6,5 @@ import lombok.Data;
 public class KotaDto {
     private Integer idKota;
     private String kota;
+    private Integer estimasiBiaya;
 }

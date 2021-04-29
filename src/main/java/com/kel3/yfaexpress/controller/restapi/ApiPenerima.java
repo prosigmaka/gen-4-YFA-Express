@@ -39,4 +39,3 @@ public class ApiPenerima {
         penerimaRepository.deleteAll();
     }
 }
-

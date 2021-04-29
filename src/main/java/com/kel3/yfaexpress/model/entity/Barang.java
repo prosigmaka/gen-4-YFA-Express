@@ -13,12 +13,10 @@ public class Barang {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator=TABLE_BARANG)
     @SequenceGenerator(name = TABLE_BARANG, sequenceName = "t_barang_seq")
-
-
     private Integer idBarang;
     private String namaBarang;
     private Integer jumlahBarang;
-
+//    private String keteranganBarang;
     //private Integer idJarak;
 
     @ManyToOne
@@ -33,16 +31,18 @@ public class Barang {
     @Column(name = "id_layanan",nullable = false)
     private Integer idLayanan;
 
-    @OneToOne
-    @JoinColumn (name = "id_pengirim",insertable = false, updatable = false)
-    private Pengirim pengirim;
-    @Column(name = "id_pengirim",nullable = false)
-    private Integer idPengirim;
+    @ManyToOne
+    @JoinColumn (name = "id_kota",insertable = false, updatable = false)
+    private Kota kota;
+    @Column(name = "id_kota",nullable = false)
+    private Integer idKota;
 
     @OneToOne
-    @JoinColumn (name = "id_penerima",insertable = false, updatable = false)
+    @JoinColumn (name = "id_pengirim")
+    private Pengirim pengirim;
+
+    @OneToOne
+    @JoinColumn (name = "id_penerima")
     private Penerima penerima;
-    @Column(name = "id_penerima",nullable = false)
-    private Integer idPenerima;
 
 }

@@ -1,8 +1,11 @@
 package com.kel3.yfaexpress.controller.restapi;
 
 import com.kel3.yfaexpress.model.dto.BarangDto;
-import com.kel3.yfaexpress.model.dto.TransaksiDto;
+import com.kel3.yfaexpress.model.dto.PenerimaDto;
+import com.kel3.yfaexpress.model.dto.PengirimDto;
 import com.kel3.yfaexpress.model.entity.Barang;
+import com.kel3.yfaexpress.model.entity.Penerima;
+import com.kel3.yfaexpress.model.entity.Pengirim;
 import com.kel3.yfaexpress.repository.BarangRepository;
 import com.kel3.yfaexpress.service.BarangService;
 import org.modelmapper.ModelMapper;
@@ -41,10 +44,9 @@ public class ApiBarang {
         Barang barang = barangRepository.findById(id).get();
         BarangDto barangDto = new BarangDto();
 
-        barangDto.setIdBarang(barang.getIdBarang());
-        barangDto.setNamaBarang(barang.getNamaBarang());
-        barangDto.setJumlahBarang(barang.getJumlahBarang());
-
+//        barangDto.setIdBarang(barang.getIdBarang());
+//        barangDto.setNamaBarang(barang.getNamaBarang());
+//        barangDto.setJumlahBarang(barang.getJumlahBarang());
         // sementara isi inii
 
         modelMapper.map(barang,barangDto);
@@ -52,26 +54,31 @@ public class ApiBarang {
         modelMapper.map(barang.getLayanan(),barangDto);
         modelMapper.map(barang.getPengirim(),barangDto);
         modelMapper.map(barang.getPenerima(),barangDto);
+        modelMapper.map(barang.getKota(),barangDto);
         barangDto.setIdBarang(barang.getIdBarang());
 
         return barangDto;
     }
 
     @PostMapping
-    public Barang save(@RequestBody Barang barang) {
-
-        //gatauuu di isi apaaa
-
-        return barangRepository.save(barang);
+    public BarangDto save(@RequestBody BarangDto barangDto) {
+        Pengirim pengirim = modelMapper.map(barangDto, Pengirim.class);
+        Penerima penerima = modelMapper.map(barangDto, Penerima.class);
+        Barang barang = modelMapper.map(barangDto, Barang.class);
+        barang.setPenerima(penerima);
+        barang.setPengirim(pengirim);
+        barangService.saveBarangMaterDetail(barang);
+        BarangDto barangDtoDB = mapBarangToBarangDto(barang);
+        return barangDtoDB;
     }
 
     private BarangDto mapBarangToBarangDto(Barang barang) {
         BarangDto barangDto = modelMapper.map(barang, BarangDto.class);
         modelMapper.map(barang.getBeratBarang(),barangDto);
         modelMapper.map(barang.getLayanan(),barangDto);
+        modelMapper.map(barang.getKota(),barangDto);
         modelMapper.map(barang.getPengirim(),barangDto);
         modelMapper.map(barang.getPenerima(),barangDto);
-
         return barangDto;
     }
 

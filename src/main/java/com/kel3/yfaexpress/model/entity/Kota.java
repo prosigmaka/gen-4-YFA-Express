@@ -14,6 +14,9 @@ public class Kota {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = TABLE_NAME)
     @SequenceGenerator(name = TABLE_NAME , sequenceName = "t_kota_seq")
     private Integer idKota;
+    private Integer estimasiBiaya;
     private String kota;
+
+
 
 }
