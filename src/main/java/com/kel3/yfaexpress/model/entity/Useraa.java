@@ -28,11 +28,11 @@ public class Useraa {
 		            name = "user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(
 				            name = "role_id", referencedColumnName = "id"))
-	private Collection<Role> roles;
+	private Collection<Roles> roles;
 	public Useraa() {
 	}
 
-	public Useraa(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+	public Useraa(String firstName, String lastName, String email, String password, Collection<Roles> roles) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -70,10 +70,10 @@ public class Useraa {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Collection<Role> getRoles() {
+	public Collection<Roles> getRoles() {
 		return roles;
 	}
-	public void setRoles(Collection<Role> roles) {
+	public void setRoles(Collection<Roles> roles) {
 		this.roles = roles;
 	}
 

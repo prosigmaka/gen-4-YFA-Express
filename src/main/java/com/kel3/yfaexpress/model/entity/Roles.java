@@ -4,18 +4,18 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Roles {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 
-	public Role() {
+	public Roles() {
 
 	}
 
-	public Role(String name) {
+	public Roles(String name) {
 		super();
 		this.name = name;
 	}

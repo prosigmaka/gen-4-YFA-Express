@@ -1,7 +1,7 @@
 package com.kel3.yfaexpress.service;
 
 import com.kel3.yfaexpress.model.dto.UserRegistrationDto;
-import com.kel3.yfaexpress.model.entity.Role;
+import com.kel3.yfaexpress.model.entity.Roles;
 import com.kel3.yfaexpress.model.entity.Useraa;
 import com.kel3.yfaexpress.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
 	public Useraa save(UserRegistrationDto registrationDto) {
 		Useraa useraa = new Useraa(registrationDto.getFirstName(),
 				registrationDto.getLastName(), registrationDto.getEmail(),
-				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
+				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Roles("ROLE_USER")));
 
 		return userRepository.save(useraa);
 	}
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
 		return new org.springframework.security.core.userdetails.User(useraa.getEmail(), useraa.getPassword(), mapRolesToAuthorities(useraa.getRoles()));
 	}
 
-	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Roles> roles){
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 	}
 
