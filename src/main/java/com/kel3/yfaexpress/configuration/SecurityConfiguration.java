@@ -4,6 +4,7 @@ import com.kel3.yfaexpress.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -41,12 +42,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/registration**" , "/js/**" , "/css/**" , "/img/**","/plugins/**","/base**","base2**","/base3**","/api/**").permitAll()
-                .antMatchers("/api/beratBarang").permitAll()
-                .anyRequest().permitAll()
+                .antMatchers("/registration**" , "/js/**" , "/css/**" , "/img/**","/plugins/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/api/**").authenticated()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin()
+                .loginPage("/login").permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
