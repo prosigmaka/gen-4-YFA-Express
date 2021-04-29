@@ -139,7 +139,7 @@ a.nav-link, .login {
   height: 100%;
   width: 100%;
   background-image: radial-gradient(circle at bottom left, rgba(245, 245, 245, 1) 20%, rgba(245, 245, 245, 0) 75%),
-  radial-gradient(circle at top left, rgba(245, 245, 245, 1) 20%, rgba(245, 245, 245, 0) 75%);
+                    radial-gradient(circle at top left, rgba(245, 245, 245, 1) 20%, rgba(245, 245, 245, 0) 75%);
   position: absolute;
   top: 0;
 }
