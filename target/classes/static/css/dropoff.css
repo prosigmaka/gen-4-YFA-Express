@@ -3,17 +3,44 @@
 }
 .card-header{
   background-color: rgba(30,171,255,0.6);
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   font-size: 15px;
   font-family: 'Oswald', sans-serif;
+  border-bottom: none;
 }
 .card{
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  margin-bottom: 20px;
+  border: none;
+  border-radius: 0;
 }
+
+.card-header:first-child {
+  border-radius: 0;
+}
+
 .card-body{
   background-color: rgba(30,171,255,0.2);
 }
-.button-order-close{
-  padding-left: 550px;
+
+.card-header i {
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding-left: 6px;
+  padding-top: 6px;
+  color: black;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.total-biaya {
+  position: relative;
+  height: 230px;
+}
+
+.order-click {
+  position: absolute;
+  right: 20px;
 }
