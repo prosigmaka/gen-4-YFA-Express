@@ -40,6 +40,12 @@ public class Useraa {
 		this.password = password;
 		this.roles = roles;
 	}
+
+	public String Useraa(String email) {
+		Useraa useraa = new Useraa();
+		return  useraa.getEmail();
+	}
+
 	public Long getId() {
 		return id;
 	}

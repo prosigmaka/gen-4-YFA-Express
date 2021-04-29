@@ -185,8 +185,8 @@ a.nav-link:active, .login:active {
   left: 5px;
   color: #adadad;
   transform: translateY(-50%);
-/z-index: -1;/
-transition: .5s;
+  /*z-index: -1;*/
+  transition: .5s;
 }
 
 .txtb span::after{
@@ -330,3 +330,4 @@ transition: .5s;
     padding-top: 0;
   }
 }
+
