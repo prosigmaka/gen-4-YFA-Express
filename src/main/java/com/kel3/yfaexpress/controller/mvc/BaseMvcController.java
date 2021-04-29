@@ -50,7 +50,7 @@ public class BaseMvcController {
     public String beratBarang() {
         return "admin/berat-layanan";
     }
-
+    //komen
     @GetMapping("login")
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
