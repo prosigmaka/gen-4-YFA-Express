@@ -5,9 +5,18 @@
 }
 
 .card-header {
-  background: linear-gradient(120deg,rgba(30,171,255,1),#133671);
+  background: rgba(30, 171, 255, 1);
   color: white;
   text-shadow: 0 0 2px rgba(0,0,0,.3);
+  border-bottom: 3px solid #133671;
+}
+
+.card-header h3 {
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, .57);
+}
+
+.card-header .btn-primary {
+  background: #133671;
 }
 
 .card-header:first-child {
@@ -40,7 +49,7 @@
   padding-bottom: 100px !important;
 }
 
-#tableBeratBarang, #tableLayanan {
+#tableBeratBarang, #tableLayanan, #tableKota{
   width: 100% !important;
   min-width: 0 !important;
 }
@@ -171,8 +180,8 @@ thead {
   left: 5px;
   color: #adadad;
   transform: translateY(-50%);
-  /*z-index: -1;*/
-  transition: .5s;
+/z-index: -1;/
+transition: .5s;
 }
 
 .txtb span::after{

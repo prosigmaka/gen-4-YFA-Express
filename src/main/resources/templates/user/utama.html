@@ -1,5 +1,29 @@
 <!DOCTYPE html>
-<html layout:decorate="~{base}"
+<html layout:decorate="~{base3}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
+
+<th:block layout:fragment="add-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/utama.css">
+</th:block>
+
+<div layout:fragment="content-body" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="row fitur-wrapper title-wrapper">
+        <div class="col-md-12 text-center">
+            <p>FITUR</p>
+        </div>
+    </div>
+
+    <!-- fitur-slider   -->
+
+
+    <!-- mitra slider -->
+
+
+</div>
+
+<th:block layout:fragment="add-script">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+</th:block>
