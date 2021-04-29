@@ -1,0 +1,10 @@
+.fitur-wrapper {
+  margin-top: -10px;
+}
+
+.title-wrapper>div>p {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: Helvetica;
+  color: #133671;
+}

@@ -8,6 +8,10 @@ body::-webkit-scrollbar {
 }
 
 body {
+  background-color: #F5F5F5;
+}
+
+body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
