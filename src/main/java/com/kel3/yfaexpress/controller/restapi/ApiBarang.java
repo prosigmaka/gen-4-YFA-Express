@@ -1,8 +1,6 @@
 package com.kel3.yfaexpress.controller.restapi;
 
 import com.kel3.yfaexpress.model.dto.BarangDto;
-import com.kel3.yfaexpress.model.dto.PenerimaDto;
-import com.kel3.yfaexpress.model.dto.PengirimDto;
 import com.kel3.yfaexpress.model.entity.Barang;
 import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.model.entity.Pengirim;
