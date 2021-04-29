@@ -31,6 +31,11 @@ public class BaseMvcController {
         return authentication.getName();
     }
 
+//    @GetMapping("logout")
+//    public String logout() {
+//        return "user/FE-layanan";
+//    }
+
     @GetMapping("layanan")
     public String layanan() {
         return "user/FE-layanan";
