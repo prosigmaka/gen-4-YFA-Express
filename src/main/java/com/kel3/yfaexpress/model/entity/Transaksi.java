@@ -17,7 +17,7 @@ public class Transaksi {
 
     @ManyToOne
     @JoinColumn(name = "id", insertable = false, updatable = false)
-    private Users users;
+    private Useraa users;
     @Column(name = "id")
     private Integer id;
 

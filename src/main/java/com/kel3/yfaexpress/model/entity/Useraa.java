@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "user")
-public class Users {
+@Table(name =  "users")
+public class Useraa {
 
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -25,17 +25,14 @@ public class Users {
 	@JoinTable(
 			name = "users_roles",
 			joinColumns = @JoinColumn(
-					name = "user_id", referencedColumnName = "id"),
+		            name = "user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(
-					name = "role_id", referencedColumnName = "id"))
-
+				            name = "role_id", referencedColumnName = "id"))
 	private Collection<Role> roles;
-
-	public Users() {
-
+	public Useraa() {
 	}
 
-	public Users(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+	public Useraa(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
