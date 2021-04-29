@@ -4,9 +4,47 @@ import lombok.Data;
 
 @Data
 public class TransaksiDto {
-    private Integer idTransaksi;
+    //BARANG
+    private Integer idBarang;
+    private String namaBarang;
+    private Integer jumlahBarang;
 
-    //dto user
+    //BERAT BARANG
+    private Integer idBeratBarang;
+    private String kategoriBeratBarang;
+    private String biayaKategori;
+
+    //LAYANAN
+    private Integer idLayanan;
+    private String kategoriLayanan;
+    private Integer biayaLayanan;
+
+    //PENGIRIM
+    private Integer idPengirim;
+    private String namaPengirim;
+    private String telpPengirim;
+    private String alamatPengirim;
+    private String kodePosPengirim;
+
+    //PENERIMA
+    private Integer idPenerima;
+    private String namaPenerima;
+    private String telpPenerima;
+    private String alamatPenerima;
+    private String kodePosPenerima;
+
+    //KOTA
+    private Integer idKota;
+    private String kota;
+    private Integer estimasiBiaya;
+
+    //KURIR
+    private Integer idKurir;
+    private String namaKurir;
+    private Number noTelpKurir;
+    private String fotoKurir;
+
+    //USER
     private Integer idUser;
     private String UserName;
     private String emailUser;
@@ -15,48 +53,7 @@ public class TransaksiDto {
     private Number telepon;
     private String email;
 
-    //dto Barang
-    private Integer idBarang;
-    private String namaBarang;
-    private Integer jumlahBarang;
-
-    private Integer idBeratBarang;
-    private String kategoriBeratBarang;
-    private String biayaKategori;
-
-    private Integer idLayanan;
-    private String kategoriLayanan;
-    private Integer biayaLayanan;
-
-    //private Integer idJarak;
-
-    private Integer idPengirim;
-    private String namaPengirim;
-    private Number telpPengirim;
-    private String kotaPengirim;
-    private String alamatPengirim;
-    private Number kodePosPengirim;
-
-    private Integer idPenerima;
-    private String namaPenerima;
-    private Number telpPenerima;
-    private String kotaPenerima;
-    private String alamatPenerima;
-    private Number kodePosPenerima;
-    //end of dto barang
-
+    //TRANSAKSI
     private String statusDelivery;
     private String statusPayment;
-
-    //dto total biaya
-    private Integer idTotalBiaya;
-//    copas isi Dto TotalBiaya
-    //end of dto total biaya
-
-    //dto kurir
-    private Integer idKurir;
-    private String namaKurir;
-    private Number noTelpKurir;
-    private String fotoKurir;
-    //end of dto kurir
 }

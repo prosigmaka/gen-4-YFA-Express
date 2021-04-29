@@ -71,6 +71,7 @@ var formDropOff = {
     $("#id").val("");
     $("#idPengirim").val("");
     $("#idPenerima").val("");
+
   },
   saveForm: function () {
     if ($('#formDropOff').parsley().validate()) {
@@ -84,6 +85,7 @@ var formDropOff = {
         data: JSON.stringify(dataResult),
         success: function (res, status, xhr) {
           if (xhr.status == 200 || xhr.status == 201) {
+            formDropOff.resetForm();
             tableBarang.create();
             $('#modal-barang').modal('hide')
 
