@@ -1,24 +1,8 @@
 package com.kel3.yfaexpress.controller.mvc;
 
-import com.kel3.yfaexpress.model.dto.UserDto;
-import com.kel3.yfaexpress.model.dto.UserRegistrationDto;
-import com.kel3.yfaexpress.model.entity.Roles;
-import com.kel3.yfaexpress.model.entity.Useraa;
-import com.kel3.yfaexpress.repository.UserRepository;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.management.relation.Role;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/")
@@ -33,17 +17,17 @@ public class BaseMvcController {
         return "user/FE-layanan";
     }
 
-    @GetMapping("/dropoff")
+    @GetMapping("AdminUserDropOff")
     public String dropoff() {
         return "user/dropoff";
     }
 
-    @GetMapping("admin/kurir")
+    @GetMapping("AdminKurir")
     public String kurir() {
         return "admin/kurir";
     }
 
-    @GetMapping("/beratLayanan")
+    @GetMapping("AdminBeratLayanan")
     public String beratBarang() {
         return "admin/berat-layanan";
     }
