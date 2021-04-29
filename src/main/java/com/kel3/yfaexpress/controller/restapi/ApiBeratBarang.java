@@ -6,6 +6,7 @@ import com.kel3.yfaexpress.model.entity.BeratBarang;
 import com.kel3.yfaexpress.repository.BeratBarangRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 

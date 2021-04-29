@@ -10,6 +10,7 @@ import com.kel3.yfaexpress.repository.BarangRepository;
 import com.kel3.yfaexpress.service.BarangService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
