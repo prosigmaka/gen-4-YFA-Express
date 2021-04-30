@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00f190e9-7861-4a17-8712-64aa98377c87" name="Default Changelist" comment="login+security" />
+    <list default="true" id="00f190e9-7861-4a17-8712-64aa98377c87" name="Default Changelist" comment="login+security">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_29_2021_10_49_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_29_2021_10_49_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/model/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/model/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/model/entity/Useraa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/model/entity/Useraa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kel3/yfaexpress/service/UserServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,17 +68,18 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\NGODING MENGCODING\gen-4-YFA-Express\src\main\resources\templates" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kel3.yfaexpress.controller.restapi" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,6 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1619665928403</updated>
       <workItem from="1619665940617" duration="3634000" />
+      <workItem from="1619796171029" duration="2565000" />
     </task>
     <task id="LOCAL-00002" summary="login+security">
       <created>1619669289548</created>
