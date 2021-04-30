@@ -17,7 +17,7 @@ public class BaseMvcController {
     public String layanan() {
         Role role = new Role();
         Useraa user = new Useraa();
-        System.out.println(roleRepository.findById(1));
+        System.out.println(roleRepository.findById(1L));
         return "user/layanan";
     }
 
