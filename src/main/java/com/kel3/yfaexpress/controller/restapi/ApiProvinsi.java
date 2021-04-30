@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/provinsi")
-public class ApiRajaOngkir {
+public class ApiProvinsi {
 
     public JSONObject rajaOngkir() throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -28,7 +28,6 @@ public class ApiRajaOngkir {
                 .get()
                 .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
                 .build();
-
 //        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 //        conn.setRequestMethod("GET");
 //        conn.setRequestProperty("key","76c89de2b5aa3ac812b3d0cc0f347ec8");
@@ -72,11 +71,9 @@ public class ApiRajaOngkir {
 
 //            System.out.println(listdata);
 //        return listdata;
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
 //        URL url = new URL("https://api.rajaongkir.com/starter/city");
 //        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 //        conn.setRequestMethod("GET");
@@ -93,17 +90,16 @@ public class ApiRajaOngkir {
 
     @GetMapping
     public List<ProvinsiDto> getAll() throws IOException, JSONException {
-        ApiRajaOngkir raja = new ApiRajaOngkir();
+        ApiProvinsi raja = new ApiProvinsi();
         String json = raja.rajaOngkir().getJSONArray("results").toString();
         ObjectMapper mapper = new ObjectMapper();
-        ProvinsiDto[] prov = mapper.readValue(json, ProvinsiDto[].class);
         List<ProvinsiDto> langList = mapper.readValue(json, new TypeReference<List<ProvinsiDto>>(){});
         System.out.println(langList);
         return langList;
     }
 
     public static void main(String[] args) throws IOException, JSONException {
-        ApiRajaOngkir raja = new ApiRajaOngkir();
+        ApiProvinsi raja = new ApiProvinsi();
         raja.getAll();
     }
 }
