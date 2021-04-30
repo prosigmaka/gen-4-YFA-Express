@@ -5,5 +5,6 @@ import lombok.Data;
 
 @Data
 public class ProvinsiDto {
-    private Provinsi provinsi;
+    private String province_id;
+    private String province;
 }
