@@ -157,15 +157,15 @@ var dropdown = {
   pilihKota: function () {
     $.ajax({
       type: "GET",
-      url: "/api/kota",
+      url: "/api/provinsi",
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Pilih Kota</option>';
+        var s = '<option value="-1">Pilih Provinsi</option>';
         for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].idKota + '">' + data[i].kota + '</option>';
+          s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
-        $("#kota").append(s);
+        $("#province").append(s);
       }
     });
   }
