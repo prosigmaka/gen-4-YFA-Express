@@ -1,11 +1,6 @@
 .form-container {
   margin-top: 50px;
   }
-.card-title{
-  font-family: Blog-Script , sans-serif;
-  line-height: 1.5;
-}
-
   /* modal login */
   .effect {
     transform: scale(0);
