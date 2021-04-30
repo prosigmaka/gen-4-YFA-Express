@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/kotaRaja")
 public class ApiKotaRaja {
-    public JSONObject rajaOngkir() throws IOException {
+    public JSONObject rajaOngkir() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/city")
@@ -29,13 +29,9 @@ public class ApiKotaRaja {
                 .build();
         Response response = client.newCall(request).execute();
         ResponseBody jsonData = response.body();
-        try {
-            JSONObject jsonObject = new JSONObject(jsonData.string()).getJSONObject("rajaongkir");
-            return jsonObject;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
+        JSONObject jsonObject = new JSONObject(jsonData.string()).getJSONObject("rajaongkir");
+        return jsonObject;
+
     }
 
     @GetMapping

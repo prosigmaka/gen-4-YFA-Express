@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/api/provinsi")
 public class ApiProvinsi {
 
-    public JSONObject rajaOngkir() throws IOException {
+    public JSONObject rajaOngkir() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/province")
@@ -44,10 +44,9 @@ public class ApiProvinsi {
 //        Provinsi entity = objectMapper.readValue(response.body().string(), Provinsi.class);
 //        System.out.println(response.body().string());
         ResponseBody jsonData = response.body();
-        try {
-            JSONObject jsonObject = new JSONObject(jsonData.string()).getJSONObject("rajaongkir");
+        JSONObject jsonObject = new JSONObject(jsonData.string()).getJSONObject("rajaongkir");
 //            JSONArray jsonArray = jsonObject.getJSONArray("results");
-            return jsonObject;
+        return jsonObject;
 //            for (int i = 0; i < jsonArray.length(); i++) {
 //                JSONObject object = jsonArray.getJSONObject(i);
 ////                System.out.println(object.get("city_name"));
@@ -71,9 +70,6 @@ public class ApiProvinsi {
 
 //            System.out.println(listdata);
 //        return listdata;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 //        URL url = new URL("https://api.rajaongkir.com/starter/city");
 //        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 //        conn.setRequestMethod("GET");
@@ -85,7 +81,7 @@ public class ApiProvinsi {
 //        } else {
 //            System.out.println("berhasil");
 //        }
-        return null;
+
     }
 
     @GetMapping
