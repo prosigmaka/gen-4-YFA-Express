@@ -5,6 +5,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <th:block layout:fragment="add-style">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/dropoff.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -37,15 +38,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi :</label>
-                                    <select class="form-control" id="province" name="province_id"></select>
+                                    <select class="form-control js-example-responsive" id="province" name="province_id" style="width: 100%"></select>
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Asal :</label>
-                                    <select class="form-control" id="city_name" name="city_id"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Kabupaten :</label>
-                                    <select class="form-control" id="city_name" name="city_id"></select>
+                                    <select class="form-control js-example-responsive" id="city_name" name="city_id" style="width: 100%"></select>
                                 </div>
 
                                 <div class="form-group">
@@ -194,6 +191,12 @@
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/dropoff.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $('.js-example-responsive').select2({
+            width: 'resolve'
+        });
+    </script>
 
     <!-- action berat barang -->
     <script>
