@@ -1,10 +1,15 @@
-.fitur-wrapper {
-  margin-top: -10px;
-}
-
-.title-wrapper>div>p {
-  font-size: 26px;
+.fitur-wrapper p {
+  margin-top: 20px;
+  font-size: 20px;
   font-weight: bold;
   font-family: Helvetica;
   color: #133671;
+}
+
+
+/* desktop */
+@media (min-width: 750px) {
+  .fitur-wrapper p {
+    font-size: 26px;
+  }
 }
