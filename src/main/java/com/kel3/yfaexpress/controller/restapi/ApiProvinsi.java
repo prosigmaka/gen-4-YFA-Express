@@ -98,8 +98,8 @@ public class ApiProvinsi {
         return langList;
     }
 
-    public static void main(String[] args) throws IOException, JSONException {
-        ApiProvinsi raja = new ApiProvinsi();
-        raja.getAll();
-    }
+//    public static void main(String[] args) throws IOException, JSONException {
+//        ApiProvinsi raja = new ApiProvinsi();
+//        raja.getAll();
+//    }
 }

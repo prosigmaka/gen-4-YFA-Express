@@ -154,7 +154,7 @@ var dropdown = {
     });
   },
 
-  pilihKota: function () {
+  pilihProvinsi: function () {
     $.ajax({
       type: "GET",
       url: "/api/provinsi",
@@ -166,6 +166,22 @@ var dropdown = {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
         $("#province").append(s);
+      }
+    });
+  },
+
+  pilihKota: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/kotaRaja",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Kota Asal</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+        }
+        $("#city_name").append(s);
       }
     });
   }
