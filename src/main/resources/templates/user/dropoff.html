@@ -5,7 +5,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <th:block layout:fragment="add-style">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/dropoff.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -38,12 +38,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi :</label>
-                                    <select class="form-control js-example-responsive" id="province" name="province_id" style="width: 100%" OnChange="provinsiPengirimHidden()"></select>
+                                    <select class="form-control js-example-responsive" id="province" name="province_id"
+                                            style="width: 100%" OnChange="provinsiPengirimHidden()"></select>
                                     <input class="form-control" type="hidden" id="provinceName" name="provinceName">
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Asal :</label>
-                                    <select class="form-control js-example-responsive" id="city_name" name="city_id" style="width: 100%" OnChange="kotaPengirimHidden()"></select>
+                                    <select class="form-control js-example-responsive" id="city_name" name="city_id"
+                                            style="width: 100%" OnChange="kotaPengirimHidden()"></select>
                                     <input class="form-control" type="hidden" id="cityName" name="cityName">
                                     <input class="form-control" type="hidden" id="cityPengirimId" name="cityPengirimId">
                                 </div>
@@ -87,14 +89,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi :</label>
-                                    <select class="form-control js-example-responsive" id="provincepenerima" name="province_id" style="width: 100%" OnChange="provinsiPenerimaHidden()"></select>
-                                    <input class="form-control" type="hidden" id="provinceNamePenerima" name="provinceNamePenerima">
-<!--                                    <input class="form-control" type="hidden" id="provincePenerimaId" name="provincePenerimaId">-->
+                                    <select class="form-control js-example-responsive" id="provincepenerima"
+                                            name="province_id" style="width: 100%"
+                                            OnChange="provinsiPenerimaHidden()"></select>
+                                    <input class="form-control" type="hidden" id="provinceNamePenerima"
+                                           name="provinceNamePenerima">
+                                    <!--                                    <input class="form-control" type="hidden" id="provincePenerimaId" name="provincePenerimaId">-->
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Tujuan :</label>
-                                    <select class="form-control js-example-responsive" id="city_namepenerima" name="city_id" style="width: 100%" OnChange="kotaPenerimaHidden()"></select>
-                                    <input class="form-control" type="hidden" id="cityNamePenerima" name="cityNamePenerima">
+                                    <select class="form-control js-example-responsive" id="city_namepenerima"
+                                            name="city_id" style="width: 100%" OnChange="kotaPenerimaHidden()"></select>
+                                    <input class="form-control" type="hidden" id="cityNamePenerima"
+                                           name="cityNamePenerima">
                                     <input class="form-control" type="hidden" id="cityPenerimaId" name="cityPenerimaId">
                                 </div>
                                 <div class="form-group">
@@ -129,10 +136,10 @@
                                     <input type="text" class="form-control" id="namaBarang"
                                            name="namaBarang" placeholder="Nama Barang">
                                 </div>
-                                <div class="form-group">
-                                    <label for="kategoriLayanan">Jenis Layanan :</label>
-                                    <select class="form-control" id="kategoriLayanan" name="idLayanan"></select>
-                                </div>
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="kategoriLayanan">Jenis Layanan :</label>-->
+                                <!--                                    <select class="form-control" id="kategoriLayanan" name="idLayanan"></select>-->
+                                <!--                                </div>-->
                                 <div class="form-group">
                                     <label for="jumlahBarang">Jumlah Barang :</label>
                                     <input type="text" class="form-control" id="jumlahBarang"
@@ -140,7 +147,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kategoriBeratBarang">Berat Barang (gram):</label>
-                                    <input type="number" class="form-control" id="kategoriBeratBarang" name="beratBarang">
+                                    <input type="number" class="form-control" id="kategoriBeratBarang"
+                                           name="beratBarang">
                                 </div>
                             </div>
                         </div>
@@ -149,34 +157,38 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <form id="form-TotalBiaya" role="form">
-                        <div class="card-body total-biaya">
-                            <div class="container">
-                                <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
-                                <div class="form-group">
-                                    <label>Biaya Kirim :</label>
-                                    <p class="biayaKirim">0</p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Total Biaya :</label>
-                                    <p class="totalBiaya">0</p>
-                                </div>
+                    <div class="card-body total-biaya">
+                        <div class="container">
+                            <input id="idtotalBiaya" name="idtotalBiaya" type="hidden"/>
+                            <div class="form-group layananajadeh">
+                                <label>Layanan :</label>
+                                <select class="form-control js-example-responsive" id="layanan"
+                                        name="layanan_id" style="width: 100%"></select>
                             </div>
-                            <!--    button save-->
-                            <div class="row button-order-close">
-                                <div class="order-click">
-                                    <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
-                                    <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
-                                </div>
+                            <div class="form-group ongkirajadeh">
+                                <label>Ongkos Kirim:</label>
+                                <p class="ongkosKirim">Rp 0</p>
+                                <input class="form-control" type="hidden" id="ongkosKirim"
+                                       name="ongkosKirim">
                             </div>
                         </div>
-                    </form>
+                        <!--    button save-->
+                        <div class="row button-order-close">
+                            <div class="order-click">
+                                <button class="btn btn-primary" id="btn-cekharga" type="button">Cek Harga</button>
+                                <button class="btn btn-primary" id="btn-save-utama" type="button">Order</button>
+                                <button class="btn btn-danger" id="btn-reset" type="button">Close</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </form>
     </div>
     <!-- modal sukses order -->
-    <div class="modal effect" id="modal-sukses" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal effect" id="modal-sukses" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-signup">
                 <div class="modal-body">
@@ -199,11 +211,20 @@
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/dropoff.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $('.js-example-responsive').select2({
             width: 'resolve'
         });
+        $('#btn-cekharga').click(function(){
+            formDropOff.cekHargaForm();
+            $('.layananajadeh, .ongkirajadeh, #btn-save-utama').css({
+                "display" :"block"
+            })
+        })
+    </script>
 
+    <script>
         function provinsiPengirimHidden() {
             let provinsi = document.getElementById("select2-province-container").title;
             document.getElementById("provinceName").value = provinsi;
@@ -231,6 +252,7 @@
         }
     </script>
 
+
     <!-- action berat barang -->
     <script>
         tableBarang.create();
@@ -239,7 +261,7 @@
             formDropOff.saveForm()
             $('#modal-sukses').modal("show")
         });
-        $('#oke').click(function (){
+        $('#oke').click(function () {
             $('#modal-sukses').modal("hide")
         })
 
@@ -254,11 +276,11 @@
     <script>
         // dropdown table
         $('.card-header>i').click(function () {
-            if ( $( this ).css( "transform" ) == 'none' ){
-                $(this).css("transform","rotate(180deg)");
+            if ($(this).css("transform") == 'none') {
+                $(this).css("transform", "rotate(180deg)");
                 $(this).parents('.card-header').next('.card-body').hide(200)
             } else {
-                $(this).css("transform","" );
+                $(this).css("transform", "");
                 $(this).parents('.card-header').next('.card-body').show(200)
             }
         })

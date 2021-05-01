@@ -99,7 +99,37 @@ var formDropOff = {
         }
       });
     }
-  }, setEditData: function (id) {
+  },
+  cekHargaForm: function () {
+    if ($('#formDropOff').parsley().validate()) {
+      var dataResult = getJsonForm($("#formDropOff").serializeArray(), true);
+      console.log(dataResult)
+
+      $.ajax({
+        url: '/api/barang/cek',
+        method: 'post',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(dataResult),
+        success: function (res, status, xhr) {
+          if (xhr.status == 200 || xhr.status == 201) {
+            var s = '<option value="-1">Pilih Layanan</option>';
+            for (var i = 0; i < data.length; i++) {
+              s += '<option value="' + data[i].idLayanan + '">' + data[i].kategoriLayanan + '</option>';
+            }
+            $("#layanan").append(s);
+
+          } else {
+
+          }
+        },
+        erorrr: function (err) {
+          console.log(err);
+        }
+      });
+    }
+  },
+  setEditData: function (id) {
     formDropOff.resetForm();
 
     $.ajax({

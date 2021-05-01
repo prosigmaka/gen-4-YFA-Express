@@ -51,11 +51,11 @@ public class ApiBarang {
 //        barangDto.setJumlahBarang(barang.getJumlahBarang());
         // sementara isi inii
 
-        modelMapper.map(barang,barangDto);
+        modelMapper.map(barang, barangDto);
 //        modelMapper.map(barang.getBeratBarang(),barangDto);
-        modelMapper.map(barang.getLayanan(),barangDto);
-        modelMapper.map(barang.getPengirim(),barangDto);
-        modelMapper.map(barang.getPenerima(),barangDto);
+        modelMapper.map(barang.getLayanan(), barangDto);
+        modelMapper.map(barang.getPengirim(), barangDto);
+        modelMapper.map(barang.getPenerima(), barangDto);
         barangDto.setIdBarang(barang.getIdBarang());
 
         return barangDto;
@@ -81,12 +81,27 @@ public class ApiBarang {
         return barangDtoDB;
     }
 
+    @PostMapping("/cek")
+    public void cekHarga(@RequestBody BarangDto barangDto) throws IOException, JSONException {
+        ApiCost cost = new ApiCost();
+        Pengirim pengirim = modelMapper.map(barangDto, Pengirim.class);
+        Penerima penerima = modelMapper.map(barangDto, Penerima.class);
+        Barang barang = modelMapper.map(barangDto, Barang.class);
+
+        String asal = barangDto.getCityPengirimId().toString();
+        String tujuan = barangDto.getCityPenerimaId().toString();
+        String berat = barangDto.getBeratBarang().toString();
+        //String a = cost.rajaOngkirCost(asal, tujuan, berat);
+
+        //System.out.println(a);
+    }
+
     private BarangDto mapBarangToBarangDto(Barang barang) {
         BarangDto barangDto = modelMapper.map(barang, BarangDto.class);
 //        modelMapper.map(barang.getBeratBarang(),barangDto);
-        modelMapper.map(barang.getLayanan(),barangDto);
-        modelMapper.map(barang.getPengirim(),barangDto);
-        modelMapper.map(barang.getPenerima(),barangDto);
+        modelMapper.map(barang.getLayanan(), barangDto);
+        modelMapper.map(barang.getPengirim(), barangDto);
+        modelMapper.map(barang.getPenerima(), barangDto);
         return barangDto;
     }
 
