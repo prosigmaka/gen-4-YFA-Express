@@ -19,11 +19,11 @@ public class Barang {
 //    private String keteranganBarang;
     //private Integer idJarak;
 
-    @ManyToOne
-    @JoinColumn (name = "id_beratbarang",insertable = false, updatable = false)
-    private BeratBarang beratBarang;
-    @Column( name = "id_beratbarang",nullable = false)
-    private Integer idBeratBarang;
+//    @ManyToOne
+//    @JoinColumn (name = "id_beratbarang",insertable = false, updatable = false)
+//    private BeratBarang beratBarang;
+//    @Column( name = "id_beratbarang",nullable = false)
+//    private Integer idBeratBarang;
 
     @ManyToOne
     @JoinColumn (name = "id_layanan",insertable = false, updatable = false)
@@ -31,11 +31,11 @@ public class Barang {
     @Column(name = "id_layanan",nullable = false)
     private Integer idLayanan;
 
-    @ManyToOne
-    @JoinColumn (name = "id_kota",insertable = false, updatable = false)
-    private Kota kota;
-    @Column(name = "id_kota",nullable = false)
-    private Integer idKota;
+//    @ManyToOne
+//    @JoinColumn (name = "id_kota",insertable = false, updatable = false)
+//    private Kota kota;
+//    @Column(name = "id_kota",nullable = false)
+//    private Integer idKota;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")
@@ -45,4 +45,5 @@ public class Barang {
     @JoinColumn (name = "id_penerima")
     private Penerima penerima;
 
+    private Integer beratBarang;
 }

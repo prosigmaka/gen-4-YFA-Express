@@ -22,6 +22,12 @@ public class Penerima {
     @Column(name ="no_telp_penerima",nullable = false)
     private String telpPenerima;
 
+    @Column(name ="kota_penerima", nullable = false)
+    private String cityNamePenerima;
+
+    @Column(name ="provinsi_penerima", nullable = false)
+    private String provinceNamePenerima;
+
     @Column(name ="alamatpenerima",nullable = false)
     private String alamatPenerima;
 

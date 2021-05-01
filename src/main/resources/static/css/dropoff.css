@@ -44,3 +44,10 @@
   position: absolute;
   right: 20px;
 }
+
+[type=search] {
+ outline-offset: 0;
+ outline: none !important;
+}
+
+

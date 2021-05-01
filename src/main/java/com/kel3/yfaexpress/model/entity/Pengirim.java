@@ -16,7 +16,13 @@ public class Pengirim {
     private Integer idPengirim;
     private String namaPengirim;
     private String telpPengirim;
-//    private String kotaPengirim;
+
+    @Column(name ="kota_pengirim", nullable = false)
+    private String cityName;
+
+    @Column(name ="provinsi_pengirim", nullable = false)
+    private String provinceName;
+
     private String alamatPengirim;
     private String kodePosPengirim;
 }

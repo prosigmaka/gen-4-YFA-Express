@@ -38,11 +38,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi :</label>
-                                    <select class="form-control js-example-responsive" id="province" name="province_id" style="width: 100%"></select>
+                                    <select class="form-control js-example-responsive" id="province" name="province_id" style="width: 100%" OnChange="provinsiPengirimHidden()"></select>
+                                    <input class="form-control" type="hidden" id="provinceName" name="provinceName">
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Asal :</label>
-                                    <select class="form-control js-example-responsive" id="city_name" name="city_id" style="width: 100%"></select>
+                                    <select class="form-control js-example-responsive" id="city_name" name="city_id" style="width: 100%" OnChange="kotaPengirimHidden()"></select>
+                                    <input class="form-control" type="hidden" id="cityName" name="cityName">
                                 </div>
 
                                 <div class="form-group">
@@ -84,11 +86,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi :</label>
-                                    <select class="form-control js-example-responsive" id="provincepenerima" name="province_id" style="width: 100%"></select>
+                                    <select class="form-control js-example-responsive" id="provincepenerima" name="province_id" style="width: 100%" OnChange="provinsiPenerimaHidden()"></select>
+                                    <input class="form-control" type="hidden" id="provinceNamePenerima" name="provinceNamePenerima">
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Tujuan :</label>
-                                    <select class="form-control js-example-responsive" id="city_namepenerima" name="city_id" style="width: 100%"></select>
+                                    <select class="form-control js-example-responsive" id="city_namepenerima" name="city_id" style="width: 100%" OnChange="kotaPenerimaHidden()"></select>
+                                    <input class="form-control" type="hidden" id="cityNamePenerima" name="cityNamePenerima">
                                 </div>
                                 <div class="form-group">
                                     <label for="alamatPenerima">Alamat : </label>
@@ -132,12 +136,8 @@
                                            name="jumlahBarang" placeholder="Jumlah Barang">
                                 </div>
                                 <div class="form-group">
-                                    <label for="kategoriBeratBarang">Berat Barang :</label>
-                                    <select class="form-control" id="kategoriBeratBarang" name="idBeratBarang"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="kota">Kota Asal dan Tujuan :</label>
-                                    <select class="form-control" id="kota" name="idKota"></select>
+                                    <label for="kategoriBeratBarang">Berat Barang (gram):</label>
+                                    <input type="number" class="form-control" id="kategoriBeratBarang" name="beratBarang">
                                 </div>
                             </div>
                         </div>
@@ -200,6 +200,26 @@
         $('.js-example-responsive').select2({
             width: 'resolve'
         });
+
+        function provinsiPengirimHidden() {
+            let x = document.getElementById("select2-province-container").title;
+            document.getElementById("provinceName").value = x;
+        }
+
+        function kotaPengirimHidden() {
+            let x = document.getElementById("select2-city_name-container").title;
+            document.getElementById("cityName").value = x;
+        }
+
+        function provinsiPenerimaHidden() {
+            let x = document.getElementById("select2-provincepenerima-container").title;
+            document.getElementById("provinceNamePenerima").value = x;
+        }
+
+        function kotaPenerimaHidden() {
+            let x = document.getElementById("select2-city_namepenerima-container").title;
+            document.getElementById("cityNamePenerima").value = x;
+        }
     </script>
 
     <!-- action berat barang -->

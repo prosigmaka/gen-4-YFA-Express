@@ -9,9 +9,9 @@ public class BarangDto {
     private Integer jumlahBarang;
 //    private String keteranganBarang;
 
-    private Integer idBeratBarang;
-    private String kategoriBeratBarang;
-    private String biayaKategori;
+//    private Integer idBeratBarang;
+//    private String kategoriBeratBarang;
+//    private String biayaKategori;
 
     private Integer idLayanan;
     private String kategoriLayanan;
@@ -22,18 +22,19 @@ public class BarangDto {
     private Integer idPengirim;
     private String namaPengirim;
     private String telpPengirim;
-//    private String kotaPengirim;
+    private String provinceName;
+    private String cityName;
     private String alamatPengirim;
     private String kodePosPengirim;
 
     private Integer idPenerima;
     private String namaPenerima;
     private String telpPenerima;
-//    private String kotaPenerima;
+    private String provinceNamePenerima;
+    private String cityNamePenerima;
     private String alamatPenerima;
     private String kodePosPenerima;
 
-    private Integer idKota;
-    private String kota;
-    private Integer estimasiBiaya;
+    private Integer beratBarang;
+
 }
