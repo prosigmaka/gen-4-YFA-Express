@@ -8,10 +8,12 @@ import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.model.entity.Pengirim;
 import com.kel3.yfaexpress.repository.BarangRepository;
 import com.kel3.yfaexpress.service.BarangService;
+import org.json.JSONException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,10 +62,18 @@ public class ApiBarang {
     }
 
     @PostMapping
-    public BarangDto save(@RequestBody BarangDto barangDto) {
+    public BarangDto save(@RequestBody BarangDto barangDto) throws IOException, JSONException {
+        ApiCost cost = new ApiCost();
         Pengirim pengirim = modelMapper.map(barangDto, Pengirim.class);
         Penerima penerima = modelMapper.map(barangDto, Penerima.class);
         Barang barang = modelMapper.map(barangDto, Barang.class);
+//        Cost
+//        String asal = barangDto.getCityPengirimId().toString();
+//        String tujuan = barangDto.getCityPenerimaId().toString();
+//        String berat = barangDto.getBeratBarang().toString();
+//        String a = cost.rajaOngkirCost(asal, tujuan, berat);
+//        End of Cost
+//        System.out.println(a);
         barang.setPenerima(penerima);
         barang.setPengirim(pengirim);
         barangService.saveBarangMaterDetail(barang);
@@ -90,4 +100,5 @@ public class ApiBarang {
     public void deleteTableBarang() {
         barangRepository.deleteAll();
     }
+
 }

@@ -22,6 +22,8 @@ public class BarangDto {
     private Integer idPengirim;
     private String namaPengirim;
     private String telpPengirim;
+    private Integer province_id;
+    private Integer cityPengirimId;
     private String provinceName;
     private String cityName;
     private String alamatPengirim;
@@ -30,6 +32,8 @@ public class BarangDto {
     private Integer idPenerima;
     private String namaPenerima;
     private String telpPenerima;
+    private Integer provinceIdPenerima;
+    private Integer cityPenerimaId;
     private String provinceNamePenerima;
     private String cityNamePenerima;
     private String alamatPenerima;

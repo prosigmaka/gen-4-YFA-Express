@@ -77,6 +77,7 @@ var formDropOff = {
     if ($('#formDropOff').parsley().validate()) {
       var dataResult = getJsonForm($("#formDropOff").serializeArray(), true);
       console.log(dataResult)
+
       $.ajax({
         url: '/api/barang',
         method: 'post',

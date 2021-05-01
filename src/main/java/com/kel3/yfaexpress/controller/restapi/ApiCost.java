@@ -1,22 +1,24 @@
 package com.kel3.yfaexpress.controller.restapi;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kel3.yfaexpress.model.dto.KotaRajaDto;
 import okhttp3.*;
 import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/cost")
 public class ApiCost {
 
-    public void rajaOngkirCost() throws IOException, JSONException {
+    public JSONObject rajaOngkirCost(String asal, String tujuan, String berat) throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
-
-        String asal = "20";
-        String tujuan = "30";
-        String berat = "2000";
 
 
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -29,11 +31,21 @@ public class ApiCost {
                 .build();
 
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
+//        System.out.println(response.body().string());
+        String jsonData = response.body().string();
+        JSONObject jsonObject = new JSONObject(jsonData).getJSONObject("rajaongkir");
+        return jsonObject;
     }
 
-    public static void main(String[] args) throws IOException, JSONException {
-        ApiCost cost = new ApiCost();
-        cost.rajaOngkirCost();
+    @GetMapping
+    public List<KotaRajaDto> getAll() throws IOException, JSONException {
+        ApiKotaRaja raja = new ApiKotaRaja();
+        String json = raja.rajaOngkirKota().getJSONArray("results").toString();
+        ObjectMapper mapper = new ObjectMapper();
+        List<KotaRajaDto> kotaDtoList = mapper.readValue(json, new TypeReference<List<KotaRajaDto>>(){});
+        System.out.println(kotaDtoList);
+        return kotaDtoList;
     }
+
+
 }

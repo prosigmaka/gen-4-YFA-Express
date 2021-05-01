@@ -45,6 +45,7 @@
                                     <label>Kota Asal :</label>
                                     <select class="form-control js-example-responsive" id="city_name" name="city_id" style="width: 100%" OnChange="kotaPengirimHidden()"></select>
                                     <input class="form-control" type="hidden" id="cityName" name="cityName">
+                                    <input class="form-control" type="hidden" id="cityPengirimId" name="cityPengirimId">
                                 </div>
 
                                 <div class="form-group">
@@ -88,11 +89,13 @@
                                     <label>Provinsi :</label>
                                     <select class="form-control js-example-responsive" id="provincepenerima" name="province_id" style="width: 100%" OnChange="provinsiPenerimaHidden()"></select>
                                     <input class="form-control" type="hidden" id="provinceNamePenerima" name="provinceNamePenerima">
+<!--                                    <input class="form-control" type="hidden" id="provincePenerimaId" name="provincePenerimaId">-->
                                 </div>
                                 <div class="form-group">
                                     <label>Kota Tujuan :</label>
                                     <select class="form-control js-example-responsive" id="city_namepenerima" name="city_id" style="width: 100%" OnChange="kotaPenerimaHidden()"></select>
                                     <input class="form-control" type="hidden" id="cityNamePenerima" name="cityNamePenerima">
+                                    <input class="form-control" type="hidden" id="cityPenerimaId" name="cityPenerimaId">
                                 </div>
                                 <div class="form-group">
                                     <label for="alamatPenerima">Alamat : </label>
@@ -202,23 +205,29 @@
         });
 
         function provinsiPengirimHidden() {
-            let x = document.getElementById("select2-province-container").title;
-            document.getElementById("provinceName").value = x;
+            let provinsi = document.getElementById("select2-province-container").title;
+            document.getElementById("provinceName").value = provinsi;
         }
 
         function kotaPengirimHidden() {
-            let x = document.getElementById("select2-city_name-container").title;
-            document.getElementById("cityName").value = x;
+            let kota = document.getElementById("select2-city_name-container").title;
+            let idKota = document.getElementById("city_name").value;
+            document.getElementById("cityName").value = kota;
+            document.getElementById("cityPengirimId").value = idKota;
         }
 
         function provinsiPenerimaHidden() {
-            let x = document.getElementById("select2-provincepenerima-container").title;
-            document.getElementById("provinceNamePenerima").value = x;
+            let provinsi = document.getElementById("select2-provincepenerima-container").title;
+            // let idProvinsi = document.getElementById("provincepenerima").value;
+            document.getElementById("provinceNamePenerima").value = provinsi;
+            // document.getElementById("provincePenerimaId").value = idProvinsi;
         }
 
         function kotaPenerimaHidden() {
-            let x = document.getElementById("select2-city_namepenerima-container").title;
-            document.getElementById("cityNamePenerima").value = x;
+            let kota = document.getElementById("select2-city_namepenerima-container").title;
+            let idKota = document.getElementById("city_namepenerima").value;
+            document.getElementById("cityNamePenerima").value = kota;
+            document.getElementById("cityPenerimaId").value = idKota;
         }
     </script>
 
