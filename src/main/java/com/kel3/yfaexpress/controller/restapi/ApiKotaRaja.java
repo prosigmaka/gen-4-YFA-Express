@@ -19,32 +19,20 @@ import java.util.List;
 @RequestMapping("/api/kotaRaja")
 public class ApiKotaRaja {
 
-        public JSONObject rajaOngkirKota() throws IOException, JSONException {
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url("https://api.rajaongkir.com/starter/city")
-                    .get()
-                    .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
-                    .build();
-            Response response = client.newCall(request).execute();
-            String jsonData = response.body().string();
-            JSONObject jsonObject = new JSONObject(jsonData).getJSONObject("rajaongkir");
-            return jsonObject;
-        }
-
-        @GetMapping
-        public List<KotaRajaDto> getAll() throws IOException, JSONException {
-            ApiKotaRaja raja = new ApiKotaRaja();
-            String json = raja.rajaOngkirKota().getJSONArray("results").toString();
-            ObjectMapper mapper = new ObjectMapper();
-            List<KotaRajaDto> kotaDtoList = mapper.readValue(json, new TypeReference<List<KotaRajaDto>>(){});
-            System.out.println(kotaDtoList);
-            return kotaDtoList;
-        }
-
-//        public static void main(String[] args) throws IOException, JSONException {
-//            ApiKotaRaja raja = new ApiKotaRaja();
-//            raja.getAll();
-//        }
-
+    @GetMapping
+    public List<KotaRajaDto> rajaOngkirKota() throws IOException, JSONException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.rajaongkir.com/starter/city")
+                .get()
+                .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
+                .build();
+        Response response = client.newCall(request).execute();
+        String jsonData = response.body().string();
+        JSONObject jsonObject = new JSONObject(jsonData).getJSONObject("rajaongkir");
+        String json = jsonObject.getJSONArray("results").toString();
+        ObjectMapper mapper = new ObjectMapper();
+        List<KotaRajaDto> kotaDtoList = mapper.readValue(json, new TypeReference<List<KotaRajaDto>>(){});
+        return kotaDtoList;
+    }
 }

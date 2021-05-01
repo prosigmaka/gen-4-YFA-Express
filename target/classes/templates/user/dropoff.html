@@ -146,7 +146,7 @@
                                            name="jumlahBarang" placeholder="Jumlah Barang">
                                 </div>
                                 <div class="form-group">
-                                    <label for="kategoriBeratBarang">Berat Barang (gram):</label>
+                                    <label for="kategoriBeratBarang">Total Berat Barang (gram):</label>
                                     <input type="number" class="form-control" id="kategoriBeratBarang"
                                            name="beratBarang">
                                 </div>
@@ -163,13 +163,17 @@
                             <div class="form-group layananajadeh">
                                 <label>Layanan :</label>
                                 <select class="form-control js-example-responsive" id="layanan"
-                                        name="layanan_id" style="width: 100%"></select>
+                                        name="layanan_id" style="width: 100%" OnChange="layananOngkirHidden()"></select>
+                                <input class="form-control" type="hidden" id="kategoriLayanan"
+                                       name="kategoriLayanan">
                             </div>
                             <div class="form-group ongkirajadeh">
-                                <label>Ongkos Kirim:</label>
-                                <p class="ongkosKirim">Rp 0</p>
+                                <label>Total Biaya Kirim :</label>
+                                <p>Rp <span id="ongkosKirimSpan">0</span></p>
                                 <input class="form-control" type="hidden" id="ongkosKirim"
                                        name="ongkosKirim">
+                                <input class="form-control" type="hidden" id="statusDelivery"
+                                       name="statusDelivery" value="undelivered">
                             </div>
                         </div>
                         <!--    button save-->
@@ -217,7 +221,10 @@
             width: 'resolve'
         });
         $('#btn-cekharga').click(function(){
-            formDropOff.cekHargaForm();
+            let asal = $("#cityPengirimId").val();
+            let tujuan = $("#cityPenerimaId").val();
+            let berat = $("#kategoriBeratBarang").val();
+            dropdown.pilihLayanan(asal, tujuan, berat);
             $('.layananajadeh, .ongkirajadeh, #btn-save-utama').css({
                 "display" :"block"
             })
@@ -250,6 +257,15 @@
             document.getElementById("cityNamePenerima").value = kota;
             document.getElementById("cityPenerimaId").value = idKota;
         }
+
+        function layananOngkirHidden() {
+            let layanan = document.getElementById("select2-layanan-container").title;
+            let ongkir = document.getElementById("layanan").value;
+            document.getElementById("kategoriLayanan").value = layanan;
+            document.getElementById("ongkosKirim").value = ongkir;
+            document.getElementById("ongkosKirimSpan").innerHTML = ongkir;
+
+        }
     </script>
 
 
@@ -266,7 +282,6 @@
         })
 
         dropdown.pilihLayanan();
-        dropdown.pilihBeratBarang();
         dropdown.pilihKota();
         dropdown.pilihProvinsi();
         dropdown.pilihKotaPenerima();

@@ -8,7 +8,7 @@ var tableBarang = {
     }
 
     $.ajax({
-      url: '/api/barang',
+      url: '/api/transaksi',
       method: 'get',
       contentType: 'application/json',
       success: function (res, status, xhr) {
@@ -79,7 +79,7 @@ var formDropOff = {
       console.log(dataResult)
 
       $.ajax({
-        url: '/api/barang',
+        url: '/api/transaksi',
         method: 'post',
         contentType: 'application/json',
         dataType: 'json',
@@ -100,40 +100,12 @@ var formDropOff = {
       });
     }
   },
-  cekHargaForm: function () {
-    if ($('#formDropOff').parsley().validate()) {
-      var dataResult = getJsonForm($("#formDropOff").serializeArray(), true);
-      console.log(dataResult)
 
-      $.ajax({
-        url: '/api/barang/cek',
-        method: 'post',
-        contentType: 'application/json',
-        dataType: 'json',
-        data: JSON.stringify(dataResult),
-        success: function (res, status, xhr) {
-          if (xhr.status == 200 || xhr.status == 201) {
-            var s = '<option value="-1">Pilih Layanan</option>';
-            for (var i = 0; i < data.length; i++) {
-              s += '<option value="' + data[i].idLayanan + '">' + data[i].kategoriLayanan + '</option>';
-            }
-            $("#layanan").append(s);
-
-          } else {
-
-          }
-        },
-        erorrr: function (err) {
-          console.log(err);
-        }
-      });
-    }
-  },
   setEditData: function (id) {
     formDropOff.resetForm();
 
     $.ajax({
-      url: '/api/barang/' + id,
+      url: '/api/transaksi/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -152,38 +124,8 @@ var formDropOff = {
     });
   }
 };
-var dropdown = {
-  pilihLayanan: function () {
-    $.ajax({
-      type: "GET",
-      url: "/api/layanan",
-      contentType: 'application/json',
-      dataType: 'json',
-      success: function (data) {
-        var s = '<option value="-1">Pilih Layanan</option>';
-        for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].idLayanan + '">' + data[i].kategoriLayanan + '</option>';
-        }
-        $("#kategoriLayanan").append(s);
-      }
-    });
-  },
 
-  pilihBeratBarang: function () {
-    $.ajax({
-      type: "GET",
-      url: "/api/beratBarang",
-      contentType: 'application/json',
-      dataType: 'json',
-      success: function (data) {
-        var s = '<option value="-1">Pilih Berat Barang</option>';
-        for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].idBeratBarang + '">' + data[i].kategoriBeratBarang + '</option>';
-        }
-        $("#kategoriBeratBarang").append(s);
-      }
-    });
-  },
+var dropdown = {
 
   pilihProvinsi: function () {
     $.ajax({
@@ -240,11 +182,27 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Pilih Kota Asal</option>';
+        var s = '<option value="-1">Pilih Kota Tujuan</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
         }
         $("#city_namepenerima").append(s);
+      }
+    });
+  },
+
+  pilihLayanan: function (asal, tujuan, berat) {
+    $.ajax({
+      type: "GET",
+      url: "/api/cost/" + asal + "/" + tujuan + "/" + berat,
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Layanan</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].cost[0].value + '">' + data[i].service + '</option>';
+        }
+        $("#layanan").append(s);
       }
     });
   }
@@ -254,7 +212,7 @@ var dropdown = {
 var actionDelete = {
   deleteConfirm: function (id) {
     $.ajax({
-      url: '/api/barang/' + id,
+      url: '/api/transaksi/' + id,
       method: 'get',
       contentType: 'application/json',
       dataType: 'json',
@@ -276,7 +234,7 @@ var actionDelete = {
       var dataResult = getJsonForm($("#form-DropOff").serializeArray(), true);
 
       $.ajax({
-        url: '/api/barang/' + dataResult.idBarang,
+        url: '/api/transaksi/' + dataResult.idtransaksi,
         method: 'delete',
         success: function () {
           tableBarang.create();

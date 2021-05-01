@@ -1,14 +1,11 @@
 package com.kel3.yfaexpress.controller.restapi;
 
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kel3.yfaexpress.model.dto.ProvinsiDto;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +18,8 @@ import java.util.List;
 @RequestMapping("/api/provinsi")
 public class ApiProvinsi {
 
-    private JSONObject rajaOngkir() throws IOException, JSONException {
+    @GetMapping
+    private List<ProvinsiDto> rajaOngkir() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/province")
@@ -32,28 +30,17 @@ public class ApiProvinsi {
         Response response = client.newCall(request).execute();
         String jsonData = response.body().string();
         JSONObject jsonObject = new JSONObject(jsonData).getJSONObject("rajaongkir");
-//            JSONArray jsonArray = jsonObject.getJSONArray("results");
-        return jsonObject;
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                JSONObject object = jsonArray.getJSONObject(i);
-////                System.out.println(object.get("city_name"));
-//                System.out.println(object);
-//            }
-
-    }
-
-    @GetMapping
-    public List<ProvinsiDto> getAll() throws IOException, JSONException {
-        ApiProvinsi prov = new ApiProvinsi();
-        String json = prov.rajaOngkir().getJSONArray("results").toString();
+        //JSONArray jsonArray = jsonObject.getJSONArray("results");
+        String json = jsonObject.getJSONArray("results").toString();
         ObjectMapper mapper = new ObjectMapper();
         List<ProvinsiDto> provinsiDtoList = mapper.readValue(json, new TypeReference<List<ProvinsiDto>>(){});
         System.out.println(provinsiDtoList);
         return provinsiDtoList;
-    }
+//            for (int i = 0; i < jsonArray.length(); i++) {
+//                JSONObject object = jsonArray.getJSONObject(i);
+//               System.out.println(object.get("city_name"));
+//                System.out.println(object);
+//            }
 
-//    public static void main(String[] args) throws IOException, JSONException {
-//        ApiProvinsi raja = new ApiProvinsi();
-//        raja.getAll();
-//    }
+    }
 }
