@@ -31,11 +31,20 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Useraa save(UserRegistrationDto registrationDto) {
-		Useraa useraa = new Useraa(registrationDto.getFirstName(),
-				registrationDto.getLastName(), registrationDto.getEmail(),
-				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Roles("ROLE_USER")));
+
+				Useraa useraa = new Useraa
+				(registrationDto.getFirstName(),
+				registrationDto.getLastName(),
+				registrationDto.getEmail(),
+				passwordEncoder.encode(registrationDto.getPassword()) ,
+						Arrays.asList(new Roles("ROLE_USER")));
 
 		return userRepository.save(useraa);
+	}
+
+	@Override
+	public boolean checkIfUserExist(String email) {
+		return userRepository.findByEmail(email) !=null ? true : false;
 	}
 
 	@Override

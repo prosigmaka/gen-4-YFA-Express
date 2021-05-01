@@ -56,6 +56,7 @@ public class BaseMvcController {
         return "admin/berat-layanan";
     }
     //komen
+
     @GetMapping("login")
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -64,6 +65,13 @@ public class BaseMvcController {
             return "login";
         }else{
         return "user/utama"; }}
+
+    @GetMapping("logout")
+    public String logout() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String a = auth.getAuthorities().toString();
+//        if (a.equals("[ROLE_ANONYMOUS]")){
+            return "utama";}
 
     @GetMapping("/")
     public String home() { return "index"; }
