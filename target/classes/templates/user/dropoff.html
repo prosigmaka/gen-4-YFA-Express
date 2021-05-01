@@ -82,10 +82,14 @@
                                     <input type="tel" class="form-control" id="telpPenerima"
                                            name="telpPenerima" placeholder="No Telp Penerima">
                                 </div>
-                                <!--                            <div class="form-group">-->
-                                <!--                                <label for="kotaPenerima">Kota Tujuan :</label>-->
-                                <!--                                <input class="form-control" id="kotaPenerima" name="kotaPenerima">-->
-                                <!--                            </div>-->
+                                <div class="form-group">
+                                    <label>Provinsi :</label>
+                                    <select class="form-control js-example-responsive" id="provincepenerima" name="province_id" style="width: 100%"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kota Tujuan :</label>
+                                    <select class="form-control js-example-responsive" id="city_namepenerima" name="city_id" style="width: 100%"></select>
+                                </div>
                                 <div class="form-group">
                                     <label for="alamatPenerima">Alamat : </label>
                                     <input type="text" class="form-control" id="alamatPenerima"
@@ -214,6 +218,8 @@
         dropdown.pilihBeratBarang();
         dropdown.pilihKota();
         dropdown.pilihProvinsi();
+        dropdown.pilihKotaPenerima();
+        dropdown.pilihProvinsiPenerima();
     </script>
     <!-- script animasi -->
     <script>

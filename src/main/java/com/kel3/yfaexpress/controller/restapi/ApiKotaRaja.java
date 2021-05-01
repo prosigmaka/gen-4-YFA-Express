@@ -3,7 +3,6 @@ package com.kel3.yfaexpress.controller.restapi;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kel3.yfaexpress.model.dto.KotaRajaDto;
-import com.kel3.yfaexpress.model.dto.ProvinsiDto;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -48,4 +47,5 @@ public class ApiKotaRaja {
         ApiKotaRaja raja = new ApiKotaRaja();
         raja.getAll();
     }
+
 }

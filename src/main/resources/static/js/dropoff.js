@@ -184,6 +184,38 @@ var dropdown = {
         $("#city_name").append(s);
       }
     });
+  },
+
+  pilihProvinsiPenerima: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/provinsi",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Provinsi</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
+        }
+        $("#provincepenerima").append(s);
+      }
+    });
+  },
+
+  pilihKotaPenerima: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/kotaRaja",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Kota Asal</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+        }
+        $("#city_namepenerima").append(s);
+      }
+    });
   }
 }
 
