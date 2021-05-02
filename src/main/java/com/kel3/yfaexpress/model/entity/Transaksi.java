@@ -3,6 +3,7 @@ package com.kel3.yfaexpress.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = Transaksi.TABLE_BARANG)
@@ -20,6 +21,8 @@ public class Transaksi {
     private Integer ongkosKirim;
     private Integer beratBarang;
     private String statusDelivery;
+    private Date tanggalTransaksi;
+    private String resi;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 
 @Transactional
 @Service
@@ -18,13 +19,25 @@ public class TransaksiServiceImpl implements TransaksiService {
     @Autowired
     private PenerimaRepository penerimaRepository;
 
+    public String generateResiNumber(){
+        String noResi = "YFA";
+
+        int code = (int) (Math.ceil(Math.random() * 1000000000) * 1);
+        noResi += code;
+        return noResi;
+    }
+
     @Override
     public Transaksi saveTransaksiMaterDetail(Transaksi transaksi) {
+        TransaksiServiceImpl resi = new TransaksiServiceImpl();
         pengirimRepository.save(transaksi.getPengirim());
         penerimaRepository.save(transaksi.getPenerima());
         transaksi = transaksiRepository.save(transaksi);
+        transaksi.setTanggalTransaksi(new Date());
+        transaksi.setResi(resi.generateResiNumber());
         return transaksi;
     }
+
 }
 
 

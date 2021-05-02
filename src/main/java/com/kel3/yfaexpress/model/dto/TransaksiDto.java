@@ -2,6 +2,8 @@ package com.kel3.yfaexpress.model.dto;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class TransaksiDto {
     private Integer idTransaksi;
@@ -11,6 +13,8 @@ public class TransaksiDto {
     private Integer ongkosKirim;
     private Integer beratBarang;
     private String statusDelivery;
+    private Date tanggalTransaksi;
+    private String resi;
 
     private Integer idPengirim;
     private String namaPengirim;
