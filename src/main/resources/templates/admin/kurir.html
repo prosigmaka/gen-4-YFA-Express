@@ -141,6 +141,7 @@
 
             // If you want to add an extra field for the FormData
             data.append('kurir', new Blob([JSON.stringify({
+                "idKurir" : document.getElementById("idKurir").value,
                 "namaKurir": document.getElementById("namaKurir").value,
                 "noTelpKurir": document.getElementById("noTelpKurir").value
 

@@ -17,7 +17,6 @@ public class Kurir {
     private Integer idKurir;
     private String namaKurir;
     private String noTelpKurir;
-    @Column(name = "url")
     private String file;
 
 //      Belum ada entity Kota
