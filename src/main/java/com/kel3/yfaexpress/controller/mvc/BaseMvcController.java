@@ -38,7 +38,7 @@ public class BaseMvcController {
 
     @GetMapping("layanan")
     public String layanan() {
-        return "user/FE-layanan";
+        return "user/anonlayanan";
     }
 
     @GetMapping("AdminUserDropOff")
