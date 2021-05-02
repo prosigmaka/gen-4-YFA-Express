@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/layanan").permitAll()
+                .loginPage("/login").permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
