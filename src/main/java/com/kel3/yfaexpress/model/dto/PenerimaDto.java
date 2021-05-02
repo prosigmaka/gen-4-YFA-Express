@@ -6,8 +6,11 @@ import lombok.Data;
 public class PenerimaDto {
     private Integer idPenerima;
     private String namaPenerima;
-    private Number telpPenerima;
-    //   private String kotaPenerima;
+    private String telpPenerima;
+    private Integer provinceIdPenerima;
+    private Integer cityIdPenerima;
+    private String provinceNamePenerima;
+    private String cityNamePenerima;
     private String alamatPenerima;
-    private Number kodePosPenerima;
+    private String kodePosPenerima;
 }
