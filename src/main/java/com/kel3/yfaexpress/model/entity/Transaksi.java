@@ -3,43 +3,32 @@ package com.kel3.yfaexpress.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
+@Table(name = Transaksi.TABLE_BARANG)
 @Data
-@Table(name = Transaksi.TABLE_NAME)
 public class Transaksi {
-    public static final String TABLE_NAME = "t_transaksi";
+    public static final String TABLE_BARANG = "t_transaksi";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = TABLE_NAME)
-    @SequenceGenerator(name = TABLE_NAME , sequenceName = "t_transaksi_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator=TABLE_BARANG)
+    @SequenceGenerator(name = TABLE_BARANG, sequenceName = "t_transaksi_seq")
     private Integer idTransaksi;
-
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private Useraa users;
-    @Column(name = "id")
-    private Integer id;
+    private String namaBarang;
+    private Integer jumlahBarang;
+    private String kategoriLayanan;
+    private Integer ongkosKirim;
+    private Integer beratBarang;
+    private String statusDelivery;
+    private Date tanggalTransaksi;
+    private String resi;
 
     @OneToOne
-    @JoinColumn(name = "id_barang", insertable = false, updatable = false)
-    private Barang barang;
-    @Column(name = "id_barang")
-    private Integer idBarang;
+    @JoinColumn (name = "id_pengirim")
+    private Pengirim pengirim;
 
-    private String statusDelivery;
-    private String statusPayment;
-
-//    @ManyToOne
-//    @JoinColumn(name = "id_total_biaya", insertable = false, updatable = false)
-//    private TotalBiaya totalBiaya;
-    @Column(name = "id_total_biaya")
-    private Integer idTotalBiaya;
-
-
-    @ManyToOne
-    @JoinColumn(name = "id_kurir", insertable = false, updatable = false)
-    private Kurir kurir;
-    @Column(name = "id_kurir")
-    private Integer idKurir;
+    @OneToOne
+    @JoinColumn (name = "id_penerima")
+    private Penerima penerima;
 }

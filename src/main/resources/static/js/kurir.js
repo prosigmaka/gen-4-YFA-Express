@@ -17,6 +17,13 @@ var tabelKurir = {
               {title: "id", data: "idKurir"},
               {title: "nama", data: "namaKurir"},
               {title: "no telp", data: "noTelpKurir"},
+              {
+                title: "Foto",
+                data: null,
+                render: function (data, type, row) {
+                  return "<img src='/api/kurir/getFoto/"+data.idKurir+"' alt='myImage' style='border-radius: 5px; width: 100px'>"
+                }
+              },
 
               {
                 title: "Action",
@@ -61,6 +68,7 @@ var formKurir= {
   resetForm: function () {
     $('#form-Kurir')[0].reset();
     $("#idKurir").val("");
+    $('#thumbnail').removeAttr('src')
   },
   setEditData: function (id) {
     formKurir.resetForm();

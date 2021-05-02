@@ -17,14 +17,6 @@ public class Kurir {
     private Integer idKurir;
     private String namaKurir;
     private String noTelpKurir;
-    @Column(name = "url")
     private String file;
 
-//      Belum ada entity Kota
-//    @OneToOne
-//    @JoinColumn (name = "id_kota",insertable = false, updatable = false)
-//    private Kota kota;
-//
-//    @Column( name = "id_kota",nullable = false)
-//    private Integer idKota;
 }

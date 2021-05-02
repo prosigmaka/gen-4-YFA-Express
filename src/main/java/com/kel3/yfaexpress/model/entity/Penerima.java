@@ -22,23 +22,16 @@ public class Penerima {
     @Column(name ="no_telp_penerima",nullable = false)
     private String telpPenerima;
 
+    @Column(name ="kota_penerima", nullable = false)
+    private String cityNamePenerima;
+
+    @Column(name ="provinsi_penerima", nullable = false)
+    private String provinceNamePenerima;
+
     @Column(name ="alamatpenerima",nullable = false)
     private String alamatPenerima;
 
     @Column(name ="kode_pos_penerima",nullable = false)
     private String kodePosPenerima;
-
-//    @Column(name ="kota_penerima",nullable = false)
-//    private String kotaPenerima;
-
-
-//    Belum ada entity KOTA
-
-//    @ManyToOne
-//    @JoinColumn (name = "kota_penerima",insertable = false, updatable = false)
-//    private Kota kota;
-//
-//    @Column( name = "kota_penerima",nullable = false)
-////    private Integer idKota;
 
 }

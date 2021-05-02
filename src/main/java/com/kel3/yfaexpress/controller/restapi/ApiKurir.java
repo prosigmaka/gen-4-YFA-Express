@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -56,16 +57,25 @@ public class ApiKurir {
         kurirDto.setIdKurir(kurir.getIdKurir());
         kurirDto.setNamaKurir(kurir.getNamaKurir());
         kurirDto.setNoTelpKurir(kurir.getNoTelpKurir());
-
-
         return kurirDto;
+    }
+
+    @GetMapping("/getFoto/{idKurir}")
+    public byte[] getFoto(@PathVariable Integer idKurir) throws IOException {
+        Kurir kurir = kurirRepository.findById(idKurir).get();
+        String userFolderPath = "D:/img/";
+        String pathFile = userFolderPath + kurir.getFile();
+        // String pathFile = "D:/img/1.PNG";
+        Path paths = Paths.get(pathFile);
+        byte[] foto = Files.readAllBytes(paths);
+        return foto;
     }
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public KurirDto editSave(@RequestPart(value = "kurir", required = true) KurirDto kurirDto,
                              @RequestPart(value = "file", required = true) MultipartFile file) throws Exception {
 
-        String userFolderPath = "D:/";
+        String userFolderPath = "D:/img/";
         Path path = Paths.get(userFolderPath);
         Path filePath = path.resolve(file.getOriginalFilename());
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
@@ -73,8 +83,8 @@ public class ApiKurir {
 
         Kurir kurir = modelMapper.map(kurirDto, Kurir.class);
         kurir.setIdKurir(kurirDto.getIdKurir());
-        String pat = filePath.toUri().getPath();
-        kurir.setFile(pat);
+        //String pat = filePath.toUri().getPath();
+        kurir.setFile(file.getOriginalFilename());
 
         kurir = kurirService.saveKurirMaterDetail(kurir);
         KurirDto kurirDtoDB = mapKurirToKurirDto(kurir);

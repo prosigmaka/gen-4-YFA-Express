@@ -1,42 +1,44 @@
 package com.kel3.yfaexpress.service;
 
 import com.kel3.yfaexpress.model.entity.Transaksi;
-import com.kel3.yfaexpress.repository.BarangRepository;
-import com.kel3.yfaexpress.repository.KurirRepository;
-import com.kel3.yfaexpress.repository.TransaksiRepository;
-import com.kel3.yfaexpress.repository.UserRepository;
+import com.kel3.yfaexpress.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 
 @Transactional
 @Service
-public class TransaksiServiceImpl implements TransaksiService{
+public class TransaksiServiceImpl implements TransaksiService {
+
     @Autowired
     private TransaksiRepository transaksiRepository;
-
     @Autowired
-    private UserRepository userRepository;
-
+    private PengirimRepository pengirimRepository;
     @Autowired
-    private BarangRepository barangRepository;
+    private PenerimaRepository penerimaRepository;
 
-//    @Autowired
-//    private TotalBiayaRepository totalBiayaRepository;
+    public String generateResiNumber(){
+        String noResi = "YFA";
 
-    @Autowired
-    private KurirRepository kurirRepository;
+        int code = (int) (Math.ceil(Math.random() * 1000000000) * 1);
+        noResi += code;
+        return noResi;
+    }
 
     @Override
-    public Transaksi saveTransaksi(Transaksi transaksi) {
+    public Transaksi saveTransaksiMaterDetail(Transaksi transaksi) {
+        TransaksiServiceImpl resi = new TransaksiServiceImpl();
+        pengirimRepository.save(transaksi.getPengirim());
+        penerimaRepository.save(transaksi.getPenerima());
         transaksi = transaksiRepository.save(transaksi);
-//        belum tau mau ngisi apa
-
-
-
-
+        transaksi.setTanggalTransaksi(new Date());
+        transaksi.setResi(resi.generateResiNumber());
         return transaksi;
     }
 
 }
+
+
+

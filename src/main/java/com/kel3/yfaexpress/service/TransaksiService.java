@@ -3,5 +3,5 @@ package com.kel3.yfaexpress.service;
 import com.kel3.yfaexpress.model.entity.Transaksi;
 
 public interface TransaksiService {
-    Transaksi saveTransaksi(Transaksi transaksi);
+    Transaksi saveTransaksiMaterDetail(Transaksi barang);
 }

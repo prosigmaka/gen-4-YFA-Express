@@ -42,6 +42,8 @@ function getJsonForm(jsonArray, isAllowedNull) {
         $('[name="' + key + '"][value="' + value + '"]').prop('checked', true)
       } else if (type == 'checkbox' && (value == true || value == 'true')) {
         $('[name="' + key + '"]').prop('checked', true)
+      } else if (type == 'file') {
+        $elem.val("")
       } else {
         $elem.val(value)
       }
