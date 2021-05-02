@@ -2,7 +2,6 @@ package com.kel3.yfaexpress.service;
 
 import com.kel3.yfaexpress.model.entity.Roles;
 import com.kel3.yfaexpress.model.dto.UserRegistrationDto;
-import com.kel3.yfaexpress.model.entity.Roles;
 import com.kel3.yfaexpress.model.entity.Useraa;
 import com.kel3.yfaexpress.repository.RoleRepository;
 import com.kel3.yfaexpress.repository.UserRepository;
