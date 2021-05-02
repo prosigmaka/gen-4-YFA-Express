@@ -2,11 +2,12 @@ package com.kel3.yfaexpress.controller.restapi;
 
 import com.kel3.yfaexpress.model.dto.UserRegistrationDto;
 import com.kel3.yfaexpress.service.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/registration")
@@ -33,5 +34,13 @@ public class ApiUser {
 	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
 		userService.save(registrationDto);
 		return "redirect:/registration?success";
+	}
+
+	@RequestMapping(value = "/username", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, String> currentUserName(Authentication authentication) {
+		Map<String, String> map = new HashMap<>();
+		map.put("email", authentication.getName());
+		return map;
 	}
 }

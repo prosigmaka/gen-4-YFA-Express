@@ -37,7 +37,7 @@
 
 .total-biaya {
   position: relative;
-  height: 230px;
+  height: 100px;
 }
 
 .order-click {
@@ -52,4 +52,36 @@
 
 .layananajadeh, .ongkirajadeh, #btn-save-utama{
   display: none;
+}
+
+.select2-container .select2-search-field,
+.select2-container .select2-input {
+  width: 100% !important
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #495057;
+  line-height: 37px;
+}
+
+select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 37px;
+}
+
+.select2-container .select2-selection--single {
+  height: 37px;
+}
+
+.select2-container--default .select2-selection--single {
+  border: 1px solid #ced4da;
+}
+
+.order-click {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.cek {
+  margin-right: 5px;
 }

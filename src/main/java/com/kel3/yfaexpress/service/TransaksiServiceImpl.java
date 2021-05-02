@@ -14,14 +14,18 @@ public class TransaksiServiceImpl implements TransaksiService {
 
     @Autowired
     private TransaksiRepository transaksiRepository;
+
     @Autowired
     private PengirimRepository pengirimRepository;
+
     @Autowired
     private PenerimaRepository penerimaRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public String generateResiNumber(){
         String noResi = "YFA";
-
         int code = (int) (Math.ceil(Math.random() * 1000000000) * 1);
         noResi += code;
         return noResi;
@@ -33,11 +37,11 @@ public class TransaksiServiceImpl implements TransaksiService {
         pengirimRepository.save(transaksi.getPengirim());
         penerimaRepository.save(transaksi.getPenerima());
         transaksi = transaksiRepository.save(transaksi);
+        transaksi.setUseraa(userRepository.findById(transaksi.getIdUser()).get());
         transaksi.setTanggalTransaksi(new Date());
         transaksi.setResi(resi.generateResiNumber());
         return transaksi;
     }
-
 }
 
 

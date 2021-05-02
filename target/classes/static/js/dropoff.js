@@ -76,7 +76,7 @@ var formDropOff = {
   saveForm: function () {
     if ($('#formDropOff').parsley().validate()) {
       var dataResult = getJsonForm($("#formDropOff").serializeArray(), true);
-      console.log(dataResult)
+      // console.log(dataResult)
 
       $.ajax({
         url: '/api/transaksi',
@@ -138,7 +138,7 @@ var dropdown = {
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
-        $("#province").append(s);
+        $("#province").html(s);
       }
     });
   },
@@ -154,7 +154,7 @@ var dropdown = {
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
         }
-        $("#city_name").append(s);
+        $("#city_name").html(s);
       }
     });
   },
@@ -170,7 +170,7 @@ var dropdown = {
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
-        $("#provincepenerima").append(s);
+        $("#provincepenerima").html(s);
       }
     });
   },
@@ -186,7 +186,7 @@ var dropdown = {
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
         }
-        $("#city_namepenerima").append(s);
+        $("#city_namepenerima").html(s);
       }
     });
   },
@@ -202,7 +202,7 @@ var dropdown = {
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].cost[0].value + '">' + data[i].service + '</option>';
         }
-        $("#layanan").append(s);
+        $("#layanan").html(s);
       }
     });
   }

@@ -1,13 +1,9 @@
 package com.kel3.yfaexpress.controller.mvc;
 
-import java.security.Principal;
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
-import com.kel3.yfaexpress.model.entity.Useraa;
-import com.kel3.yfaexpress.repository.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,18 +19,6 @@ public class BaseMvcController {
     public String utama() {
         return "user/utama";
     }
-
-
-    @RequestMapping(value = "/username", method = RequestMethod.GET)
-    @ResponseBody
-    public String currentUserName(Authentication authentication) {
-        return authentication.getName();
-    }
-
-//    @GetMapping("logout")
-//    public String logout() {
-//        return "user/FE-layanan";
-//    }
 
     @GetMapping("layanan")
     public String layanan() {
@@ -55,7 +39,7 @@ public class BaseMvcController {
     public String beratBarang() {
         return "admin/berat-layanan";
     }
-    //komen
+
 
     @GetMapping("login")
     public String login() {

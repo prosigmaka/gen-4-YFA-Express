@@ -31,4 +31,11 @@ public class Transaksi {
     @OneToOne
     @JoinColumn (name = "id_penerima")
     private Penerima penerima;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user", insertable = false, updatable = false)
+    private Useraa useraa;
+
+    @Column(name = "id_user")
+    private Long idUser;
 }

@@ -5,6 +5,7 @@ import com.kel3.yfaexpress.model.entity.Transaksi;
 import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.model.entity.Pengirim;
 import com.kel3.yfaexpress.repository.TransaksiRepository;
+import com.kel3.yfaexpress.repository.UserRepository;
 import com.kel3.yfaexpress.service.TransaksiService;
 import org.json.JSONException;
 import org.modelmapper.ModelMapper;
@@ -21,6 +22,9 @@ import java.util.stream.Collectors;
 public class ApiTransaksi {
     @Autowired
     private TransaksiRepository transaksiRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -58,6 +62,7 @@ public class ApiTransaksi {
         Transaksi transaksi = modelMapper.map(transaksiDto, Transaksi.class);
         transaksi.setPenerima(penerima);
         transaksi.setPengirim(pengirim);
+        transaksi.setIdUser(userRepository.findByEmail(transaksiDto.getEmail()).getId());
         transaksiService.saveTransaksiMaterDetail(transaksi);
         TransaksiDto transaksiDtoDB = mapTransaksiToTransaksiDto(transaksi);
         return transaksiDtoDB;
