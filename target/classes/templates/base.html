@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,15 +51,23 @@
                         <span aria-hidden="true"><i class="fa fa-times"></i></span>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <form class="login-form">
-                        <div class="login-col col-email">Nama pengguna/Email</div>
-                        <div class="txtb txtb-email" style="display: none">
-                            <input type="email" id="email" name="email" required>
-                            <span data-placeholder="Nama pengguna/Email"></span>
+                <form class="login-form" th:action="@{/perform_login}" method="post">
+                    <div class="modal-body">
+                        <!-- error message -->
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger">Invalid username or
+                                password.</div>
+                        </div>
+                        <!-- logout message -->
+                        <div th:if="${param.logout}">
+                            <div class="alert alert-info">You have been logged out.</div>
                         </div>
                         <div class="txtb">
-                            <input type="password" id="pass" name="pass" required>
+                            <input type="text" id="username" name="username" required >
+                            <span data-placeholder="User Name/Email"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="password" name="password" required>
                             <span data-placeholder="Password"></span>
                         </div>
                         <div class="row login-row about-password">
@@ -68,18 +77,19 @@
                                 <label>ingat kata sandi</label>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer footer-login">
-                    <div class="container" style="position: relative">
-                        <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary tombol">Masuk</button>
-                        </div>
-                        <div class="row reg-now justify-content-center">
-                            <p>Tidak ada akun? <span class="sign-up">Daftar sekarang</span></p>
+                    </div>
+                    <div class="modal-footer footer-login">
+                        <div class="container" style="position: relative">
+                            <div class="row justify-content-center">
+                                <button type="submit" name="login-submit" id="login-submit"
+                                        class="btn btn-primary tombol" value="Log In">Login</button>
+                            </div>
+                            <div class="row reg-now justify-content-center">
+                                <p>Tidak ada akun? <span class="sign-up">Daftar sekarang</span></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -150,22 +160,6 @@
 <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
 <script th:src="@{/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
 <script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
-<script>
-    <!-- navbar -->
-    $('.dropdown-informasi').click(function() {
-        $('.menu-informasi').stop(true, false, true).slideToggle(600);
-        return false
-    })
-
-    $('.dropdown-login').click(function() {
-        $('.menu-user').stop(true, false, true).slideToggle(600);
-        return false
-    })
-
-    $('.jumbotron:before, #content-body, .footer-container, .dropdown-item').click(function () {
-        $('.dropdown-menu').slideUp(600)
-    })
-</script>
 <th:block layout:fragment="add-script"></th:block>
 
 </body>

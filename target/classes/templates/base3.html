@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,7 +79,7 @@
                         <span aria-hidden="true"><i class="fa fa-times"></i></span>
                     </div>
                 </div>
-                <form class="login-form" th:action="@{/login}" method="post">
+                <form class="login-form" th:action="@{/perform_login}" method="post">
                     <div class="modal-body">
                         <!-- error message -->
                         <div th:if="${param.error}">
@@ -189,19 +190,19 @@
 <script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
 <script>
     <!-- navbar -->
-    $('.dropdown-informasi').click(function() {
-        $('.menu-informasi').stop(true, false, true).slideToggle(600);
-        return false
-    })
+    // $('.dropdown-informasi').click(function() {
+    //     $('.menu-informasi').stop(true, false, true).slideToggle(600);
+    //     return false
+    // })
+    //
+    // $('.dropdown-login').click(function() {
+    //     $('.menu-user').stop(true, false, true).slideToggle(600);
+    //     return false
+    // })
 
-    $('.dropdown-login').click(function() {
-        $('.menu-user').stop(true, false, true).slideToggle(600);
-        return false
-    })
-
-    $('.carousel-item, #content-body, .footer-container, .dropdown-item').click(function () {
-        $('.dropdown-menu').slideUp(600)
-    })
+    // $('.carousel-item, #content-body, .footer-container').click(function () {
+    //     $('.dropdown-menu').slideUp(600)
+    // })
 </script>
 <th:block layout:fragment="add-script"></th:block>
 

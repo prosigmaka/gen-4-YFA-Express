@@ -63,7 +63,7 @@ public class CustomAuthenticationSuccessHandler
     }
 
     protected String determineTargetUrl(Authentication authentication) {
-        String pathUrl = "/login?error=true";
+        String pathUrl = "/perform_login?error=true";
         List<String> listRole = new ArrayList<>();
         Collection<? extends GrantedAuthority> authorities
                 = authentication.getAuthorities();

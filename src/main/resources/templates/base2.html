@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta charset="ISO-8859-1">
@@ -207,21 +208,6 @@
             }
         }
     });
-
-    <!-- navbar -->
-    $('.dropdown-informasi').click(function() {
-        $('.menu-informasi').stop(true, false, true).slideToggle(600);
-        return false
-    })
-
-    $('.dropdown-login').click(function() {
-        $('.menu-user').stop(true, false, true).slideToggle(600);
-        return false
-    })
-
-    $('.jumbotron-fluid::before, #content-body, .footer-container, .dropdown-item').click(function () {
-        $('.dropdown-menu').slideUp(600)
-    })
 
     // auto go to middle after load page
     $(document).ready(function () {
