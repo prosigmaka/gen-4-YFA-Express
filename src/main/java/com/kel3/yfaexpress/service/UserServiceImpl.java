@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService{
 		useraa.setFirstName(registrationDto.getFirstName());
 		useraa.setLastName(registrationDto.getLastName());
 		useraa.setEmail(registrationDto.getEmail());
+		useraa.setPhone(registrationDto.getPhone());
 		useraa.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
 //		useraa.setRoles(role);
 		useraa.setRoleId(1L);

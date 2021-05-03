@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <label for="alamatPengirim">Alamat :</label>
                                     <textarea type="text" class="form-control" id="alamatPengirim"
-                                           name="alamatPengirim" placeholder="Alamat Pengirim" required></textarea>
+                                              name="alamatPengirim" placeholder="Alamat Pengirim" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="kodePosPengirim">Kode Pos :</label>
@@ -116,7 +116,7 @@
                                 <div class="form-group">
                                     <label for="alamatPenerima">Alamat : </label>
                                     <textarea class="form-control" id="alamatPenerima"
-                                           name="alamatPenerima" placeholder="Alamat Penerima" required></textarea>
+                                              name="alamatPenerima" placeholder="Alamat Penerima" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="kodePosPenerima">Kode Pos : </label>
@@ -233,16 +233,16 @@
         });
 
 
-        $('#btn-cekharga').click(function(){
+        $('#btn-cekharga').click(function () {
             let asal = $("#cityPengirimId").val();
             let tujuan = $("#cityPenerimaId").val();
             let berat = $("#kategoriBeratBarang").val();
             dropdown.pilihLayanan(asal, tujuan, berat);
             $('.layananajadeh, .ongkirajadeh, #btn-save-utama').css({
-                "display" :"block"
+                "display": "block"
             })
             $(".total-biaya").css({
-                "height" : "230px"
+                "height": "230px"
             })
         })
     </script>
@@ -275,7 +275,7 @@
                 contentType: 'application/json',
                 dataType: 'json',
                 success: function (res) {
-                        $('#email').val(res.email);
+                    $('#email').val(res.email);
                 },
                 erorrr: function (err) {
                     console.log(err);
@@ -298,7 +298,7 @@
                         if (data[i].type == 'Kabupaten') {
                             s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
                         } else {
-                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type +")"+ '</option>';
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type + ")" + '</option>';
                         }
                     }
                     $("#city_name").html(s);
@@ -328,7 +328,7 @@
                         if (data[i].type == 'Kabupaten') {
                             s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
                         } else {
-                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type +")"+ '</option>';
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type + ")" + '</option>';
                         }
                     }
                     $("#city_namepenerima").html(s);

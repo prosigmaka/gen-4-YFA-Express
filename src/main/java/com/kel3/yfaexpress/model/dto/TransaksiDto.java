@@ -18,11 +18,11 @@ public class TransaksiDto {
     //email user yang melakukan order
     //kemudian simpan sebagai idUser
     private Integer idUser;
-    private String password;
     private String firstName;
     private String lastName;
-    private Number telepon;
     private String email;
+    private String password;
+    private String phone;
 
     private Integer idPengirim;
     private String namaPengirim;

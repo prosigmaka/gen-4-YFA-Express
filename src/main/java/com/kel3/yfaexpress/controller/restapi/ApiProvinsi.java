@@ -33,7 +33,6 @@ public class ApiProvinsi {
         String json = jsonObject.getJSONArray("results").toString();
         ObjectMapper mapper = new ObjectMapper();
         List<ProvinsiDto> provinsiDtoList = mapper.readValue(json, new TypeReference<List<ProvinsiDto>>(){});
-        System.out.println(provinsiDtoList);
         return provinsiDtoList;
 
     }
