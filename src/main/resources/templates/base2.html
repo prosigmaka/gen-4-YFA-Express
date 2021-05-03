@@ -55,32 +55,32 @@
                         <span aria-hidden="true"><i class="fa fa-times"></i></span>
                     </div>
                 </div>
-                <form class="login-form" th:action="@{/login}" method="post">
+                <form class="login-form" th:action="@{/perform_login}" method="post">
                     <div class="modal-body">
-                            <!-- error message -->
-                            <div th:if="${param.error}">
-                                <div class="alert alert-danger">Invalid username or
-                                    password.</div>
+                        <!-- error message -->
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger">Invalid username or
+                                password.</div>
+                        </div>
+                        <!-- logout message -->
+                        <div th:if="${param.logout}">
+                            <div class="alert alert-info">You have been logged out.</div>
+                        </div>
+                        <div class="txtb">
+                            <input type="text" id="username" name="username" required >
+                            <span data-placeholder="User Name/Email"></span>
+                        </div>
+                        <div class="txtb">
+                            <input type="password" id="password" name="password" required>
+                            <span data-placeholder="Password"></span>
+                        </div>
+                        <div class="row login-row about-password">
+                            <span class="forget-pass">Lupa kata sandi?</span>
+                            <div class="remember-pass">
+                                <input type="checkbox">
+                                <label>ingat kata sandi</label>
                             </div>
-                            <!-- logout message -->
-                            <div th:if="${param.logout}">
-                                <div class="alert alert-info">You have been logged out.</div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="username" name="username" class="form-control" required >
-                                <span data-placeholder="User Name/Email"></span>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="password" name="password" class="form-control" required>
-                                <span data-placeholder="Password"></span>
-                            </div>
-                            <div class="row login-row about-password">
-                                <span class="forget-pass">Lupa kata sandi?</span>
-                                <div class="remember-pass">
-                                    <input type="checkbox">
-                                    <label>ingat kata sandi</label>
-                                </div>
-                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer footer-login">
                         <div class="container" style="position: relative">
