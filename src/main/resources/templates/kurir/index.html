@@ -105,6 +105,7 @@
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/kurir.js}"></script>
+    <script th:src="@{/js/login.js}"></script>
 
     <script>
         // display image preview in form
@@ -217,27 +218,4 @@
             })
         })
     </script>
-    <!-- script action -->
-    <script>
-        //login
-        $('.login').click(function () {
-            $('#modal-login').modal('show')
-        })
-        $('.forget-pass').click(function () {
-            $('#modal-login').modal('hide')
-            $('#modal-forgot').modal('show')
-        })
-
-        //sign-up
-        $('.sign-up').click(function () {
-            $('#modal-login').modal('hide')
-            $('#modal-signup').modal('show')
-        })
-        $('.back').click(function () {
-            $('#modal-signup').modal('hide')
-            $('#modal-login').modal('show')
-        })
-    </script>
-
-
 </th:block>
