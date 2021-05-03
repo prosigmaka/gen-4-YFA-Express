@@ -12,28 +12,49 @@ public class BaseMvcController {
 
     @GetMapping("utama")
     public String utama() {
-        return "user/utama";
+        return "utama/index";
+    }
+
+    @GetMapping("cekresi")
+    public String cekresi() {
+        return "cekresi/index";
     }
 
     @GetMapping("layanan")
     public String layanan() {
-        return "index";
+        return "layanan/index";
     }
 
-    @GetMapping("AdminUserDropOff")
+    @GetMapping("dropoff")
     public String dropoff() {
-        return "user/dropoff";
+        return "dropoff/index";
     }
 
-    @GetMapping("AdminKurir")
+    @GetMapping("kurir")
     public String kurir() {
-        return "admin/kurir";
+        return "kurir/index";
     }
 
-    @GetMapping("AdminBeratLayanan")
-    public String beratBarang() {
-        return "admin/berat-layanan";
+    @GetMapping("faq")
+    public String faq() {
+        return "faq/index";
     }
+
+    @GetMapping("profil")
+    public String profil() {
+        return "profilperusahaan/index";
+    }
+
+    @GetMapping("transaksiadmin")
+    public String transaksiadmin() {
+        return "transaksi/admin";
+    }
+
+    @GetMapping("transaksiuser")
+    public String transaksiuser() {
+        return "transaksi/user";
+    }
+
 
 
     @GetMapping("login")

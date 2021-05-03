@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html layout:decorate="~{base2}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 
-</body>
-</html>
+<th:block layout:fragment="add-style">
+    <!--    LETAK STYLE CSS-->
+    <!--    <link rel="stylesheet" href="css/kurir.css">-->
+</th:block>
+
+<div class="row card-row" layout:fragment="content-body">
+
+    <!--LETAK KONTEN DISINIIII-->
+    <!--JS ISI-->
+    <script th:src="@{/js/default.js}"></script>
+    <script th:src="@{/js/parsley.min.js}"></script>
+    <!--    <script th:src="@{/js/kurir.js}"></script>     SKRIP AJAX    -->
+
+    <!-- script animasi -->
+    <script>
+        // modal form input animation
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+
+        //form login change
+        $(document).on('click', '.col-telp', function () {
+            $('.col-email').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-tel').css({
+                'display': 'block'
+            })
+            $('.txtb-email').css({
+                'display': 'none'
+            })
+        })
+        $(document).on('click', '.col-email', function () {
+            $('.col-telp').removeClass('on')
+            $(this).addClass('on')
+            $('.txtb-email').css({
+                'display': 'block'
+            })
+            $('.txtb-tel').css({
+                'display': 'none'
+            })
+        })
+    </script>
+    <!-- script action -->
+    <script>
+        //login
+        $('.login').click(function () {
+            $('#modal-login').modal('show')
+        })
+        $('.forget-pass').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-forgot').modal('show')
+        })
+
+        //sign-up
+        $('.sign-up').click(function () {
+            $('#modal-login').modal('hide')
+            $('#modal-signup').modal('show')
+        })
+        $('.back').click(function () {
+            $('#modal-signup').modal('hide')
+            $('#modal-login').modal('show')
+        })
+    </script>
+</div>

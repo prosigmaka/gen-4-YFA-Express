@@ -186,20 +186,6 @@
 
     <!-- script animasi -->
     <script>
-        // card fade animation
-        $(window).scroll(function () {
-            var wScroll = $(this).scrollTop()
-            var height = $('.jumbotron').outerHeight()
-
-            if (wScroll > height / 2) {
-                $('.card-service').each(function (i) {
-                    setTimeout(function () {
-                        $('.card-service').eq(i).addClass('muncul')
-                    }, i * 300)
-                })
-            }
-        });
-
         // modal form input animation
         $(".txtb input").on("focus", function () {
             $(this).addClass("focus");
