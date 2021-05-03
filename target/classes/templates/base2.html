@@ -208,11 +208,18 @@
         }
     });
 
-    // dropdown animation
-    $('#navbarDropdown').click(function() {
-        $('.dropdown-menu').slideToggle(600)
+    <!-- navbar -->
+    $('.dropdown-informasi').click(function() {
+        $('.menu-informasi').stop(true, false, true).slideToggle(600);
+        return false
     })
-    $('#content-body, .dropdown-item').click(function () {
+
+    $('.dropdown-login').click(function() {
+        $('.menu-user').stop(true, false, true).slideToggle(600);
+        return false
+    })
+
+    $('.jumbotron-fluid::before, #content-body, .footer-container, .dropdown-item').click(function () {
         $('.dropdown-menu').slideUp(600)
     })
 

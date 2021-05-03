@@ -43,7 +43,7 @@ nav {
   color: #fff;
 }
 
-.nav-menu {
+.nav-menu, .dropdown-item{
   display: flex;
   justify-content: center;
 }
@@ -305,6 +305,10 @@ a.nav-link, .login {
   .dropdown-menu {
     background-color: rgba(0,0,0,.5);
     margin-top: 10px;
+  }
+
+  .menu-user {
+    left: -70px;
   }
 }
 

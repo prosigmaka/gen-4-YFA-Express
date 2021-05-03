@@ -189,9 +189,18 @@
 <script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
 <script>
     <!-- navbar -->
-    $('.dropdown').click(function() {
-        $('.dropdown-menu').stop(true, false, true).slideToggle(600);
+    $('.dropdown-informasi').click(function() {
+        $('.menu-informasi').stop(true, false, true).slideToggle(600);
         return false
+    })
+
+    $('.dropdown-login').click(function() {
+        $('.menu-user').stop(true, false, true).slideToggle(600);
+        return false
+    })
+
+    $('.carousel-item, #content-body, .footer-container, .dropdown-item').click(function () {
+        $('.dropdown-menu').slideUp(600)
     })
 </script>
 <th:block layout:fragment="add-script"></th:block>

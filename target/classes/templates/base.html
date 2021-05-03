@@ -33,7 +33,7 @@
         </div>
     </div>
     <!-- navbar  -->
-    <th:block layout:replace="~{fragment/navbar-user}"></th:block>
+    <th:block layout:replace="~{fragment/navbar}"></th:block>
     <!-- layanan -->
     <section id="content-body" class="card-section">
         <div layout:fragment="content-body"/>
@@ -153,13 +153,17 @@
 <script>
     <!-- navbar -->
     $('.dropdown-informasi').click(function() {
-        $('.dropdown-menu-informasi').stop(true, false, true).slideToggle(600);
+        $('.menu-informasi').stop(true, false, true).slideToggle(600);
         return false
     })
 
-    $('.dropdown-user').click(function() {
-        $('.dropdown-menu-user').stop(true, false, true).slideToggle(600);
+    $('.dropdown-login').click(function() {
+        $('.menu-user').stop(true, false, true).slideToggle(600);
         return false
+    })
+
+    $('.jumbotron:before, #content-body, .footer-container, .dropdown-item').click(function () {
+        $('.dropdown-menu').slideUp(600)
     })
 </script>
 <th:block layout:fragment="add-script"></th:block>
