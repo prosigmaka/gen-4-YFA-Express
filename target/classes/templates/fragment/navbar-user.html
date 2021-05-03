@@ -1,7 +1,7 @@
 <!-- navbar  -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/utama}">Navbar</a>
+        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
         </button>
@@ -25,14 +25,14 @@
                         <a class="nav-link" th:href="@{/layanan}">Layanan</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown-informasi">
                     <div class="nav-menu">
                         <i class="fa fa-info-circle"></i>
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Informasi
                         </a>
                     </div>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-informasi" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
@@ -47,9 +47,20 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <div class="nav-menu">
-                    <span class="login">Daftar/Masuk</span>
-                </div>
+                <li class="nav-item dropdown-user">
+                    <div class="nav-menu">
+                        <i class="fa fa-info-circle"></i>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User Name
+                        </a>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-user" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Order Saya</a>
+                        <a class="dropdown-item" href="#">Informasi Pribadi</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Keluar</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

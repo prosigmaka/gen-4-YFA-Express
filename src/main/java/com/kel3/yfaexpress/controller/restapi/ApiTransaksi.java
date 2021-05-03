@@ -72,6 +72,7 @@ public class ApiTransaksi {
         TransaksiDto transaksiDto = modelMapper.map(transaksi, TransaksiDto.class);
         modelMapper.map(transaksi.getPengirim(), transaksiDto);
         modelMapper.map(transaksi.getPenerima(), transaksiDto);
+        modelMapper.map(transaksi.getUseraa(), transaksiDto);
         return transaksiDto;
     }
 

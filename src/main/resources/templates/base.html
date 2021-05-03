@@ -33,7 +33,7 @@
         </div>
     </div>
     <!-- navbar  -->
-    <th:block layout:replace="~{fragment/navbar}"></th:block>
+    <th:block layout:replace="~{fragment/navbar-user}"></th:block>
     <!-- layanan -->
     <section id="content-body" class="card-section">
         <div layout:fragment="content-body"/>
@@ -152,8 +152,13 @@
 <script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
 <script>
     <!-- navbar -->
-    $('.dropdown').click(function() {
-        $('.dropdown-menu').stop(true, false, true).slideToggle(600);
+    $('.dropdown-informasi').click(function() {
+        $('.dropdown-menu-informasi').stop(true, false, true).slideToggle(600);
+        return false
+    })
+
+    $('.dropdown-user').click(function() {
+        $('.dropdown-menu-user').stop(true, false, true).slideToggle(600);
         return false
     })
 </script>

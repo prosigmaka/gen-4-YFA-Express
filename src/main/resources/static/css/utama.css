@@ -1,10 +1,39 @@
+.body {
+  background: #fff;
+}
+
+.card-section {
+  padding-top: 30px;
+}
+
 .fitur-wrapper {
   margin-top: -10px;
 }
 
-.title-wrapper>div>p {
-  font-size: 26px;
+.title-wrapper p {
+  font-size: 18px;
   font-weight: bold;
   font-family: Helvetica;
   color: #133671;
+}
+
+.mitra {
+  width: 150px;
+  height: 100px;
+  filter: grayscale(100%);
+  transition: .5s;
+}
+
+.mitra:hover {
+  filter: grayscale(0);
+}
+
+
+@media (min-width: 992px) {
+  .title-wrapper p {
+    font-size: 26px;
+  }
+
+
+
 }

@@ -152,7 +152,11 @@ var dropdown = {
       success: function (data) {
         var s = '<option value="-1">Pilih Kota Asal</option>';
         for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+          if (data[i].type == 'Kabupaten') {
+            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+          } else {
+            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type +")"+ '</option>';
+          }
         }
         $("#city_name").html(s);
       }
@@ -184,7 +188,11 @@ var dropdown = {
       success: function (data) {
         var s = '<option value="-1">Pilih Kota Tujuan</option>';
         for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+          if (data[i].type == 'Kabupaten') {
+            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+          } else {
+            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type +")"+ '</option>';
+          }
         }
         $("#city_namepenerima").html(s);
       }
