@@ -82,9 +82,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 				.csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/registration*" , "/js/" , "/css/" , "/img/","/plugins/*").permitAll()
-				.antMatchers("/utama*" , "/js/" , "/css/" , "/img/","/plugins/*").permitAll()
-				.antMatchers("/layanan*" , "/js/" , "/css/" , "/img/","/plugins/*").permitAll()
+				.antMatchers("/registration*" , "/js/**" , "/css/**" , "/img/**","/plugins/*").permitAll()
+				.antMatchers("/utama**" , "/js/**" , "/css/**" , "/img/**","/plugins/*").permitAll()
+				.antMatchers("/layanan*" , "/js/**" , "/css/**" , "/img/**","/plugins/*").permitAll()
 				.antMatchers(HttpMethod.POST, "/api/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/api/**").permitAll()
 				.anyRequest().authenticated()
