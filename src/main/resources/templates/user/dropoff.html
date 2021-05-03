@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <label for="alamatPengirim">Alamat :</label>
                                     <textarea type="text" class="form-control" id="alamatPengirim"
-                                           name="alamatPengirim" placeholder="Alamat Pengirim" required></textarea>
+                                              name="alamatPengirim" placeholder="Alamat Pengirim" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="kodePosPengirim">Kode Pos :</label>
@@ -116,7 +116,7 @@
                                 <div class="form-group">
                                     <label for="alamatPenerima">Alamat : </label>
                                     <textarea class="form-control" id="alamatPenerima"
-                                           name="alamatPenerima" placeholder="Alamat Penerima" required></textarea>
+                                              name="alamatPenerima" placeholder="Alamat Penerima" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="kodePosPenerima">Kode Pos : </label>
@@ -233,18 +233,38 @@
         });
 
 
-        $('#btn-cekharga').click(function(){
+        $('#btn-cekharga').click(function () {
             let asal = $("#cityPengirimId").val();
             let tujuan = $("#cityPenerimaId").val();
             let berat = $("#kategoriBeratBarang").val();
             dropdown.pilihLayanan(asal, tujuan, berat);
             $('.layananajadeh, .ongkirajadeh, #btn-save-utama').css({
-                "display" :"block"
+                "display": "block"
             })
             $(".total-biaya").css({
-                "height" : "230px"
+                "height": "230px"
             })
         })
+    </script>
+
+
+    <!-- action transaksi -->
+    <script>
+        tableBarang.create();
+
+        $('#btn-save-utama').click(function () {
+            formDropOff.saveForm()
+            $('#modal-sukses').modal("show")
+        });
+        $('#oke').click(function () {
+            $('#modal-sukses').modal("hide")
+        })
+
+        dropdown.pilihLayanan();
+        //dropdown.pilihKota();
+        dropdown.pilihProvinsi();
+        //dropdown.pilihKotaPenerima();
+        dropdown.pilihProvinsiPenerima();
     </script>
 
     <script>
@@ -255,7 +275,7 @@
                 contentType: 'application/json',
                 dataType: 'json',
                 success: function (res) {
-                        $('#email').val(res.email);
+                    $('#email').val(res.email);
                 },
                 erorrr: function (err) {
                     console.log(err);
@@ -266,6 +286,24 @@
         function provinsiPengirimHidden() {
             let provinsi = document.getElementById("select2-province-container").title;
             document.getElementById("provinceName").value = provinsi;
+            let idProvinsi = document.getElementById("province").value;
+            $.ajax({
+                type: "GET",
+                url: "/api/kotaRaja/" + idProvinsi,
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data) {
+                    var s = '<option value="-1">Pilih Kota Asal</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].type == 'Kabupaten') {
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+                        } else {
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type + ")" + '</option>';
+                        }
+                    }
+                    $("#city_name").html(s);
+                }
+            });
         }
 
         function kotaPengirimHidden() {
@@ -277,9 +315,25 @@
 
         function provinsiPenerimaHidden() {
             let provinsi = document.getElementById("select2-provincepenerima-container").title;
-            // let idProvinsi = document.getElementById("provincepenerima").value;
             document.getElementById("provinceNamePenerima").value = provinsi;
-            // document.getElementById("provincePenerimaId").value = idProvinsi;
+            let idProvinsi = document.getElementById("provincepenerima").value;
+            $.ajax({
+                type: "GET",
+                url: "/api/kotaRaja/" + idProvinsi,
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data) {
+                    var s = '<option value="-1">Pilih Kota Tujuan</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].type == 'Kabupaten') {
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
+                        } else {
+                            s += '<option value="' + data[i].city_id + '">' + data[i].city_name + " (" + data[i].type + ")" + '</option>';
+                        }
+                    }
+                    $("#city_namepenerima").html(s);
+                }
+            });
         }
 
         function kotaPenerimaHidden() {
@@ -299,24 +353,6 @@
         }
     </script>
 
-    <!-- action transaksi -->
-    <script>
-        tableBarang.create();
-
-        $('#btn-save-utama').click(function () {
-            formDropOff.saveForm()
-            $('#modal-sukses').modal("show")
-        });
-        $('#oke').click(function () {
-            $('#modal-sukses').modal("hide")
-        })
-
-        dropdown.pilihLayanan();
-        dropdown.pilihKota();
-        dropdown.pilihProvinsi();
-        dropdown.pilihKotaPenerima();
-        dropdown.pilihProvinsiPenerima();
-    </script>
     <!-- script animasi -->
     <script>
         // dropdown table

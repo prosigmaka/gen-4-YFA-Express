@@ -9,6 +9,7 @@ import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,4 +36,22 @@ public class ApiKota {
         List<KotaDto> kotaDtoList = mapper.readValue(json, new TypeReference<List<KotaDto>>(){});
         return kotaDtoList;
     }
+
+    @GetMapping("/{idProvinsi}")
+    public List<KotaDto> rajaOngkirKota(@PathVariable String idProvinsi) throws IOException, JSONException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.rajaongkir.com/starter/city?province=" + idProvinsi )
+                .get()
+                .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
+                .build();
+        Response response = client.newCall(request).execute();
+        String jsonData = response.body().string();
+        JSONObject jsonObject = new JSONObject(jsonData).getJSONObject("rajaongkir");
+        String json = jsonObject.getJSONArray("results").toString();
+        ObjectMapper mapper = new ObjectMapper();
+        List<KotaDto> kotaDtoList = mapper.readValue(json, new TypeReference<List<KotaDto>>(){});
+        return kotaDtoList;
+    }
+
 }
