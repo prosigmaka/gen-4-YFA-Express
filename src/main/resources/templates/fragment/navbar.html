@@ -33,9 +33,7 @@
                     <div class="nav-menu dropdown">
                         <div class="nav-menu menu informasi" data-toggle="dropdown">
                             <i class="fa fa-info-circle"></i>
-                            <a class="nav-link dropdown-toggle">
-                                Informasi
-                            </a>
+                            <a class="nav-link dropdown-toggle">Informasi</a>
                         </div>
                         <div class="dropdown-menu menu-informasi" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">FAQ</a>
@@ -59,9 +57,7 @@
                     <div class="dropdown" sec:authorize="isAuthenticated()">
                         <div class="nav-menu menu" data-toggle="dropdown">
                             <i class="far fa-user"></i>
-                            <a class="nav-link dropdown-toggle" sec:authentication="name">
-                                User
-                            </a>
+                            <a class="nav-link dropdown-toggle" sec:authentication="name">User</a>
                         </div>
                         <div class="dropdown-menu menu-user" sec:authorize="isAuthenticated()" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Informasi Pribadi</a>
