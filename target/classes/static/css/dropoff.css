@@ -1,15 +1,17 @@
 .form-container{
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .card-header{
-  background-color: rgba(30,171,255,0.6);
+  background-color: rgba(30,171,255,0.5) ;
   display: flex;
   justify-content: space-between;
   font-size: 15px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Roboto Light";
+  color: #1a252f;
   border-bottom: none;
 }
+
 .card{
   border: none;
   border-radius: 0;
@@ -24,12 +26,12 @@
 }
 
 .card-header i {
-  font-size: 20px;
+  font-size: 15px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   background-color: #fff;
-  padding-left: 6px;
+  padding-left: 10px;
   padding-top: 6px;
   color: black;
   cursor: pointer;
@@ -83,6 +85,32 @@ select2-container--default .select2-selection--single .select2-selection__arrow 
   justify-content: center;
 }
 
-.cek {
+.cek1 {
   margin-right: 5px;
+  border-radius: 20px;
 }
+
+
+
+.cek1:hover {
+  background-color: #0b2e13;
+}
+.cek2 {
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+.cek2:hover {
+  background-color: #1a252f;
+}
+.cek3 {
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+.cek3:hover {
+  background-color: #a21318;
+}
+
+
+

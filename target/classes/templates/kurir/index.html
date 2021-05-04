@@ -11,21 +11,20 @@
 <div class="row card-row" layout:fragment="content-body">
     <!--isi data-->
     <div class="container form-container">
+        <p class="judul">Daftar Kurir YFA Express</p>
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Kurir</h3>
-                        <button class="float-right btn-primary" id="btn-tambah-kurir">Tambah</button>
+                    <div class="card-header buttontambah">
+                        <i class="float-right fas fa-user-plus" id="btn-tambah-kurir"></i>
+                        &ensp; &ensp; &ensp; &ensp;
+                        <!--<i class="float-right fas fa-user-minus" id="btn-deletetabel-kurir" ></i>-->
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body table-responsive">
                         <table class="table table-striped table-bordered table-hover nowrap" id="tabelKurir"
                                style="width:100%"></table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
         </div>
     </div>
@@ -78,7 +77,7 @@
     <div class="modal fade" id="modal-delete">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #1d455b; color: #fff;">
+                <div class="modal-header" style="background-color: #7aadab; color: #fff;">
                     <h4>Anda sudah yakin ?</h4>
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                         <span aria-hidden="true" style="color: #fff;">&times;</span>
@@ -92,9 +91,7 @@
                     <button class="btn btn-danger" id="btn-delete-row" type="button">Delete</button>
                 </div>
             </div>
-            <!--/modalcontent-->
         </div>
-        <!--/modal dialog-->
     </div>
 
 </div>
@@ -142,7 +139,7 @@
 
             // If you want to add an extra field for the FormData
             data.append('kurir', new Blob([JSON.stringify({
-                "idKurir" : document.getElementById("idKurir").value,
+                "idKurir": document.getElementById("idKurir").value,
                 "namaKurir": document.getElementById("namaKurir").value,
                 "noTelpKurir": document.getElementById("noTelpKurir").value
 

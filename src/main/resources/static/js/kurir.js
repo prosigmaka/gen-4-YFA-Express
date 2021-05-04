@@ -14,9 +14,9 @@ var tabelKurir = {
           $('#tabelKurir').DataTable({
             data: res,
             columns: [
-              {title: "id", data: "idKurir"},
-              {title: "nama", data: "namaKurir"},
-              {title: "no telp", data: "noTelpKurir"},
+              {title: "ID Kurir", data: "idKurir"},
+              {title: "Nama Kurir", data: "namaKurir"},
+              {title: "No Telp", data: "noTelpKurir"},
               {
                 title: "Foto",
                 data: null,
@@ -29,7 +29,7 @@ var tabelKurir = {
                 title: "Action",
                 data: null,
                 render: function (data, type, row) {
-                  return "<button class='btn-success' onclick=formKurir.setEditData('" + data.idKurir + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>"+"<span></span>"+
+                  return "<button class='btn-success' onclick=formKurir.setEditData('" + data.idKurir + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>"+"<span>  </span>"+
                     "<button class='btn-danger' onclick=actionDelete.deleteConfirm('" + data.idKurir + "') style='border-radius: 20%'><i class='fa fa-trash'></i></button>"
 
                 }
@@ -44,21 +44,6 @@ var tabelKurir = {
         console.log(err);
       }
     });
-    //
-    // $.ajax({
-    //   type: "GET",
-    //   url: "/api/kurir",
-    //   contentType: 'application/json',
-    //   dataType: 'json',
-    //   success: function (res) {
-    //     console.log(res)
-    //     let s = '<option disabled selected hidden>-- Pilih --</option>';
-    //     for (let i = 0; i < res.length; i++) {
-    //       s += '<option value=' + res[i].idUser + '>' + res[i].namaUser + '</option>';
-    //     }
-    //     $("#namaUser").html(s);
-    //   }
-    // });
   }
 };
 

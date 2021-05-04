@@ -88,7 +88,7 @@ var formDropOff = {
           if (xhr.status == 200 || xhr.status == 201) {
             formDropOff.resetForm();
             tableBarang.create();
-            $('#modal-barang').modal('hide')
+            $('#modal-sukses').modal("show")
 
           } else {
 
@@ -134,7 +134,7 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Pilih Provinsi</option>';
+        var s = '<option value="-1">Province</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
@@ -170,7 +170,7 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Pilih Provinsi</option>';
+        var s = '<option value="-1">Province</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
@@ -206,7 +206,7 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Pilih Layanan</option>';
+        var s = '<option value="-1">Services</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].cost[0].value + '">' + data[i].service + '</option>';
         }

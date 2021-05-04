@@ -1,6 +1,20 @@
 .form-container {
   margin-top: 50px;
 }
+.judul{
+  font-family: "Roboto Light";
+  font-size: 1.525rem;
+  text-align: center;
+  color: rgba(48,112,120,1);
+}
+
+.buttontambah{
+  color: #0c5460;
+}
+.tambahkurir{
+
+}
+
 /* modal login */
 .effect {
   transform: scale(0);
