@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </th:block>
 
+<!-- JUMBOTRON -->
+<div class="row card-row" layout:fragment="content-jumbotron">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+</div>
+
 <div class="row card-row" layout:fragment="content-body">
     <!--    FORM PENGIRIM-->
     <div class="container form-container">
@@ -265,8 +271,6 @@
 
     <!-- action transaksi -->
     <script>
-        tableBarang.create();
-
         $('#btn-save-utama').click(function () {
             formDropOff.saveForm()
         });

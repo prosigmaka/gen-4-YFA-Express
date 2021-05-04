@@ -10,9 +10,15 @@ import com.kel3.yfaexpress.service.TransaksiService;
 import org.json.JSONException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,6 +56,7 @@ public class ApiTransaksi {
         modelMapper.map(transaksi, transaksiDto);
         modelMapper.map(transaksi.getPengirim(), transaksiDto);
         modelMapper.map(transaksi.getPenerima(), transaksiDto);
+        modelMapper.map(transaksi.getUseraa(), transaksiDto);
         transaksiDto.setIdTransaksi(transaksi.getIdTransaksi());
 
         return transaksiDto;
@@ -74,6 +81,35 @@ public class ApiTransaksi {
         modelMapper.map(transaksi.getPenerima(), transaksiDto);
         modelMapper.map(transaksi.getUseraa(), transaksiDto);
         return transaksiDto;
+    }
+
+    @GetMapping("/getFoto/{idTransaksi}")
+    public byte[] getFoto(@PathVariable Integer idTransaksi) throws IOException {
+        Transaksi transaksi = transaksiRepository.findById(idTransaksi).get();
+        String userFolderPath = "D:/img/";
+        String pathFile = userFolderPath + transaksi.getFotoPenerima();
+        Path paths = Paths.get(pathFile);
+        byte[] foto = Files.readAllBytes(paths);
+        return foto;
+    }
+
+    @PostMapping(value="/admin", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public TransaksiDto editSave(@RequestPart(value = "transaksi", required = true) TransaksiDto transaksiDto,
+                                 @RequestPart(value = "file", required = true) MultipartFile file) throws Exception {
+
+        String userFolderPath = "D:/img";
+//                System.getProperty("user.dir").replace('\\', '/') +"/demo/src/main/resources/static/img";
+        Path path = Paths.get(userFolderPath);
+        Path filePath = path.resolve(file.getOriginalFilename());
+        Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+        System.out.println("Upload file with size" + file.getSize() + " with name :  " + file.getOriginalFilename());
+
+        Transaksi transaksi = modelMapper.map(transaksiDto, Transaksi.class);
+        transaksi.setFotoPenerima(file.getOriginalFilename());
+
+        transaksi = transaksiService.saveTransaksiMaterDetail(transaksi);
+        TransaksiDto transaksiDtoDB = mapTransaksiToTransaksiDto(transaksi);
+        return transaksiDtoDB;
     }
 
     @DeleteMapping("/{id}")

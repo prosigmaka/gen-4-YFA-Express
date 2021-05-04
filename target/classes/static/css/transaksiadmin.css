@@ -28,14 +28,10 @@
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
-.table-title {
-  margin-bottom: 10px;
-}
-
 .table-title i {
-  font-size: 20px;
-  height: 30px;
-  width: 30px;
+  font-size: 15px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   background-color: #fff;
   padding-left: 6px;
@@ -46,10 +42,11 @@
 }
 
 .card-body {
-  padding-bottom: 100px !important;
+  padding-bottom: 40px !important;
+  font-size: 12px !important;
 }
 
-#tableBeratBarang, #tableLayanan, #tableKota{
+#tableTransaksi, #tableLayanan, #tableKota{
   width: 100% !important;
   min-width: 0 !important;
 }
@@ -58,7 +55,7 @@
   padding-top: 20px !important;
 }
 
-.berat-barang {
+.container-tabel {
   margin-top: 50px;
   position: relative;
 }
@@ -87,17 +84,6 @@ thead {
 .table-hover tbody tr:hover {
   background-color: rgba(30, 171, 255, .3) !important;
 }
-
-@media (min-width: 992px) {
-  div.dataTables_wrapper div.dataTables_filter input {
-    width: auto;
-  }
-}
-
-
-
-
-
 
 /* modal */
 .effect {
@@ -221,12 +207,23 @@ thead {
   margin-top: 0;
 }
 
-.tombol, .delete-table {
+.tombol, .tombol-border, .delete-table {
   border-radius: 20px;
+}
+
+.tombol-border {
+  background: none;
+  color: rgba(30,171,255,1);
+  border: 1px solid rgba(30,171,255,1);
 }
 
 .tombol:hover {
   background-color: #133671;
+}
+
+.tombl-border:hover {
+  color: #fff;
+  background-color: rgba(30, 171, 255, 1);
 }
 
 .reg-now {
@@ -275,6 +272,75 @@ thead {
   cursor: pointer;
 }
 
+
+/* form transaksi */
+#formTransaksi h3 {
+  font-size: 1.25rem;
+  text-shadow: none;
+}
+
+.form-control {
+  font-size: 12px !important;
+}
+
+[type=search] {
+  outline-offset: 0;
+  outline: none !important;
+}
+
+.layananajadeh, .ongkirajadeh {
+  display: none;
+}
+
+.select2-container .select2-search-field,
+.select2-container .select2-input {
+  width: 100% !important
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #495057;
+  line-height: 37px;
+}
+
+select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 37px;
+}
+
+.select2-container .select2-selection--single {
+  height: 37px;
+}
+
+.select2-container--default .select2-selection--single {
+  border: 1px solid #ced4da;
+}
+
+.order-click {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.cek {
+  margin-right: 5px;
+}
+
+.card-body.body-before-foto {
+  padding-bottom: 0 !important;
+}
+
+.card-body.body-foto {
+  margin-top: -10px;
+}
+
+.foto {
+  display: none;
+}
+
+.layanan {
+  border-top: 1px dashed #ced4da;
+}
+
 @media (min-width: 460px) {
   /* modal login */
   .modal-content-login {
@@ -291,6 +357,12 @@ thead {
 
   .col-telp {
     padding-top: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: auto;
   }
 }
 
