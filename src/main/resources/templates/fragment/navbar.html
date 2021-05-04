@@ -8,33 +8,36 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <div class="nav-menu" sec:authorize="isAuthenticated()">
+                    <div class="nav-menu menu" sec:authorize="isAuthenticated()">
                         <i class="fa fa-box-open"></i>
                         <a class="nav-link" th:href="@{/dropoff}">Drop Off</a>
                     </div>
-                    <div class="nav-menu" sec:authorize="!isAuthenticated()">
+                    <div class="nav-menu menu" sec:authorize="!isAuthenticated()">
                         <i class="fa fa-box-open"></i>
                         <a class="nav-link login">Drop Off</a>
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <div class="nav-menu">
+                    <div class="nav-menu menu">
                         <i class="fa fa-search"></i>
                         <a class="nav-link" href="#">Lacak</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <div class="nav-menu">
+                    <div class="nav-menu menu">
                         <i class="fa fa-shipping-fast"></i>
                         <a class="nav-link" th:href="@{/layanan}">Layanan</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown dropdown-informasi">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Informasi
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="nav-menu dropdown">
+                        <div class="nav-menu menu informasi" data-toggle="dropdown">
+                            <i class="fa fa-info-circle"></i>
+                            <a class="nav-link dropdown-toggle">
+                                Informasi
+                            </a>
+                        </div>
+                        <div class="dropdown-menu menu-informasi" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">FAQ</a>
                             <a class="dropdown-item" href="#">Panduan</a>
                             <a class="dropdown-item" href="#">Larangan</a>
@@ -42,7 +45,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <div class="nav-menu">
+                    <div class="nav-menu menu">
                         <i class="fa fa-users"></i>
                         <a class="nav-link" href="#">About Us</a>
                     </div>
@@ -54,10 +57,13 @@
                         <span class="login">Daftar/Masuk</span>
                     </div>
                     <div class="dropdown" sec:authorize="isAuthenticated()">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            User
-                        </button>
-                        <div class="dropdown-menu" sec:authorize="isAuthenticated()" aria-labelledby="dropdownMenuButton">
+                        <div class="nav-menu menu" data-toggle="dropdown">
+                            <i class="far fa-user"></i>
+                            <a class="nav-link dropdown-toggle" sec:authentication="name">
+                                User
+                            </a>
+                        </div>
+                        <div class="dropdown-menu menu-user" sec:authorize="isAuthenticated()" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Informasi Pribadi</a>
                             <a class="dropdown-item" th:href="@{/perform_logout}">Logout</a>
                         </div>

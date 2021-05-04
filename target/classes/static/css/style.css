@@ -67,10 +67,13 @@ a.nav-link, .login {
   font-weight: bold;
 }
 
-.login:hover, .nav-menu:hover i,
-.nav-menu:hover a, .nav-link:hover {
+.login:hover, .menu:hover i,
+.menu:hover .nav-link {
   color: rgba(30,171,255,1) !important;
+}
 
+.menu {
+  cursor: pointer;
 }
 
 .dropdown-menu {
