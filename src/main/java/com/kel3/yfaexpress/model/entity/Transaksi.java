@@ -23,6 +23,8 @@ public class Transaksi {
     private String statusDelivery;
     private Date tanggalTransaksi;
     private String resi;
+    private String penerimaPaket;
+    private String fotoPenerima;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")

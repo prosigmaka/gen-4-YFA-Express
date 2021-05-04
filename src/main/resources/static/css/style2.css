@@ -312,10 +312,6 @@ a.nav-link:active, .login:active {
     background-color: rgba(0,0,0,.5);
     margin-top: 10px;
   }
-
-  .menu-user {
-    left: -70px;
-  }
 }
 
 

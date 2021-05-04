@@ -334,7 +334,7 @@ a.nav-link, .login {
   font-size: 20px;
 }
 
-.carousel-item-2 .carousel-caption button {
+.carousel-item-2 .carousel-caption a {
   height: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 0 rgba(0,0,0,.1);
@@ -343,7 +343,7 @@ a.nav-link, .login {
   border: none;
 }
 
-.carousel-item-2 .carousel-caption button:hover {
+.carousel-item-2 .carousel-caption a:hover {
   background-color: rgb(13, 104, 153);
 }
 
@@ -381,10 +381,6 @@ a.nav-link, .login {
   .dropdown-menu {
     background-color: rgba(0,0,0,.5);
     margin-top: 10px;
-  }
-
-  .menu-user {
-    left: -70px;
   }
 
   /* carousel */
@@ -426,7 +422,7 @@ a.nav-link, .login {
   }
 
   .carousel-item-2 .carousel-caption p,
-  .carousel-item-2 .carousel-caption button {
+  .carousel-item-2 .carousel-caption a {
     display: none;
   }
 }
