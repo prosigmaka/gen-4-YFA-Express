@@ -222,48 +222,8 @@ var formTransaksi = {
       "beratBarang" : document.getElementById("kategoriBeratBarang").value,
       "kategoriLayanan" : document.getElementById("kategoriLayanan").value,
       "ongkosKirim" : document.getElementById("ongkosKirim").value,
-
-
-
-
-
-
-
-      // alamatPenerima: "80090"
-      // alamatPengirim: "jakarta"
-      // beratBarang: 8000
-      // cityName: "Cilegon (Kota)"
-      // cityNamePenerima: "Gunung Kidul"
-      // cityPenerimaId: null
-      // cityPengirimId: null
-      // email: "adisugiarto270@gmail.com"
-      // firstName: "sugi"
-                                                    //fotoPenerima: null
-      // idPenerima: 52
-      // idPengirim: 52
-      // idTransaksi: 52
-      // idUser: 1
-      // jumlahBarang: 8
-      // kategoriLayanan: "OKE"
-      // kodePosPenerima: "989890"
-      // kodePosPengirim: "689"
-      // lastName: "arto"
-      // namaBarang: "678687"
-      // namaPenerima: "jklkjlk"
-      // namaPengirim: "adi"
-      // ongkosKirim: 160000
-      // password: "$2a$10$p.tqtgh297lCibUC.O//qusBnVrT2lU2CPCaggwM3hYNaA15nwh6i"
-      // penerimaPaket: null
-      // phone: "087828"
-      // provinceIdPenerima: null
-      // provinceName: "Banten"
-      // provinceNamePenerima: "DI Yogyakarta"
-      // province_id: null
-      // resi: "YFA87273427"
-      statusDelivery: "undelivered"
-      // tanggalTransaksi: "2021-05-04T00:47:34.771+00:00"
-      // telpPenerima: "90809"
-      // telpPengirim: "087"
+      "statusDelivery" : document.getElementById("statusDelivery").value,
+      "fotoPenerima" : document.getElementById("fotoPenerima").value
     })], {
       type: "application/json"
     }));
@@ -287,8 +247,6 @@ var formTransaksi = {
         $("#btn-save-transaksi").prop("disabled", false);
         tableTransaksi.create();
         $('#modal-transaksi').modal('hide')
-        console.log($('#fileImage').val())
-
       },
       error: function (e) {
 
