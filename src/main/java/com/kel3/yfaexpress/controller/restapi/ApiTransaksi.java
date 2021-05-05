@@ -4,6 +4,7 @@ import com.kel3.yfaexpress.model.dto.TransaksiDto;
 import com.kel3.yfaexpress.model.entity.Transaksi;
 import com.kel3.yfaexpress.model.entity.Penerima;
 import com.kel3.yfaexpress.model.entity.Pengirim;
+import com.kel3.yfaexpress.repository.KurirRepository;
 import com.kel3.yfaexpress.repository.TransaksiRepository;
 import com.kel3.yfaexpress.repository.UserRepository;
 import com.kel3.yfaexpress.service.TransaksiService;
@@ -38,8 +39,11 @@ public class ApiTransaksi {
     @Autowired
     private TransaksiService transaksiService;
 
+    @Autowired
+    private KurirRepository kurirRepository;
+
     @GetMapping()
-    public List<TransaksiDto> getListBarang() {
+    public List<TransaksiDto> getListTransaksi() {
         List<Transaksi> transaksiList = transaksiRepository.findAll();
         List<TransaksiDto> transaksiDtos =
                 transaksiList.stream()
@@ -57,9 +61,19 @@ public class ApiTransaksi {
         modelMapper.map(transaksi.getPengirim(), transaksiDto);
         modelMapper.map(transaksi.getPenerima(), transaksiDto);
         modelMapper.map(transaksi.getUseraa(), transaksiDto);
+        modelMapper.map(transaksi.getKurir(), transaksiDto);
         transaksiDto.setIdTransaksi(transaksi.getIdTransaksi());
-
         return transaksiDto;
+    }
+
+    @GetMapping("/admin")
+    public List<TransaksiDto> getListTransaksiAdmin() {
+        List<Transaksi> transaksiList = transaksiRepository.findAllByStatusDeliveryEquals("Undelivered");
+        List<TransaksiDto> transaksiDtos =
+                transaksiList.stream()
+                        .map(transaksi -> mapTransaksiToTransaksiDto(transaksi))
+                        .collect(Collectors.toList());
+        return transaksiDtos;
     }
 
     @PostMapping
@@ -70,6 +84,7 @@ public class ApiTransaksi {
         transaksi.setPenerima(penerima);
         transaksi.setPengirim(pengirim);
         transaksi.setIdUser(userRepository.findByEmail(transaksiDto.getEmail()).getId());
+        transaksi.setIdKurir(1);
         transaksiService.saveTransaksiMaterDetail(transaksi);
         TransaksiDto transaksiDtoDB = mapTransaksiToTransaksiDto(transaksi);
         return transaksiDtoDB;
@@ -80,6 +95,7 @@ public class ApiTransaksi {
         modelMapper.map(transaksi.getPengirim(), transaksiDto);
         modelMapper.map(transaksi.getPenerima(), transaksiDto);
         modelMapper.map(transaksi.getUseraa(), transaksiDto);
+        modelMapper.map(transaksi.getKurir(), transaksiDto);
         return transaksiDto;
     }
 
@@ -94,8 +110,8 @@ public class ApiTransaksi {
     }
 
     @PostMapping(value="/admin", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public TransaksiDto editSave(@RequestPart(value = "transaksi", required = true) TransaksiDto transaksiDto,
-                                 @RequestPart(value = "file", required = true) MultipartFile file) throws Exception {
+    public Transaksi editSave(@RequestPart(value = "transaksi", required = true) TransaksiDto transaksiDto,
+                                 @RequestPart(value = "foto", required = true) MultipartFile file) throws Exception {
 
         String userFolderPath = "D:/img";
 //                System.getProperty("user.dir").replace('\\', '/') +"/demo/src/main/resources/static/img";
@@ -104,12 +120,21 @@ public class ApiTransaksi {
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
         System.out.println("Upload file with size" + file.getSize() + " with name :  " + file.getOriginalFilename());
 
+        Pengirim pengirim = modelMapper.map(transaksiDto, Pengirim.class);
+        Penerima penerima = modelMapper.map(transaksiDto, Penerima.class);
         Transaksi transaksi = modelMapper.map(transaksiDto, Transaksi.class);
+        transaksi.setPenerima(penerima);
+        transaksi.setPengirim(pengirim);
+//        transaksi.setIdUser(userRepository.findByEmail(transaksiDto.getEmail()).getId());
+        transaksi.setIdUser(transaksiRepository.findById(transaksiDto.getIdTransaksi()).get().getIdUser());
+        transaksi.setUseraa(userRepository.findById(transaksi.getIdUser()).get());
+        transaksi.setTanggalTransaksi(transaksiRepository.findById(transaksiDto.getIdTransaksi()).get().getTanggalTransaksi());
+        transaksi.setResi(transaksiRepository.findById(transaksiDto.getIdTransaksi()).get().getResi());
+        transaksi.setKurir(kurirRepository.findById(transaksiDto.getIdKurir()).get());
         transaksi.setFotoPenerima(file.getOriginalFilename());
 
-        transaksi = transaksiService.saveTransaksiMaterDetail(transaksi);
-        TransaksiDto transaksiDtoDB = mapTransaksiToTransaksiDto(transaksi);
-        return transaksiDtoDB;
+        transaksi = transaksiRepository.save(transaksi);
+        return transaksi;
     }
 
     @DeleteMapping("/{id}")

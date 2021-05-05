@@ -24,6 +24,9 @@ public class TransaksiServiceImpl implements TransaksiService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private KurirRepository kurirRepository;
+
     public String generateResiNumber(){
         String noResi = "YFA";
         int code = (int) (Math.ceil(Math.random() * 1000000000) * 1);
@@ -38,6 +41,7 @@ public class TransaksiServiceImpl implements TransaksiService {
         penerimaRepository.save(transaksi.getPenerima());
         transaksi = transaksiRepository.save(transaksi);
         transaksi.setUseraa(userRepository.findById(transaksi.getIdUser()).get());
+        transaksi.setKurir(kurirRepository.findById(1).get());
         transaksi.setTanggalTransaksi(new Date());
         transaksi.setResi(resi.generateResiNumber());
         return transaksi;

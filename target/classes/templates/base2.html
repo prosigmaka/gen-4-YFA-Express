@@ -10,6 +10,8 @@
     <title>YFA Express</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <!-- fontawesome -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!--Import bootstrap-->
@@ -21,6 +23,11 @@
     <th:block layout:fragment="add-style"></th:block>
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style2.css">
+    <style>
+        .jumbotron .card-row {
+            margin-top: 0 !important;
+        }
+    </style>
     <link rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
@@ -32,7 +39,7 @@
 <div class="wrap">
     <!-- jumbotron  -->
     <div class="jumbotron jumbotron-fluid" style="background-image: url(img/1.jpg);">
-        <div class="row card-row" layout:fragment="content-jumbotron"/>
+        <div class="row card-row row-jumbotron" layout:fragment="content-jumbotron"/>
     </div>
     <!-- navbar  -->
     <th:block layout:replace="~{fragment/navbar}"></th:block>

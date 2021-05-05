@@ -21,7 +21,6 @@ var formDropOff = {
         success: function (res, status, xhr) {
           if (xhr.status == 200 || xhr.status == 201) {
             formDropOff.resetForm();
-            tableBarang.create();
             $('#modal-sukses').modal("show")
 
           } else {

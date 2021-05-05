@@ -101,12 +101,19 @@ var tableTransaksi = {
                 data: "statusDelivery"
               },
               {
+                title: "Kurir",
+                data: "namaKurir"
+              },
+              {
                 title: "Penerima Paket",
                 data: "penerimaPaket"
               },
               {
-                title: "Foto Penerima",
-                data: "fotoPenerima"
+                title: "Foto",
+                data: null,
+                render: function (data, type, row) {
+                  return "<img src='/api/transaksi/getFoto/"+data.idTransaksi+"' alt='myImage' style='border-radius: 5px; width: 100px'>"
+                }
               },
               {
                 title: "Action",
@@ -180,14 +187,30 @@ var dropdown = {
         $("#layanan").html(s);
       }
     });
-  }
+  },
+
+  pilihKurir: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/kurir",
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        var s = '<option value="-1">Pilih Kurir</option>';
+        for (var i = 0; i < data.length; i++) {
+          s += '<option value="' + data[i].idKurir + '">' + data[i].namaKurir + '</option>';
+        }
+        $("#kurir").html(s);
+      }
+    });
+  },
 }
 
 var formTransaksi = {
   resetForm: function () {
     $('#formTransaksi')[0].reset();
     $('#idTransaksi').val("");
-    $('#thumbnail').removeAttr('src')
+    $('#thumbnail').attr('src', '/img/basic.png')
   },
 
   saveForm : function (event) {
@@ -222,6 +245,8 @@ var formTransaksi = {
       "beratBarang" : document.getElementById("kategoriBeratBarang").value,
       "kategoriLayanan" : document.getElementById("kategoriLayanan").value,
       "ongkosKirim" : document.getElementById("ongkosKirim").value,
+      "idKurir" : document.getElementById("kurir").value,
+      "penerimaPaket" : document.getElementById("penerimaPaket").value,
       "statusDelivery" : document.getElementById("statusDelivery").value,
       "fotoPenerima" : document.getElementById("fotoPenerima").value
     })], {
@@ -234,7 +259,7 @@ var formTransaksi = {
     $.ajax({
       type: "POST",
       enctype: 'multipart/form-data',
-      url: "/api/transaksi",
+      url: "/api/transaksi/admin",
       data: data,
       processData: false,
       contentType: false,
@@ -246,6 +271,7 @@ var formTransaksi = {
         console.log("SUCCESS : ", data);
         $("#btn-save-transaksi").prop("disabled", false);
         tableTransaksi.create();
+        formTransaksi.resetForm();
         $('#modal-transaksi').modal('hide')
       },
       error: function (e) {
@@ -268,6 +294,13 @@ var formTransaksi = {
       success: function (res, status, xhr) {
         if (xhr.status == 200 || xhr.status == 201) {
           $('#formTransaksi').fromJSON(JSON.stringify(res));
+          $('#select2-province-container').text(res.provinceName)
+          $('#select2-city_name-container').text(res.cityName)
+          $('#select2-provincepenerima-container').text(res.provinceNamePenerima)
+          $('#select2-city_namepenerima-container').text(res.cityNamePenerima)
+          $('#status').val(res.statusDelivery)
+          $('#siPenerimaPaket').val(res.penerimaPaket)
+          $('#select2-kurir-container').text(res.namaKurir)
           $('#modal-transaksi').modal('show')
         } else {
         }

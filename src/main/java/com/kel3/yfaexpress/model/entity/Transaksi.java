@@ -37,7 +37,13 @@ public class Transaksi {
     @ManyToOne
     @JoinColumn(name = "id_user", insertable = false, updatable = false)
     private Useraa useraa;
-
     @Column(name = "id_user")
     private Long idUser;
+
+    @ManyToOne
+    @JoinColumn(name = "id_kurir", insertable = false, updatable = false)
+    private Kurir kurir;
+    @Column(name = "id_kurir")
+    private Integer idKurir;
+
 }

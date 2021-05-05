@@ -1,3 +1,41 @@
+/* pilih tabel */
+.container-pilih-tabel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 10px;
+  position: relative;
+}
+
+.container-pilih-tabel h10 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tulisan::after {
+  content: "";
+  width: 15%;
+  display: block;
+  border-bottom: 2px solid black;
+  margin-top: -15px;
+}
+
+.pilih-tabel {
+  background-color: #fff;
+  margin-left: 20px;
+  box-shadow: 1px 5px 8px #dddddd;
+  height: 50px;
+  min-width: 170px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+
+
 /* tabel */
 .card {
   border: none !important;
@@ -331,10 +369,6 @@ select2-container--default .select2-selection--single .select2-selection__arrow 
 
 .card-body.body-foto {
   margin-top: -10px;
-}
-
-.foto {
-  display: none;
 }
 
 .layanan {

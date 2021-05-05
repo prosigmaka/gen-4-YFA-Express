@@ -43,4 +43,9 @@ public class TransaksiDto {
     private String cityNamePenerima;
     private String alamatPenerima;
     private String kodePosPenerima;
+
+    private Integer idKurir;
+    private String namaKurir;
+    private String noTelpKurir;
+    private String file;
 }

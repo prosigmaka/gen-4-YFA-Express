@@ -16,6 +16,16 @@
         .select2-results {
             font-size: 12px;
         }
+
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .card-body {
+            padding-left: .5rem !important;
+            padding-right: .5rem !important;
+        }
     </style>
 </th:block>
 
@@ -25,6 +35,24 @@
 </div>
 
 <div class="row card-row" layout:fragment="content-body">
+    <div class="container container-pilih-tabel">
+        <div class="pilih-tabel tabel-transaksi">
+            <div class="tulisan">
+                <h10>Transaksi User</h10>
+                <p>Data transaksi drop off user</p>
+            </div>
+
+        </div>
+        <div th:href="@{/kurir}" class="pilih-tabel tabel-kurir">
+            <div class="tulisan">
+                <h10>Data Kurir</h10>
+                <p>Data profil kurir YFA Express</p>
+            </div>
+
+
+        </div>
+    </div>
+
     <div class="container container-tabel" style="position: relative">
         <div class="card">
             <div class="card-header card-top">
@@ -52,6 +80,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="formTransaksi" role="form" enctype="multipart/form-data" method="POST">
+                        <input type="hidden" id="idTransaksi" name="idTransaksi">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -102,8 +131,6 @@
                                         </div>
 
                                     </div>
-                                    <!-- /.card-body -->
-                                    <!--                        </form>-->
                                 </div>
                             </div>
                             <!--    FORM PENERIMA-->
@@ -158,7 +185,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--    FORM BARANG-->
+                            <!-- FORM DETAIL -->
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header table-title d-flex justify-content-between">
@@ -183,6 +210,18 @@
                                                    name="beratBarang" required>
                                         </div>
                                         <div class="form-group">
+                                            <label>Kurir :</label>
+                                            <select class="form-control js-example-responsive" id="kurir"
+                                                    name="idKurir" style="width: 100%" required>
+                                                <option value="-1">Pilih Kurir</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Penerima Paket :</label>
+                                            <input class="form-control" id="siPenerimaPaket"
+                                                    name="siPenerimaPaket" OnChange="statusHidden()" required>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Status :</label>
                                             <select class="form-control" id="status"
                                                     name="status" OnChange="statusHidden()" required>
@@ -200,7 +239,7 @@
                                         <label>Foto</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input form-control" id="foto" name="file" aria-describedby="inputGroupFileAddon04"
+                                                <input type="file" class="custom-file-input form-control" id="foto" name="foto" aria-describedby="inputGroupFileAddon04"
                                                        accept="image/png, image/jpeg" OnChange="fotoHidden()">
                                                 <label class="custom-file-label" for="foto">Choose file</label>
                                             </div>
@@ -230,7 +269,7 @@
                                             <input class="form-control" type="hidden" id="ongkosKirim"
                                                    name="ongkosKirim">
                                             <input class="form-control" type="hidden" id="statusDelivery"
-                                                   name="statusDelivery" value="undelivered">
+                                                   name="statusDelivery" value="Undelivered">
                                             <input class="form-control" type="hidden" id="penerimaPaket"
                                                    name="penerimaPaket" value="penerima">
                                             <input class="form-control" type="hidden" id="fotoPenerima"
@@ -264,7 +303,7 @@
 
     <!-- page animation   -->
     <script>
-        // dropdown table
+        // dropdown form
         $('.table-title>i').click(function () {
             if ( $( this ).css( "transform" ) == 'none' ){
                 $(this).css("transform","rotate(180deg)");
@@ -303,7 +342,7 @@
         }
     </script>
 
-    <!-- Raja Ongkir -->
+    <!-- Raja Ongkir + form manipulation -->
     <script>
         function getEmail() {
             $.ajax({
@@ -382,21 +421,15 @@
 
         function statusHidden() {
             let status = document.getElementById('status').value
+            let penerimaPaket = document.getElementById('siPenerimaPaket').value
             document.getElementById('statusDelivery').value = status
+            document.getElementById('penerimaPaket').value = penerimaPaket
         }
 
         function fotoHidden() {
             let foto = document.getElementById('foto').value
             document.getElementById('fotoPenerima').value = foto
         }
-
-        $('#btn-foto').click(function () {
-            $('.foto').css({
-                "display": "block"
-            })
-        })
-
-
 
         $('#btn-cekharga').click(function () {
             let asal = $("#cityPengirimId").val();
@@ -426,25 +459,11 @@
         dropdown.pilihLayanan();
         dropdown.pilihProvinsi();
         dropdown.pilihProvinsiPenerima();
+        dropdown.pilihKurir();
         tableTransaksi.create();
 
-        // $('#btn-save-bb').click(function () {
-        //     formBeratBarang.saveForm()
-        // });
-        //
-        // $('#delete-row-bb').click(function () {
-        //     actionDelete.deleteRowData();
-        // });
-        //
-        // $('#btn-delete-bb').click(function () {
-        //     var p =  '<p>Yakin ingin menghapus tabel ini?</p>'
-        //     $('.modal-body-delete').html(p)
-        //     $('#delete-row-bb').addClass('delete-table')
-        //     $('#modal-delete').modal('show')
-        // });
-        //
-        // $(document).on('click', 'button.delete-table', function () {
-        //     actionDelete.deleteTable()
-        // });
+        $('#btn-save-transaksi').click(function (event) {
+            formTransaksi.saveForm(event)
+        });
     </script>
 </th:block>
