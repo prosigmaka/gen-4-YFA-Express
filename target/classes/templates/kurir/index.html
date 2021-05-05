@@ -10,21 +10,41 @@
 
 <!-- JUMBOTRON -->
 <div class="row card-row" layout:fragment="content-jumbotron">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-4">Daftar Kurir</h1>
+    <p class="lead">Kurir hebat YFA Express yang bersedia mengantar tujuan barang anda ke seluruh Indonesia dengan
+        aman</p>
 </div>
 
 <div class="row card-row" layout:fragment="content-body">
     <!--isi data-->
+    <div class="container container-pilih-tabel">
+        <div class="pilih-tabel tabel-transaksi">
+            <a th:href="@{/transaksiadmin}">
+                <div class="tulisan">
+                    <h10>Transaksi User</h10>
+                    <p>Data transaksi drop off user</p>
+                </div>
+            </a>
+
+        </div>
+        <div class="pilih-tabel tabel-kurir">
+            <a th:href="@{/kurir}">
+                <div class="tulisan">
+                    <h10>Data Kurir</h10>
+                    <p>Data profil kurir YFA Express</p>
+                </div>
+            </a>
+        </div>
+    </div>
     <div class="container form-container">
-        <p class="judul">Daftar Kurir YFA Express</p>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header buttontambah">
-                        <i class="float-right fas fa-user-plus" id="btn-tambah-kurir"></i>
-                        &ensp; &ensp; &ensp; &ensp;
-                        <!--<i class="float-right fas fa-user-minus" id="btn-deletetabel-kurir" ></i>-->
+                        <div class="table-title">
+                            <h4 class="card-title">Data Kurir YFA Express</h4>
+                        </div>
+                        <i class="float-right fas fa-user-plus" id="btn-tambah-kurir"><span>Tambah</span></i>
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-striped table-bordered table-hover nowrap" id="tabelKurir"
@@ -81,16 +101,16 @@
         </div>
     </div>
     <div class="modal fade" id="modal-delete">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #7aadab; color: #fff;">
+                <div class="modal-header" style="background-color: #2baaff; color: #fff;">
                     <h4>Anda sudah yakin ?</h4>
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true" style="color: #fff;">&times;</span>
+                        <span aria-hidden="true" style="color: black;">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body" id="modal-hidden-id">
-                    <p>Data akan hilang jika anda mengklik tombol "Delete"</p>
+                    <p>Data kurir ini akan hilang jika anda mengklik tombol "Delete"</p>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>

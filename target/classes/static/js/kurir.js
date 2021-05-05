@@ -29,8 +29,8 @@ var tabelKurir = {
                 title: "Action",
                 data: null,
                 render: function (data, type, row) {
-                  return "<button class='btn-success' onclick=formKurir.setEditData('" + data.idKurir + "') style='border-radius: 20%'><i class='fa fa-pencil-alt'></i></button>"+"<span>  </span>"+
-                    "<button class='btn-danger' onclick=actionDelete.deleteConfirm('" + data.idKurir + "') style='border-radius: 20%'><i class='fa fa-trash'></i></button>"
+                  return "<button class='btn-dark' onclick=formKurir.setEditData('" + data.idKurir + "') style='border-radius: 15%'><i class='far fa-edit'></i></button>"+"<span>   </span>"+
+                    "<button class='btn-danger' onclick=actionDelete.deleteConfirm('" + data.idKurir + "') style='border-radius: 15%'><i class='far fa-trash-alt'></i></button>"
 
                 }
               }

@@ -21,7 +21,7 @@ var formDropOff = {
         success: function (res, status, xhr) {
           if (xhr.status == 200 || xhr.status == 201) {
             formDropOff.resetForm();
-            $('#modal-sukses').modal("show")
+            $('#modal-sukses').modal("hide")
 
           } else {
 
@@ -67,7 +67,7 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Province</option>';
+        var s = '<option value="-1">Provinsi</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
@@ -103,7 +103,7 @@ var dropdown = {
       contentType: 'application/json',
       dataType: 'json',
       success: function (data) {
-        var s = '<option value="-1">Province</option>';
+        var s = '<option value="-1">Provinsi</option>';
         for (var i = 0; i < data.length; i++) {
           s += '<option value="' + data[i].province_id + '">' + data[i].province + '</option>';
         }
