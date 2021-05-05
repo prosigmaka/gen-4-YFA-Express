@@ -19,6 +19,7 @@ public class Transaksi {
     private Integer jumlahBarang;
     private String kategoriLayanan;
     private Integer ongkosKirim;
+    private String estimasi;
     private Integer beratBarang;
     private String statusDelivery;
     private Date tanggalTransaksi;
