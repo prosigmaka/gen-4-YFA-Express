@@ -60,9 +60,9 @@ public class BaseMvcController {
         return "panduan/index";
     }
 
-    @GetMapping("barangberbahaya")
-    public String barangberbahaya() {
-        return "panduan/barangberbahaya";
+    @GetMapping("larangan")
+    public String larangan() {
+        return "larangan/index";
     }
 
     @GetMapping("login")
