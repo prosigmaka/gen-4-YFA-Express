@@ -28,11 +28,12 @@
   line-height: 8px;
   color: #a1b2f7;
   box-sizing: border-box;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .box-child {
   color: #fff;
+  font-size: 12px;
 }
 
 .kantor {
@@ -166,7 +167,7 @@
     background: #fff;
     color: #999;
     padding: 15px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 3px;
   }
 

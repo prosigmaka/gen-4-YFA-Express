@@ -97,6 +97,10 @@ var tableTransaksi = {
                 data: "ongkosKirim"
               },
               {
+                title: "Estimasi (hari)",
+                data: "estimasi"
+              },
+              {
                 title: "Status",
                 data: "statusDelivery"
               },
@@ -182,7 +186,7 @@ var dropdown = {
       success: function (data) {
         var s = '<option value="-1">Pilih Layanan</option>';
         for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].cost[0].value + '">' + data[i].service + '</option>';
+          s += '<option value="' + data[i].cost[0].value + '" title="'+ data[i].cost[0].etd+'">' + data[i].service + '</option>';
         }
         $("#layanan").html(s);
       }
@@ -245,6 +249,7 @@ var formTransaksi = {
       "beratBarang" : document.getElementById("kategoriBeratBarang").value,
       "kategoriLayanan" : document.getElementById("kategoriLayanan").value,
       "ongkosKirim" : document.getElementById("ongkosKirim").value,
+      "estimasi" : document.getElementById("estimasi").value,
       "idKurir" : document.getElementById("kurir").value,
       "penerimaPaket" : document.getElementById("penerimaPaket").value,
       "statusDelivery" : document.getElementById("statusDelivery").value,
