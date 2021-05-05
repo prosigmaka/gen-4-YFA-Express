@@ -55,6 +55,16 @@ public class BaseMvcController {
         return "transaksi/user";
     }
 
+    @GetMapping("panduan")
+    public String panduan() {
+        return "panduan/index";
+    }
+
+    @GetMapping("barangberbahaya")
+    public String barangberbahaya() {
+        return "panduan/barangberbahaya";
+    }
+
     @GetMapping("login")
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

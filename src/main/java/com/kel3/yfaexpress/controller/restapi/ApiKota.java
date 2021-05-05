@@ -26,7 +26,7 @@ public class ApiKota {
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/city")
                 .get()
-                .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
+                .addHeader("key", "b18a8f99e7591ac1acb94ecc9cd70568")
                 .build();
         Response response = client.newCall(request).execute();
         String jsonData = response.body().string();
@@ -43,7 +43,7 @@ public class ApiKota {
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/city?province=" + idProvinsi )
                 .get()
-                .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
+                .addHeader("key", "b18a8f99e7591ac1acb94ecc9cd70568")
                 .build();
         Response response = client.newCall(request).execute();
         String jsonData = response.body().string();

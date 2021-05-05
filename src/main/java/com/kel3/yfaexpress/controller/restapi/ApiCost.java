@@ -28,7 +28,7 @@ public class ApiCost {
         Request request = new Request.Builder()
                 .url("https://api.rajaongkir.com/starter/cost")
                 .post(body)
-                .addHeader("key", "76c89de2b5aa3ac812b3d0cc0f347ec8")
+                .addHeader("key", "b18a8f99e7591ac1acb94ecc9cd70568")
                 .addHeader("content-type", "application/x-www-form-urlencoded")
                 .build();
 

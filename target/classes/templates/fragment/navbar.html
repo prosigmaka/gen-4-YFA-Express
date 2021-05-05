@@ -20,7 +20,7 @@
                 <li class="nav-item active">
                     <div class="nav-menu menu">
                         <i class="fa fa-search"></i>
-                        <a class="nav-link" href="#">Lacak</a>
+                        <a class="nav-link" th:href="@{/cekresi}">Lacak</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -37,9 +37,9 @@
                                 <a class="nav-link dropdown-toggle">Informasi</a>
                             </div>
                             <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">FAQ</a>
-                                <a class="dropdown-item" href="#">Panduan</a>
-                                <a class="dropdown-item" href="#">Larangan</a>
+                                <a class="dropdown-item" th:href="@{/faq}">FAQ</a>
+                                <a class="dropdown-item" th:href="@{/panduan}">Panduan</a>
+                                <a class="dropdown-item" th:href="@{/larangan}">Larangan</a>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                             <a class="nav-link dropdown-toggle" sec:authentication="name">User</a>
                         </div>
                         <div class="dropdown-menu menu-user" sec:authorize="isAuthenticated()" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" sec:authorize="hasRole('ROLE_USER')" href="#">Informasi Pribadi</a>
-                            <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" href="#">Menu Admin</a>
+                            <a class="dropdown-item" sec:authorize="hasRole('ROLE_USER')" th:href="@{/transaksiuser}">Informasi Pribadi</a>
+                            <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/transaksiadmin}">Menu Admin</a>
                             <a class="dropdown-item" th:href="@{/perform_logout}">Logout</a>
                         </div>
                     </div>

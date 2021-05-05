@@ -197,10 +197,14 @@
                                        name="kategoriLayanan">
                             </div>
                             <div class="form-group ongkirajadeh">
-                                <label><i class="fas fa-search-dollar">  Total Biaya :</i></label>
-                                <p>Rp. <span id="ongkosKirimSpan">0</span></p>
+                                <label style="font-weight: bold">Total Biaya Kirim :</label>
+                                <p style="font-weight: bold">Rp. <span style="font-weight: bold" id="ongkosKirimSpan">0</span></p>
+                                <label style="font-weight: bold">Estimasi :</label>
+                                <p style="font-weight: bold"><span style="font-weight: bold" id="waktuKirim">-</span> Hari</p>
                                 <input class="form-control" type="hidden" id="ongkosKirim"
                                        name="ongkosKirim">
+                                <input class="form-control" type="hidden" id="estimasi"
+                                       name="estimasi">
                                 <input class="form-control" type="hidden" id="statusDelivery"
                                        name="statusDelivery" value="Undelivered">
                                 <input class="form-control" type="hidden" id="penerimaPaket"
@@ -267,7 +271,7 @@
                 "display": "block"
             })
             $(".total-biaya").css({
-                "height": "230px"
+                "height": "300px"
             })
         })
     </script>
@@ -314,7 +318,7 @@
                 contentType: 'application/json',
                 dataType: 'json',
                 success: function (data) {
-                    var s = '<option value="-1">Kota Penerima</option>';
+                    var s = '<option value="-1">Kota Asal</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].type == 'Kabupaten') {
                             s += '<option value="' + data[i].city_id + '">' + data[i].city_name + '</option>';
@@ -365,12 +369,14 @@
         }
 
         function layananOngkirHidden() {
-            let layanan = document.getElementById("select2-layanan-container").title;
+            let layanan = document.getElementById("select2-layanan-container").innerText;
             let ongkir = document.getElementById("layanan").value;
+            let estimasi = document.getElementById("select2-layanan-container").title;
             document.getElementById("kategoriLayanan").value = layanan;
             document.getElementById("ongkosKirim").value = ongkir;
             document.getElementById("ongkosKirimSpan").innerHTML = ongkir;
-
+            document.getElementById("waktuKirim").innerHTML = estimasi;
+            document.getElementById("estimasi").value = estimasi;
         }
     </script>
 

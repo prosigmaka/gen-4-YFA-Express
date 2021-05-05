@@ -141,7 +141,7 @@ var dropdown = {
       success: function (data) {
         var s = '<option value="-1">Services</option>';
         for (var i = 0; i < data.length; i++) {
-          s += '<option value="' + data[i].cost[0].value + '">' + data[i].service + '</option>';
+          s += '<option value="' + data[i].cost[0].value + '" title="'+ data[i].cost[0].etd+'">' + data[i].service + '</option>';
         }
         $("#layanan").html(s);
       }
