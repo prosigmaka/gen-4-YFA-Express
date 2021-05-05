@@ -48,6 +48,46 @@ body {
   color: white;
 }
 
+.jumbotron .card-row {
+  z-index: 10;
+  color: #fff;
+}
+
+.jumbotron .card-row h1, .jumbotron .card-row p {
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, .57);
+}
+
+.jumbotron .card-row h1 {
+  font-weight: bold;
+}
+
+@media (max-width: 635px) {
+  .jumbotron .card-row {
+    margin-top: 30px;
+    line-height: 15px;
+  }
+
+  .jumbotron .card-row h1 {
+    font-size: 30px;
+  }
+
+  .jumbotron .card-row p {
+    margin-top: -10px;
+    font-size: 13px;
+    font-weight: lighter;
+  }
+}
+
+@media (max-width: 320px) {
+  .jumbotron .card-row h1 {
+    font-size: 20px;
+  }
+
+  .jumbotron .card-row p {
+    font-size: 10px;
+  }
+}
+
 /* navbar */
 .navbar {
   z-index: 2;
@@ -300,6 +340,10 @@ a.nav-link:active, .login:active {
     min-height: 450px;
     background-attachment: fixed;
     z-index: -1;
+  }
+
+  .jumbotron .card-row {
+    margin-top: 100px;
   }
 
   /* navbar */
