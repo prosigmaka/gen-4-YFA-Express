@@ -1,6 +1,7 @@
 /* pilih tabel */
 a, a:hover {
   text-decoration: none;
+  color: #333;
 }
 
 .container-pilih-tabel {
@@ -16,27 +17,105 @@ a, a:hover {
   font-weight: bold;
 }
 
+.tulisan {
+  width: 80%;
+  line-height: 12px;
+}
+
 .tulisan::after {
   content: "";
   width: 15%;
   display: block;
-  border-bottom: 2px solid black;
+  border-bottom: var(--kurir, 2px solid black);
   margin-top: -15px;
 }
 
 .pilih-tabel {
   background-color: #fff;
-  margin-left: 20px;
   box-shadow: 1px 5px 8px #dddddd;
   height: 50px;
-  min-width: 170px;
+  min-width: 200px;
   border-radius: 10px;
   padding-bottom: 10px;
-  padding-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   cursor: pointer;
+  position: relative;
 }
+
+.tabel-transaksi {
+  margin-right: 20px;
+}
+
+.tabel-transaksi .tulisan {
+  color: rgba(30, 171, 255, 1);
+}
+
+.tabel-transaksi .tulisan::after {
+  border-bottom: var(--transaksi, 2px solid rgba(30, 171, 255, 1));
+}
+
+.icon-transaksi, .icon-kurir {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+}
+
+.icon-transaksi i, .icon-kurir i {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(30,171,255,1);
+}
+
+.icon-kurir i {
+  color: #333;
+}
+
+@media (max-width: 500px) {
+  .container-pilih-tabel {
+    font-size: 5px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-pilih-tabel h10 {
+    font-size: 10px;
+  }
+
+  .container-pilih-tabel p {
+    display: none;
+  }
+
+  .tulisan::after {
+    display: none;
+  }
+
+  .tabel-kurir .tulisan {
+    line-height: 30px;
+  }
+
+  .icon-kurir {
+    margin-top: 6px;
+  }
+
+  .icon-transaksi {
+    margin-top: 6px;
+  }
+
+  .tabel-transaksi .tulisan {
+    margin-top: 4px;
+  }
+
+  .pilih-tabel {
+    min-width: 100px;
+  }
+
+  .icon-transaksi i, .icon-kurir i {
+    font-size: 15px;
+  }
+}
+
 
 
 

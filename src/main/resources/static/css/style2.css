@@ -196,7 +196,6 @@ a.nav-link:active, .login:active {
   left: 5px;
   color: #adadad;
   transform: translateY(-50%);
-  /*z-index: -1;*/
   transition: .5s;
 }
 

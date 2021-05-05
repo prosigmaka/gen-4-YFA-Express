@@ -42,6 +42,7 @@
                     <h10>Transaksi User</h10>
                     <p>Data transaksi drop off user</p>
                 </div>
+                <div class="icon-transaksi"><i class="fas fa-shopping-cart"></i></div>
             </a>
 
         </div>
@@ -51,6 +52,7 @@
                     <h10>Data Kurir</h10>
                     <p>Data profil kurir YFA Express</p>
                 </div>
+                <div class="icon-kurir"><i class="fas fa-address-card"></i></div>
             </a>
         </div>
     </div>
@@ -305,6 +307,21 @@
 
     <!-- page animation   -->
     <script>
+        //pilih tabel
+        $('.tabel-kurir').click(function () {
+            $('.icon-kurir i, .tabel-kurir .tulisan h10, .tabel-kurir .tulisan p').css('color', 'rgba(30,171,255,1)')
+            document.querySelectorAll('.tabel-kurir .tulisan')[0].style.setProperty("--kurir", "2px solid rgba(30, 171, 255, 1)");
+            $('.icon-transaksi i, .tabel-transaksi .tulisan h10, .tabel-transaksi .tulisan p').css('color', '#333')
+            document.querySelectorAll('.tabel-transaksi .tulisan')[0].style.setProperty("--transaksi", "2px solid #333");
+        })
+
+        $('.tabel-transaksi').click(function () {
+            $('.icon-transaksi i, .tabel-transaksi .tulisan h10, .tabel-transaksi .tulisan p').css('color', 'rgba(30,171,255,1)')
+            document.querySelectorAll('.tabel-transaksi .tulisan')[0].style.setProperty("--transaksi", "2px solid rgba(30, 171, 255, 1)");
+            $('.icon-kurir i, .tabel-kurir .tulisan h10, .tabel-kurir .tulisan p').css('color', '#333')
+            document.querySelectorAll('.tabel-kurir .tulisan')[0].style.setProperty("--kurir", "2px solid #333");
+        })
+
         // dropdown form
         $('.table-title>i').click(function () {
             if ( $( this ).css( "transform" ) == 'none' ){
