@@ -1,4 +1,8 @@
 /* pilih tabel */
+a, a:hover {
+  text-decoration: none;
+}
+
 .container-pilih-tabel {
   display: flex;
   justify-content: center;

@@ -37,19 +37,21 @@
 <div class="row card-row" layout:fragment="content-body">
     <div class="container container-pilih-tabel">
         <div class="pilih-tabel tabel-transaksi">
-            <div class="tulisan">
-                <h10>Transaksi User</h10>
-                <p>Data transaksi drop off user</p>
-            </div>
+            <a th:href="@{/transaksiadmin}">
+                <div class="tulisan">
+                    <h10>Transaksi User</h10>
+                    <p>Data transaksi drop off user</p>
+                </div>
+            </a>
 
         </div>
-        <div th:href="@{/kurir}" class="pilih-tabel tabel-kurir">
-            <div class="tulisan">
-                <h10>Data Kurir</h10>
-                <p>Data profil kurir YFA Express</p>
-            </div>
-
-
+        <div class="pilih-tabel tabel-kurir">
+            <a th:href="@{/kurir}">
+                <div class="tulisan">
+                    <h10>Data Kurir</h10>
+                    <p>Data profil kurir YFA Express</p>
+                </div>
+            </a>
         </div>
     </div>
 
