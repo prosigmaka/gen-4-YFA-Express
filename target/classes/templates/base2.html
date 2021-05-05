@@ -39,7 +39,9 @@
 <div class="wrap">
     <!-- jumbotron  -->
     <div class="jumbotron jumbotron-fluid" style="background-image: url(img/1.jpg);">
-        <div class="row card-row row-jumbotron" layout:fragment="content-jumbotron"/>
+        <div class="container">
+            <div class="row card-row" layout:fragment="content-jumbotron"/>
+        </div>
     </div>
     <!-- navbar  -->
     <th:block layout:replace="~{fragment/navbar}"></th:block>
