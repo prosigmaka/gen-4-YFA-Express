@@ -18,6 +18,7 @@ public class TransaksiDto {
     private String resi;
     private String penerimaPaket;
     private String fotoPenerima;
+    private Date tanggalSampai;
     //email user yang melakukan order
     //kemudian simpan sebagai idUser
     private Integer idUser;

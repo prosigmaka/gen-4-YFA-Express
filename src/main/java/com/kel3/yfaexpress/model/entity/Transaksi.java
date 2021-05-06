@@ -26,6 +26,7 @@ public class Transaksi {
     private String resi;
     private String penerimaPaket;
     private String fotoPenerima;
+    private Date tanggalSampai;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")

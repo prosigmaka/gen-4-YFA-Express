@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface TransaksiRepository extends JpaRepository<Transaksi, Integer> {
     List<Transaksi> findAllByStatusDeliveryEquals(String statusDeleivery);
+
+    Transaksi findByResiEquals(String resi);
 }

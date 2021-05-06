@@ -1,32 +1,174 @@
 <!DOCTYPE html>
-<html layout:decorate="~{base2}"
+<html layout:decorate="~{base}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 
 <th:block layout:fragment="add-style">
-<!--    LETAK STYLE CSS-->
-<!--    <link rel="stylesheet" href="css/cekresi.css">-->
+    <link rel="stylesheet" href="css/lacak.css">
+    <style>
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    </style>
 </th:block>
 
 <!-- JUMBOTRON -->
 <div class="row card-row" layout:fragment="content-jumbotron">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-4">Search</h1>
 </div>
 
 <div class="row card-row" layout:fragment="content-body">
+    <div class="container">
+        <!--  navigasi  -->
+        <div class="search-by">
+            <div class="lacak-paket">
+                Lacak Paket
+            </div>
+            <div class="cek-tarif">
+                Cek Tarif
+            </div>
+        </div>
 
-<!--LETAK KONTEN DISINIIII-->
+        <!--  lacak-paket  -->
+        <div class="container container-form">
+            <div class="form-lacak-paket">
+                <!-- search -->
+                <div class="row">
+                    <div class="col-md-12 search">
+                        <input type="text" name="resi" id="resi" placeholder="masukkan nomor resi">
+                        <i class="fa fa-trash hapus"></i>
+                    </div>
+                    <div class="col-md-12 tombol-search">
+                        <button class="btn btn-primary cari-resi">Cari</button>
+                    </div>
+                </div>
+                <div class="row gambar-lacak">
+                    <div class="col-md-12 col-gambar-lacak">
+                        <img src="img/lacak.jpg" alt="lacak">
+                    </div>
+                </div>
+                <div class="table-resi">
+                    <div class="table-responsive">
+                        <table class="table table-1">
+                            <thead>
+                            <tr>
+                                <th scope="col">Resi</th>
+                                <th scope="col">Tanggal Order</th>
+                                <th scope="col">Layanan</th>
+                                <th scope="col">Asal</th>
+                                <th scope="col">Tujuan</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="resi">-</td>
+                                <td class="tgl">-</td>
+                                <td class="layanan">-</td>
+                                <td class="asal">-</td>
+                                <td class="tujuan">-</td>
+                                <td class="status">-</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-2">
+                            <thead>
+                            <tr>
+                                <th scope="col">Kurir</th>
+                                <th scope="col">Penerima</th>
+                                <th scope="col">Tanggal Sampai</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="kurir">-</td>
+                                <td class="penerima">-</td>
+                                <td class="tglSampai">-</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="form-cek-tarif">
+                belom
+            </div>
+        </div>
+
+    </div>
+
+    <!-- modal sukses order -->
+    <div class="row-alert">
+        <div class="alert">
+            <span class="emot"><i class="fa fa-frown"></i></span>
+            <span class="error-massage">Resi tidak ditemukan</span>
+        </div>
+    </div>
 
 </div>
 
 <th:block layout:fragment="add-script">
-<!--LETAK SCRIPT DISINII-->
-    <!--JS ISI-->
     <script th:src="@{/js/default.js}"></script>
     <script th:src="@{/js/parsley.min.js}"></script>
     <script th:src="@{/js/login.js}"></script>
-<!--    <script th:src="@{/js/kurir.js}"></script>     SKRIP AJAX    -->
+    <script th:src="@{/js/lacak.js}"></script>
+
+    <!-- action component -->
+    <script>
+        // auto go to middle after load page
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#content-body').offset().top - 20
+            }, 1600, 'easeOutCubic');
+        });
+
+        //pilih menu lacak atau cek tarif
+        $('.cek-tarif').click(function () {
+            $(this).css({
+                'background-color' : 'rgba(30, 171, 255, 1)',
+                'color' : '#fff'
+            })
+            $('.lacak-paket').css({
+                'background-color' : '#ececec',
+                'color' : '#333'
+            })
+            $('.form-cek-tarif').css('display', 'block')
+            $('.form-lacak-paket').css('display', 'none')
+        })
+        $('.lacak-paket').click(function () {
+            $(this).css({
+                'background-color' : 'rgba(30, 171, 255, 1)',
+                'color' : '#fff'
+            })
+            $('.cek-tarif').css({
+                'background-color' : '#ececec',
+                'color' : '#333'
+            })
+            $('.form-lacak-paket').css('display', 'block')
+            $('.form-cek-tarif').css('display', 'none')
+        })
+
+        //hapus
+        $('.hapus').click(function () {
+            $('#resi').val("")
+            $('.gambar-lacak').css('display', 'block')
+            $('.table-resi').css('display', 'none')
+        })
+
+
+    </script>
+
+    <!-- action request -->
+    <script>
+        // cari
+        $('.tombol-search').click(function () {
+            let resi = $('#resi').val()
+            cekResi(resi);
+        })
+    </script>
 
 </th:block>

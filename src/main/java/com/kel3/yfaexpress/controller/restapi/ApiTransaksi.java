@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +55,7 @@ public class ApiTransaksi {
 
 
     @GetMapping("/{id}")
-    public TransaksiDto getBarang(@PathVariable Integer id) {
+    public TransaksiDto getTransaksi(@PathVariable Integer id) {
         Transaksi transaksi = transaksiRepository.findById(id).get();
         TransaksiDto transaksiDto = new TransaksiDto();
         modelMapper.map(transaksi, transaksiDto);
@@ -74,6 +75,18 @@ public class ApiTransaksi {
                         .map(transaksi -> mapTransaksiToTransaksiDto(transaksi))
                         .collect(Collectors.toList());
         return transaksiDtos;
+    }
+
+    @GetMapping("/resi/{noResi}")
+    public TransaksiDto getResi(@PathVariable String noResi) {
+        Transaksi transaksi = transaksiRepository.findByResiEquals(noResi);
+        TransaksiDto transaksiDto = new TransaksiDto();
+        modelMapper.map(transaksi, transaksiDto);
+        modelMapper.map(transaksi.getKurir(), transaksiDto);
+        modelMapper.map(transaksi.getPengirim(), transaksiDto);
+        modelMapper.map(transaksi.getPenerima(), transaksiDto);
+        modelMapper.map(transaksi.getUseraa(), transaksiDto);
+        return transaksiDto;
     }
 
     @PostMapping
@@ -132,7 +145,12 @@ public class ApiTransaksi {
         transaksi.setResi(transaksiRepository.findById(transaksiDto.getIdTransaksi()).get().getResi());
         transaksi.setKurir(kurirRepository.findById(transaksiDto.getIdKurir()).get());
         transaksi.setFotoPenerima(file.getOriginalFilename());
-
+        String status = transaksiDto.getStatusDelivery();
+        if (status.equalsIgnoreCase("Delivered")) {
+            transaksi.setTanggalSampai(new Date());
+        } else {
+            transaksi.setTanggalSampai(null);
+        }
         transaksi = transaksiRepository.save(transaksi);
         return transaksi;
     }
