@@ -19,6 +19,7 @@
   margin: 50px auto 0;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -82,6 +83,10 @@
   margin: 10px 0 0;
   padding: 0;
   font-size: 10px;
+}
+.bungkus{
+  display: flex;
+  justify-content: center;
 }
 
 
