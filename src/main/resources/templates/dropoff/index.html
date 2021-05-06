@@ -221,9 +221,6 @@
                                 <button class="btn btn-danger cek3" id="btn-reset" type="button">Close</button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <p>nb : Jika anda sudah menyelesaikan order, harap cek transaksi anda di informasi pribadi</p>
-                        </div>
                     </div>
                 </div>
 
@@ -241,7 +238,9 @@
                 <div class="modal-footer footer-login">
                     <div class="container" style="position: relative">
                         <div class="row justify-content-center">
+                            <a href="/transaksiuser">
                             <button type="button" id="oke" class="btn btn-success">Okee</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -281,7 +280,7 @@
     <script>
         $('#btn-save-utama').click(function () {
             formDropOff.saveForm()
-            $('#modal-sukses').modal("show")
+
         });
         $('#oke').click(function () {
             $('#modal-sukses').modal("hide")

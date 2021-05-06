@@ -21,7 +21,7 @@ var formDropOff = {
         success: function (res, status, xhr) {
           if (xhr.status == 200 || xhr.status == 201) {
             formDropOff.resetForm();
-            //$('#modal-sukses').modal("hide")
+            $('#modal-sukses').modal("show")
 
           } else {
 
