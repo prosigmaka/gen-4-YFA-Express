@@ -189,18 +189,23 @@
         //cari-layanan
         $('.cari-layanan').click(function () {
             if($('#asalHidden').val() == "") {
+                $('.emot').hide()
                 $('.error-massage').text("isi kota asal")
                 alertError()
             } else if ($('#tujuanHidden').val() == "") {
+                $('.emot').hide()
                 $('.error-massage').text("isi kota tujuan")
                 alertError()
             } else if ($('#berat').val() == "") {
+                $('.emot').hide()
                 $('.error-massage').text("isi berat barang")
                 alertError()
             } else if ($('#berat').val() <= 0){
+                $('.emot').hide()
                 $('.error-massage').text("Minimum berat 0.1 kg")
                 alertError()
             } else if ($('#berat').val() > 30) {
+                $('.emot').hide()
                 $('.error-massage').text("Maksimum berat 30 kg")
                 alertError()
             } else if ($('#asal').val() == "") {

@@ -22,6 +22,7 @@ function cekResi(resi) {
       }
     },
     error: function (err) {
+      $('.emot').show()
       $('.error-massage').text("Resi tidak ditemukan")
       alertError()
     }
@@ -78,6 +79,7 @@ function cekOngkir(asal, tujuan, berat) {
       if (xhr.status == 200 || xhr.status == 201) {
         $('.row-loading').fadeOut('fast');
         if (res == 0 || res == "") {
+          $('.emot').hide()
           $('.error-massage').text("Maaf layanan tidak tersedia")
           alertError()
         } else {
@@ -105,6 +107,7 @@ function cekOngkir(asal, tujuan, berat) {
       },
     error: function (err) {
       $('.row-loading').fadeOut('fast');
+      $('.emot').hide()
       $('.error-massage').text("Input tidak valid")
       $('.row-alert').fadeIn('slow').delay(500);
       $('.row-alert').fadeIn('slow').delay(500).fadeOut('slow');
