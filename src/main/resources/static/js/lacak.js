@@ -22,8 +22,8 @@ function cekResi(resi) {
       }
     },
     error: function (err) {
-      $('.row-alert').fadeIn('slow').delay(500);
-      $('.row-alert').fadeIn('slow').delay(500).fadeOut('slow');
+      $('.error-massage').text("Resi tidak ditemukan")
+      alertError()
     }
   });
 }
@@ -68,6 +68,7 @@ function requestKota() {
 }
 
 function cekOngkir(asal, tujuan, berat) {
+  $('.row-loading').fadeIn('fast');
   $.ajax({
     url: "/api/cost/" + asal + "/" + tujuan + "/" + berat,
     method: 'get',
@@ -75,23 +76,38 @@ function cekOngkir(asal, tujuan, berat) {
     dataType: 'json',
     success: function (res, status, xhr) {
       if (xhr.status == 200 || xhr.status == 201) {
-        var tr = '<tr>' +
-          '<td>' + res[0].service + '</td>' +
-          '<td>' + berat/1000 + ' kg'+ '</td>' +
-          '<td>' + res[0].cost[0].etd + ' Hari'+ '</td>' +
-          '<td class="biru">' + 'Rp' + res[0].cost[0].value + '</td>' +
-          '</tr>'
-        for (var i=1; i<res.length; i++) {
-          tr += '<tr>' +
-            '<td>' + res[i].service + '</td>' +
+        $('.row-loading').fadeOut('fast');
+        if (res == 0 || res == "") {
+          $('.error-massage').text("Maaf layanan tidak tersedia")
+          alertError()
+        } else {
+          var tr = '<tr>' +
+            '<td>' + res[0].service + '</td>' +
             '<td>' + berat/1000 + ' kg'+ '</td>' +
-            '<td>' + res[i].cost[0].etd + ' Hari'+ '</td>' +
-            '<td class="biru">' + 'Rp' + res[i].cost[0].value + '</td>' +
+            '<td>' + res[0].cost[0].etd + ' Hari'+ '</td>' +
+            '<td class="biru">' + 'Rp' + res[0].cost[0].value + '</td>' +
             '</tr>'
+          for (var i=1; i<res.length; i++) {
+            tr += '<tr>' +
+              '<td>' + res[i].service + '</td>' +
+              '<td>' + berat/1000 + ' kg'+ '</td>' +
+              '<td>' + res[i].cost[0].etd + ' Hari'+ '</td>' +
+              '<td class="biru">' + 'Rp' + res[i].cost[0].value + '</td>' +
+              '</tr>'
+          }
+          $('.table-cek-tarif').html(tr)
+          $('.table-ongkir').show()
+
         }
-        $('.table-cek-tarif').html(tr)
-        $('.table-ongkir').show()
+      } else {
+        $('.row-loading').fadeOut('fast');
       }
+      },
+    error: function (err) {
+      $('.row-loading').fadeOut('fast');
+      $('.error-massage').text("Input tidak valid")
+      $('.row-alert').fadeIn('slow').delay(500);
+      $('.row-alert').fadeIn('slow').delay(500).fadeOut('slow');
     }
   });
 }

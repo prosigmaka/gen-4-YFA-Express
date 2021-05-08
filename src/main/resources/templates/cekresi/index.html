@@ -149,11 +149,18 @@
         </div>
     </div>
 
-    <!-- modal sukses order -->
+    <!-- modal error -->
     <div class="row-alert">
         <div class="alert">
             <span class="emot"><i class="fa fa-frown"></i></span>
             <span class="error-massage">Resi tidak ditemukan</span>
+        </div>
+    </div>
+
+    <!-- modal loading -->
+    <div class="row-loading">
+        <div class="loading">
+            <div class="circle"></div>
         </div>
     </div>
 
@@ -181,13 +188,32 @@
         })
         //cari-layanan
         $('.cari-layanan').click(function () {
-            let asal = $('#asalHidden').val()
-            let tujuan = $('#tujuanHidden').val()
-            let berat = $('#berat').val()*1000
-            cekOngkir(asal, tujuan, berat)
+            if($('#asalHidden').val() == "") {
+                $('.error-massage').text("isi kota asal")
+                alertError()
+            } else if ($('#tujuanHidden').val() == "") {
+                $('.error-massage').text("isi kota tujuan")
+                alertError()
+            } else if ($('#berat').val() == "") {
+                $('.error-massage').text("isi berat barang")
+                alertError()
+            } else if ($('#berat').val() <= 0){
+                $('.error-massage').text("Minimum berat 0.1 kg")
+                alertError()
+            } else if ($('#berat').val() > 30) {
+                $('.error-massage').text("Maksimum berat 30 kg")
+                alertError()
+            } else if ($('#asal').val() == "") {
+                $('#asalHidden').val("")
+            } else if ($('#tujuan').val() == ""){
+                $('#tujuanHidden').val("")
+            } else {
+                let asal = $('#asalHidden').val()
+                let tujuan = $('#tujuanHidden').val()
+                let berat = $('#berat').val()*1000
+                cekOngkir(asal, tujuan, berat)
+            }
         })
-
-
     </script>
 
     <!-- action component -->
@@ -198,6 +224,12 @@
                 scrollTop: $('#content-body').offset().top - 20
             }, 1600, 'easeOutCubic');
         });
+
+        //alert pesan error
+        function alertError() {
+            $('.row-alert').fadeIn('slow').delay(500);
+            $('.row-alert').fadeIn('slow').delay(500).fadeOut('slow');
+        }
 
 
         //CEK-RESI
@@ -255,7 +287,7 @@
         });
 
         //asal-tujuan paket
-        //close dropdown
+        //close dropdown kota
         $(document).click(function() {
             $('#kotaList').hide();
             $('#kotaList2').hide();
