@@ -28,3 +28,72 @@ function cekResi(resi) {
     }
   });
 }
+
+function requestKota() {
+  $.ajax({
+    url: "/api/kotaRaja",
+    method: 'get',
+    contentType: 'application/json',
+    dataType: 'json',
+    success: function (res, status, xhr) {
+      if (xhr.status == 200 || xhr.status == 201) {
+        var s = '<p class="col-sm-12 pilihKota" id="'+res[0].city_id+'">' + res[0].city_name + ", " + res[0].province+'</p>'
+        for (var i = 1; i < res.length; i++) {
+          if (res[i].type == 'Kabupaten') {
+            s += '<p class="col-sm-12 pilihKota" id="'+res[i].city_id+'">' + res[i].city_name + ", " + res[i].province+'</p>'
+          } else {
+            s += '<p class="col-sm-12 pilihKota" id="'+res[i].city_id+'">' +  res[i].type + " " +  res[i].city_name + ", " + res[i].province+'</p>'
+          }
+        }
+        $('#kotaList').html(s);
+        $('#kotaList2').html(s);
+        //lempar value
+        $('.asal-paket .pilihKota').click(function (){
+          $('.asal-paket input').addClass('focus')
+          $('.asal-paket input').val($(this).text())
+          $('#asalHidden').val(this.id)
+        })
+        $('.tujuan-paket .pilihKota').click(function (){
+          $('.tujuan-paket input').addClass('focus')
+          $('.tujuan-paket input').val($(this).text())
+          $('#tujuanHidden').val(this.id)
+        })
+      } else {
+
+      }
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  });
+}
+
+function cekOngkir(asal, tujuan, berat) {
+  $.ajax({
+    url: "/api/cost/" + asal + "/" + tujuan + "/" + berat,
+    method: 'get',
+    contentType: 'application/json',
+    dataType: 'json',
+    success: function (res, status, xhr) {
+      if (xhr.status == 200 || xhr.status == 201) {
+        var tr = '<tr>' +
+          '<td>' + res[0].service + '</td>' +
+          '<td>' + berat/1000 + ' kg'+ '</td>' +
+          '<td>' + res[0].cost[0].etd + ' Hari'+ '</td>' +
+          '<td class="biru">' + 'Rp' + res[0].cost[0].value + '</td>' +
+          '</tr>'
+        for (var i=1; i<res.length; i++) {
+          tr += '<tr>' +
+            '<td>' + res[i].service + '</td>' +
+            '<td>' + berat/1000 + ' kg'+ '</td>' +
+            '<td>' + res[i].cost[0].etd + ' Hari'+ '</td>' +
+            '<td class="biru">' + 'Rp' + res[i].cost[0].value + '</td>' +
+            '</tr>'
+        }
+        $('.table-cek-tarif').html(tr)
+        $('.table-ongkir').show()
+      }
+    }
+  });
+}
+

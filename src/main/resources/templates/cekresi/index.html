@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <!--  lacak-paket  -->
+        <!--  lacakPaket dan cekOngkir  -->
         <div class="container container-form">
             <div class="form-lacak-paket">
                 <!-- search -->
@@ -95,10 +95,58 @@
                 </div>
             </div>
             <div class="form-cek-tarif">
-                belom
+                <div class="container container-col-form">
+                    <div class="col-form">
+                        <div class="row input-data-lacak">
+                            <div class="col-md-4 text-naik asal-paket">
+                                <div style="position: relative">
+                                    <input class="asal" title="asal" id="asal" type="text">
+                                    <span data-placeholder="Dari"></span>
+                                    <div id="kotaList"></div>
+                                    <input type="hidden" id="asalHidden">
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-naik tujuan-paket">
+                                <div style="position: relative">
+                                    <input id="tujuan" type="text">
+                                    <span data-placeholder="Ke"></span>
+                                    <div id="kotaList2"></div>
+                                    <input type="hidden" id="tujuanHidden">
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-naik berat-paket">
+                                <div style="position: relative" class="div-berat">
+                                    <input id="berat" type="text">
+                                    <span data-placeholder="Berat (kg)"></span>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-minus-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-cek-tarif">
+                            <button class="btn btn-primary cari-layanan">Cari</button>
+                        </div>
+                        <div class="table-ongkir">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Layanan</th>
+                                        <th scope="col">Berat</th>
+                                        <th scope="col">Estimasi</th>
+                                        <th scope="col">Biaya Kirim</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-cek-tarif">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
     <!-- modal sukses order -->
@@ -117,6 +165,31 @@
     <script th:src="@{/js/login.js}"></script>
     <script th:src="@{/js/lacak.js}"></script>
 
+    <!-- action request -->
+    <script>
+        //CEK-RESI
+        // cari
+        $('.tombol-search').click(function () {
+            let resi = $('#resi').val()
+            cekResi(resi);
+        })
+
+        //CEK-HARGA
+        //request kota raja ongkir
+        $(document).ready(function (){
+            requestKota();
+        })
+        //cari-layanan
+        $('.cari-layanan').click(function () {
+            let asal = $('#asalHidden').val()
+            let tujuan = $('#tujuanHidden').val()
+            let berat = $('#berat').val()*1000
+            cekOngkir(asal, tujuan, berat)
+        })
+
+
+    </script>
+
     <!-- action component -->
     <script>
         // auto go to middle after load page
@@ -126,6 +199,8 @@
             }, 1600, 'easeOutCubic');
         });
 
+
+        //CEK-RESI
         //pilih menu lacak atau cek tarif
         $('.cek-tarif').click(function () {
             $(this).css({
@@ -138,6 +213,11 @@
             })
             $('.form-cek-tarif').css('display', 'block')
             $('.form-lacak-paket').css('display', 'none')
+            $('.container-form').css({
+                'padding-bottom': '50px',
+                'border-radius': '5px',
+                'box-shadow': '0 2px 12px 2px #ddd'
+            })
         })
         $('.lacak-paket').click(function () {
             $(this).css({
@@ -150,9 +230,13 @@
             })
             $('.form-lacak-paket').css('display', 'block')
             $('.form-cek-tarif').css('display', 'none')
+            $('.container-form').css({
+                'padding-bottom': 0,
+                'border-radius': 0,
+                'box-shadow': 'none'
+            })
         })
-
-        //hapus
+        //hapus search
         $('.hapus').click(function () {
             $('#resi').val("")
             $('.gambar-lacak').css('display', 'block')
@@ -160,15 +244,76 @@
         })
 
 
-    </script>
+        //CEK-HARGA
+        //text-naik
+        $(".text-naik input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+        $(".text-naik input").on("blur",function(){
+            if($(this).val() == "")
+                $(this).removeClass("focus");
+        });
 
-    <!-- action request -->
-    <script>
-        // cari
-        $('.tombol-search').click(function () {
-            let resi = $('#resi').val()
-            cekResi(resi);
+        //asal-tujuan paket
+        //close dropdown
+        $(document).click(function() {
+            $('#kotaList').hide();
+            $('#kotaList2').hide();
+        });
+        //hack close dropdown on input click
+        $('.asal-paket input, .tujuan-paket input').click(function(event) {
+            event.stopPropagation();
+        });
+        //show dropdown
+        $('.asal-paket input').on("focus", function () {
+            $('#kotaList').show()
+            $('#kotaList2').hide()
         })
+        $('.tujuan-paket input').on("focus", function () {
+            $('#kotaList2').show()
+            $('#kotaList').hide()
+        })
+        //search dropdown
+        $('.text-naik input').keyup(function(){
+            search_table($(this).val());
+        });
+        function search_table(value){
+            $('.pilihKota').each(function() {
+                var found = 'false';
+                $(this).each(function() {
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                        found = 'true';
+                    }
+                });
+                if(found == 'true') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        //berat-paket
+        //nambah-kurang
+        $('.fa-plus-circle').click(function () {
+            $('.berat-paket input').addClass('focus')
+            var value = parseInt(document.getElementById('berat').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('berat').value = value;
+        })
+        $('.fa-minus-circle').click(function () {
+            $('.berat-paket input').addClass('focus')
+            var value = parseInt(document.getElementById('berat').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value--;
+            if (value >= 0) {
+                document.getElementById('berat').value = value;
+            } else  {
+                document.getElementById('berat').value = 0;
+            }
+        })
+
     </script>
 
 </th:block>
