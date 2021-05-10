@@ -11,6 +11,17 @@
             margin-left: 0 !important;
             margin-right: 0 !important;
         }
+        .txtb input{
+            font-size: 12px;
+            height: 24.5px;
+        }
+        .focus + span::before{
+            top: -5px;
+            font-size: 10px;
+        }
+        .cls, .back {
+            width: 22px;
+        }
     </style>
 </th:block>
 
@@ -228,6 +239,15 @@
             $('html, body').animate({
                 scrollTop: $('#content-body').offset().top - 20
             }, 1600, 'easeOutCubic');
+        });
+
+        // modal form input animation
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur",function(){
+            if($(this).val() == "")
+                $(this).removeClass("focus");
         });
 
         //alert pesan error

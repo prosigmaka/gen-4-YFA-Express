@@ -8,32 +8,151 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/utama.css">
+    <style>
+        .row {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+    </style>
 </th:block>
 
 <div layout:fragment="content-body" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="row fitur-wrapper title-wrapper">
-        <div class="col-md-12 text-center">
-            <p>FITUR</p>
+    <!-- Fitur -->
+    <section class="section-fitur">
+        <!-- Title -->
+        <div class="row fitur-wrapper title-wrapper">
+            <div class="col-md-12 text-center">
+                <p>FITUR</p>
+            </div>
         </div>
-    </div>
+        <!-- fitur-slider   -->
+        <div class="container-fitur">
+            <img src="/img/utama.png" alt="peta indonesia">
+            <div class="carousel-absolute">
+                <div class="container owl-carousel owl-carousel-1">
+                    <div class="fitur">
+                        <i class="fa fa-globe-asia"></i>
+                        <p>Menjangkau seluruh Indonesia</p>
+                    </div>
+                    <div class="fitur">
+                        <i class="fa fa-map-marked-alt"></i>
+                        <p>Sistem cek ongkir</p>
+                    </div>
+                    <div class="fitur">
+                        <i class="fa fa-cogs"></i>
+                        <p>Operational 365 hari</p>
+                    </div>
+                    <div class="fitur">
+                        <i class="fa fa-truck"></i>
+                        <p>Harga regular service premium</p>
+                    </div>
+                    <div class="fitur">
+                        <i class="fa fa-user-clock"></i>
+                        <p>24 jam layanan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News -->
+    <section class="section-news">
+        <div class="container container-news">
+            <div class="berita">
+                <h5>BERITA</h5>
+                <a href="#">
+                    <div class="berita1">
+                        <div class="image"></div>
+                        <div class="content-berita">
+                            <p class="isi-berita">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur, dignissimos earum placeat quasi
+                            </p>
+                            <p class="date">05/05/2021</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="berita2">
+                        <div class="image"></div>
+                        <div class="content-berita">
+                            <p class="isi-berita">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur, dignissimos earum placeat quasi
+                            </p>
+                            <p class="date">05/05/2021</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="list-berita">
+                    <a href="#">
+                        <div class="list-berita-1">
+                            <p class="judul">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, ut.</p>
+                            <p class="date">05/05/2021</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="list-berita-2">
+                            <p class="judul">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, ut.</p>
+                            <p class="date">05/05/2021</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="list-berita-3">
+                            <p class="judul">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, ut.</p>
+                            <p class="date">05/05/2021</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <p class="selengkapnya">Selengkapnya ></p>
+                    </a>
+                </div>
+            </div>
+            <div class="events">
+                <h5>EVENTS</h5>
+                <div class="img-event">
+                    <img src="/img/event.jpg" alt="">
+                </div>
+                <div class="content-event">
+                    <p class="date">05/05/2021</p>
+                    <a href="#">
+                        <h6 class="judul-event">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur, dignissimos earum placeat quasi
+                        </h6>
+                    </a>
+                </div>
 
-    <!-- fitur-slider   -->
+            </div>
+            <div class="ask">
+                <h5>ASK YFA</h5>
 
+            </div>
+        </div>
 
-    <!-- mitra slider -->
-    <div class="owl-carousel owl-theme">
-        <div class="item"><div class="mitra" style="background: url(/img/mitra1.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra2.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra3.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra4.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra5.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra6.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra7.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra8.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra9.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-        <div class="item"><div class="mitra" style="background: url(/img/mitra10.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div></div>
-    </div>
+    </section>
+    <!-- Note -->
+    <section class="section-note">
 
+    </section>
+    <!-- Mitra -->
+    <section class="section-mitra">
+        <!-- Title -->
+        <div class="row mitra-wrapper title-wrapper">
+            <div class="col-md-12 text-center">
+                <p>MITRA</p>
+            </div>
+        </div>
+        <!-- mitra slider -->
+        <div class="container owl-carousel owl-carousel-2">
+            <div class="mitra" style="background: url(/img/mitra1.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra2.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra3.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra4.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra5.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra6.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra7.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra8.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra9.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+            <div class="mitra" style="background: url(/img/mitra10.png); background-repeat: no-repeat; background-position: center; background-size: contain"></div>
+        </div>
+    </section>
 
 </div>
 <th:block layout:fragment="add-script">
@@ -72,30 +191,58 @@
             })
         })
 
-        //owl carousel
-        $('.owl-carousel').owlCarousel({
+        //carousel tengah
+        $('.carousel2').carousel({
+            interval: 2000
+        })
+
+        //owl carousel fitur
+        $('.owl-carousel.owl-carousel-1').owlCarousel({
             loop:true,
-            autoplay:true,
-            margin: 20,
-            margin:10,
-            nav:false,
+            autoplay:false,
+            nav:true,
             dots:false,
-            center:true,
-            stagePadding: 50,
+            // stagePadding: 50,
             responsive:{
                 0:{
-                    items:1
-                },
-                400: {
-                    items:2
-                },
-                600:{
                     items:3
                 },
-                1000:{
-                    items:5
+                768: {
+                    items: 4
+                },
+                992: {
+                    items: 5
                 }
             }
+        })
+
+        //owl carousel mitra
+        $('.owl-carousel.owl-carousel-2').owlCarousel({
+            loop:true,
+            autoplay:true,
+            nav:false,
+            dots:false,
+            // stagePadding: 50,
+            responsive:{
+                0:{
+                    items:3
+                },
+                768: {
+                    items: 4
+                },
+                992: {
+                    items: 5
+                }
+            }
+        })
+    </script>
+    <script>
+        //ganti chevron owl-carousel
+        $(document).ready(function () {
+            var chevronLeft = '<i class="fas fa-chevron-circle-left"></i>';
+            var chevronRight = '<i class="fas fa-chevron-circle-right"></i>';
+            $('.owl-carousel-1>.owl-nav>.owl-prev').html(chevronLeft)
+            $('.owl-carousel-1>.owl-nav>.owl-next').html(chevronRight)
         })
     </script>
 

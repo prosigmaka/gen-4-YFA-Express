@@ -20,6 +20,7 @@
     <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
     <!-- Style -->
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/style.css">
     <th:block layout:fragment="add-style"></th:block>
     <!--Let browser know website is optimized for mobile-->
@@ -110,12 +111,12 @@
                 <div class="modal-body">
                     <form class="signup-form">
                         <div class="txtb txtb-name">
-                            <input type="text" id="first_name" name="first_name" required>
-                            <span data-placeholder="First Name"></span>
+                            <input type="text" id="name" name="name" required>
+                            <span data-placeholder="Nama"></span>
                         </div>
                         <div class="txtb txtb-tel2">
-                            <input type="tel" id="last_name" name="last_name" required>
-                            <span data-placeholder="Last Name"></span>
+                            <input type="tel" id="tel2" name="tel2" required>
+                            <span data-placeholder="Nomor telepon (08xxxxxxxxxx)"></span>
                         </div>
                         <div class="txtb txtb-email2">
                             <input type="email" id="email2" name="email2" required>
@@ -140,7 +141,7 @@
                 <div class="modal-footer footer-login">
                     <div class="container" style="position: relative">
                         <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary tombol">Konfirmasi Pendaftaran</button>
+                            <button type="button" class="btn btn-primary tombol">Daftar</button>
                         </div>
                     </div>
                 </div>

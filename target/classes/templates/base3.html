@@ -20,7 +20,16 @@
     <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
     <!-- Style -->
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/style3.css">
+    <style>
+        body.modal-open , .modal.show {
+            padding-right: 0 !important;
+        }
+        .modal-dialog-centered {
+            justify-content: center;
+        }
+    </style>
     <th:block layout:fragment="add-style"></th:block>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -169,7 +178,7 @@
                 <div class="modal-footer footer-login">
                     <div class="container" style="position: relative">
                         <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary tombol">Konfirmasi Pendaftaran</button>
+                            <button type="button" class="btn btn-primary tombol">Daftar</button>
                         </div>
                     </div>
                 </div>
