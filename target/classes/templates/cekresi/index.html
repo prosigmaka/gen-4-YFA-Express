@@ -241,15 +241,6 @@
             }, 1600, 'easeOutCubic');
         });
 
-        // modal form input animation
-        $(".txtb input").on("focus",function(){
-            $(this).addClass("focus");
-        });
-        $(".txtb input").on("blur",function(){
-            if($(this).val() == "")
-                $(this).removeClass("focus");
-        });
-
         //alert pesan error
         function alertError() {
             $('.row-alert').fadeIn('slow').delay(500);
@@ -304,11 +295,11 @@
         //CEK-HARGA
         //text-naik
         $(".text-naik input").on("focus",function(){
-            $(this).addClass("focus");
+            $(this).addClass("naik");
         });
         $(".text-naik input").on("blur",function(){
             if($(this).val() == "")
-                $(this).removeClass("focus");
+                $(this).removeClass("naik");
         });
 
         //asal-tujuan paket
@@ -353,14 +344,14 @@
         //berat-paket
         //nambah-kurang
         $('.fa-plus-circle').click(function () {
-            $('.berat-paket input').addClass('focus')
+            $('.berat-paket input').addClass('naik')
             var value = parseInt(document.getElementById('berat').value, 10);
             value = isNaN(value) ? 0 : value;
             value++;
             document.getElementById('berat').value = value;
         })
         $('.fa-minus-circle').click(function () {
-            $('.berat-paket input').addClass('focus')
+            $('.berat-paket input').addClass('naik')
             var value = parseInt(document.getElementById('berat').value, 10);
             value = isNaN(value) ? 0 : value;
             value--;

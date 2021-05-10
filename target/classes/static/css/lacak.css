@@ -229,13 +229,13 @@ table {
   transition: .5s;
 }
 
-.focus + span::before{
-  top: -10px;
+.naik + span::before{
+  top: -12px;
   font-size: 12px;
   color: rgba(30,171,255,1) ;
 }
 
-.focus + span::after{
+.naik + span::after{
   top: 24px;
   width: 100%;
 }

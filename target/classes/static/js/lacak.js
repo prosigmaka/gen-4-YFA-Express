@@ -49,12 +49,12 @@ function requestKota() {
         $('#kotaList2').html(s);
         //lempar value
         $('.asal-paket .pilihKota').click(function (){
-          $('.asal-paket input').addClass('focus')
+          $('.asal-paket input').addClass('naik')
           $('.asal-paket input').val($(this).text())
           $('#asalHidden').val(this.id)
         })
         $('.tujuan-paket .pilihKota').click(function (){
-          $('.tujuan-paket input').addClass('focus')
+          $('.tujuan-paket input').addClass('naik')
           $('.tujuan-paket input').val($(this).text())
           $('#tujuanHidden').val(this.id)
         })
