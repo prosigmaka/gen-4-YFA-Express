@@ -9,7 +9,10 @@
 .bodynya {
   margin: 0px;
   padding: 50px 0;
-  background: rgba(19, 54, 113, .8);
+  background-color: rgba(19, 54, 113, 1);
+  background-image: url(../img/utama.png);
+  /*background-repeat: repeat;*/
+  background-size: contain;
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
   font-family: sans-serif;
   width: 100%;
