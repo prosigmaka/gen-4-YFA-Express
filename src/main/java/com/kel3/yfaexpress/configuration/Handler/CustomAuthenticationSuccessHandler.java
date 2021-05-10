@@ -77,7 +77,7 @@ public class CustomAuthenticationSuccessHandler
         } else if (listRole.contains("ROLE_USER")) {
             pathUrl = "/utama";
         }
-        return pathUrl;
+        return "/utama";
     }
 
     protected void clearAuthenticationAttributes(HttpServletRequest request) {

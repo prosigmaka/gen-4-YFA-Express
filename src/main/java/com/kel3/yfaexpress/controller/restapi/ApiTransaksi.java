@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -52,6 +53,18 @@ public class ApiTransaksi {
                         .collect(Collectors.toList());
         return transaksiDtos;
     }
+
+    @GetMapping("/history/")
+    public List<TransaksiDto> getHistory(Authentication authentication) {
+        List<Transaksi> transaksiList = transaksiRepository.findAllByUseraa_Email(authentication.getName());
+        List<TransaksiDto> transaksiDtos =
+                transaksiList.stream()
+                        .map(transaksi -> mapTransaksiToTransaksiDto(transaksi))
+                        .collect(Collectors.toList());
+        System.out.println(authentication.getName());
+        return transaksiDtos;
+    }
+
 
 
     @GetMapping("/{id}")
