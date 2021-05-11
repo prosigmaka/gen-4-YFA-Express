@@ -207,10 +207,6 @@
   margin: 5px;
 }
 
-.ask {
-  border: 1px solid black;
-}
-
 
 /* berita */
 .section-news h5 {
@@ -341,3 +337,84 @@
 .content-event h6 {
   color: #181818;
 }
+
+
+/* Ask YFA */
+.siap {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  font-size: 12px;
+}
+
+.melayani {
+  height: 70%;
+  width: 100%;
+  background: #133671;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  color: #fff;
+}
+
+.melayani p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.siap img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: 40%;
+}
+
+.subject {
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+  padding-top: 30px;
+}
+
+.subject label {
+  display: block;
+  position: absolute;
+  top: 7px;
+  left: 3px;
+  font-size: 13px;
+}
+
+.pilih-keluhan {
+  font-size: 13px;
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+  text-align: left;
+  color: #666;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.subject button {
+  width: 25%;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+.contact-us {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.contact-us p {
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  color: #777;
+  margin: 5px;
+}
+
