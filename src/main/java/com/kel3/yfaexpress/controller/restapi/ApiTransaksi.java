@@ -21,7 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -159,8 +160,12 @@ public class ApiTransaksi {
         transaksi.setKurir(kurirRepository.findById(transaksiDto.getIdKurir()).get());
         transaksi.setFotoPenerima(file.getOriginalFilename());
         String status = transaksiDto.getStatusDelivery();
+
         if (status.equalsIgnoreCase("Delivered")) {
-            transaksi.setTanggalSampai(new Date());
+            LocalDateTime objDate = LocalDateTime.now();
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+            String date = objDate.format(dateFormat);
+            transaksi.setTanggalSampai(date);
         } else {
             transaksi.setTanggalSampai(null);
         }

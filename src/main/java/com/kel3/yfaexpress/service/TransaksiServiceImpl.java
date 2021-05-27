@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+
 
 @Transactional
 @Service
@@ -42,7 +44,11 @@ public class TransaksiServiceImpl implements TransaksiService {
         transaksi = transaksiRepository.save(transaksi);
         transaksi.setUseraa(userRepository.findById(transaksi.getIdUser()).get());
         transaksi.setKurir(kurirRepository.findById(1).get());
-        transaksi.setTanggalTransaksi(new Date());
+
+        LocalDateTime objDate = LocalDateTime.now();
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+        String date = objDate.format(dateFormat);
+        transaksi.setTanggalTransaksi(date);
         transaksi.setResi(resi.generateResiNumber());
         return transaksi;
     }

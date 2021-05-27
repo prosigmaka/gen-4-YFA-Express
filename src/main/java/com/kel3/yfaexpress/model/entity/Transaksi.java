@@ -22,11 +22,11 @@ public class Transaksi {
     private String estimasi;
     private Integer beratBarang;
     private String statusDelivery;
-    private Date tanggalTransaksi;
+    private String tanggalTransaksi;
     private String resi;
     private String penerimaPaket;
     private String fotoPenerima;
-    private Date tanggalSampai;
+    private String tanggalSampai;
 
     @OneToOne
     @JoinColumn (name = "id_pengirim")
