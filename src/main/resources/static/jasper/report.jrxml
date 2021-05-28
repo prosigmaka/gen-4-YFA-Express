@@ -58,11 +58,11 @@
 					<pen lineWidth="1.0" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
-			<textField>
-				<reportElement x="300" y="27" width="100" height="17" uuid="e823473d-7680-43be-9b9c-a5c6d61ea93f"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tanggalTransaksi}]]></textFieldExpression>
-			</textField>
+      <textField>
+        <reportElement x="250" y="27" width="150" height="17" uuid="e823473d-7680-43be-9b9c-a5c6d61ea93f"/>
+        <textElement textAlignment="Right" verticalAlignment="Middle"/>
+        <textFieldExpression><![CDATA[$F{tanggalTransaksi}]]></textFieldExpression>
+      </textField>
 			<textField>
 				<reportElement x="300" y="44" width="100" height="17" uuid="7dc4cc29-8b5d-486b-9ef5-cb174cb269bd"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>

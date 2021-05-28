@@ -49,7 +49,7 @@
         </graphicElement>
       </line>
       <textField>
-        <reportElement x="300" y="27" width="100" height="17" uuid="e823473d-7680-43be-9b9c-a5c6d61ea93f"/>
+        <reportElement x="250" y="27" width="150" height="17" uuid="e823473d-7680-43be-9b9c-a5c6d61ea93f"/>
         <textElement textAlignment="Right" verticalAlignment="Middle"/>
         <textFieldExpression><![CDATA[$F{tanggalTransaksi}]]></textFieldExpression>
       </textField>
