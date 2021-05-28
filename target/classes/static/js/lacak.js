@@ -115,3 +115,19 @@ function cekOngkir(asal, tujuan, berat) {
   });
 }
 
+function cetakPdf(resi) {
+  console.log("halo")
+  $.ajax({
+    url: "/report/" + resi + ".pdf",
+    method: 'get',
+    contentType: 'application/pdf',
+    success: function (res) {
+      console.log("weeyy")
+      console.log(res)
+
+    },
+    error: function (err) {
+
+    }
+  });
+}

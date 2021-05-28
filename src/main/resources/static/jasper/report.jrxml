@@ -30,18 +30,16 @@
 			<ellipse>
 				<reportElement x="227" y="9" width="43" height="41" forecolor="#FFFFFF" uuid="762d3b20-e037-434d-a747-9c71edb423d7"/>
 			</ellipse>
-			<image>
-				<reportElement x="232" y="14" width="33" height="31" uuid="19f25748-c012-4794-860c-37bc24e405e3">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<imageExpression><![CDATA["../img/appgalery.png"]]></imageExpression>
-			</image>
+      <image>
+        <reportElement x="235" y="18" width="27" height="24" uuid="854ac228-0f97-428a-a427-5553997820c1"/>
+        <imageExpression><![CDATA["C:/Users/user/Downloads/ok.png"]]></imageExpression>
+      </image>
 		</band>
 	</title>
 	<detail>
 		<band height="231" splitType="Stretch">
 			<staticText>
-				<reportElement x="100" y="27" width="81" height="17" uuid="5b8cedd5-4765-4181-bc7b-a922e7ff55f5"/>
+				<reportElement x="100" y="25" width="81" height="17" uuid="5b8cedd5-4765-4181-bc7b-a922e7ff55f5"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>

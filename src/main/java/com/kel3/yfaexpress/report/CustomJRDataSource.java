@@ -24,7 +24,6 @@ public class CustomJRDataSource<T> implements JRDataSource {
             return true;
         }
         return false;
-
     }
 
     @Override

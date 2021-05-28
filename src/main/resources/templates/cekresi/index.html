@@ -22,6 +22,22 @@
         .cls, .back {
             width: 22px;
         }
+
+        /* print resi */
+        .print {
+            font-size: 13px;
+            color: #133671;
+            cursor: pointer;
+        }
+
+        .print:hover {
+            color: rgba(30, 171, 255, 1);
+        }
+
+        .fa-file-excel {
+            margin-left: 10px;
+        }
+
     </style>
 </th:block>
 
@@ -92,6 +108,7 @@
                                 <th scope="col">Kurir</th>
                                 <th scope="col">Penerima</th>
                                 <th scope="col">Tanggal Sampai</th>
+                                <th scope="col">Cetak</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -99,6 +116,14 @@
                                 <td class="kurir">-</td>
                                 <td class="penerima">-</td>
                                 <td class="tglSampai">-</td>
+                                <td class="col-print">
+                                    <a class="pdf">
+                                        <i class="fas fa-file-pdf print" title="pdf"></i>
+                                    </a>
+                                    <a class="excel">
+                                        <i class="fas fa-file-excel print" title="excel"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -129,8 +154,8 @@
                                 <div style="position: relative" class="div-berat">
                                     <input id="berat" type="text">
                                     <span data-placeholder="Berat (kg)"></span>
-                                    <i class="fa fa-plus-circle"></i>
-                                    <i class="fa fa-minus-circle"></i>
+                                    <i class="fa fa-plus-circle" title="cetak pdf"></i>
+                                    <i class="fa fa-minus-circle" title="cetak excel"></i>
                                 </div>
                             </div>
                         </div>
@@ -189,6 +214,10 @@
         // cari
         $('.tombol-search').click(function () {
             let resi = $('#resi').val()
+            let linkPdf = "/report/" + resi + ".pdf"
+            let linkExcel = "/report/" + resi + ".xlsx"
+            $('.pdf').attr("href", linkPdf)
+            $('.excel').attr("href", linkExcel)
             cekResi(resi);
         })
 
