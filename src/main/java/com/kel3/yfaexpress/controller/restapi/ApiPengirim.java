@@ -34,7 +34,6 @@ public class ApiPengirim {
     }
 
     @DeleteMapping
-    @ResponseBody
     public void deleteTablePengirim() {
         pengirimRepository.deleteAll();
     }

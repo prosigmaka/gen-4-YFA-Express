@@ -2,7 +2,7 @@ package com.kel3.yfaexpress.configuration.Exception;
 
 import java.util.Date;
 
-public class ExceptionResponse {
+public class ExceptionResponse extends RuntimeException {
     private Date timestamp;
     private String message;
     private String details;
